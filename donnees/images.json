@@ -1,0 +1,230 @@
+{
+  "accueil-ouverture": {
+    "alt": "Salle de brassage au petit matin : cuves inox, passerelle et tuyauteries sous la lumière des verrières",
+    "cadrage": "64% 55%",
+    "motif": "cuves"
+  },
+  "accueil-final": {
+    "alt": "Rangées de fûts inox dans une cave voûtée éclairée par une lampe",
+    "cadrage": "70% 60%",
+    "motif": "futs"
+  },
+  "accueil-methode": {
+    "alt": "Plans déroulés sur un établi en inox, avec mètre ruban, crayon et compas, à côté d'une cuve",
+    "cadrage": "62% 55%",
+    "motif": "plan"
+  },
+  "accueil-tpe": {
+    "alt": "Entrée d'un café au petit matin, rideau métallique levé et chaises empilées",
+    "cadrage": "58% 50%",
+    "motif": "cafe"
+  },
+  "blog-intoxication": {
+    "alt": "Paillasse de contrôle qualité : éprouvettes d'échantillons ambrés, densimètre et carnet ouvert",
+    "cadrage": "58% 62%",
+    "motif": "labo",
+    "cote": "Contrôle qualité"
+  },
+  "metier-brasseries": {
+    "alt": "Cuve de brassage en cuivre et inox, couvercle entrouvert d'où monte la vapeur",
+    "cadrage": "45% 70%",
+    "motif": "cuves"
+  },
+  "metier-producteurs": {
+    "alt": "Cônes de houblon et grains de malt sur un plan de travail en inox, sac de toile ouvert",
+    "cadrage": "60% 62%",
+    "motif": "houblon"
+  },
+  "metier-negociants": {
+    "alt": "Allée d'entrepôt avec fûts inox et palettes filmées sur de hauts rayonnages",
+    "cadrage": "50% 50%",
+    "motif": "futs"
+  },
+  "metier-fabricants": {
+    "alt": "Main gantée soudant la paroi d'une cuve inox, gerbe d'étincelles",
+    "cadrage": "55% 55%",
+    "motif": "cuves"
+  },
+  "metier-distributeurs": {
+    "alt": "Camion de livraison à quai au lever du jour, palette de fûts prête à charger",
+    "cadrage": "55% 55%",
+    "motif": "camion"
+  },
+  "metier-evenements": {
+    "alt": "Chapiteau vide avant l'ouverture, comptoir en bois et rangée de tireuses",
+    "cadrage": "55% 55%",
+    "motif": "chapiteau"
+  },
+  "metier-cafes": {
+    "alt": "Salle d'un café-brasserie avant l'ouverture, chaises retournées sur les tables",
+    "cadrage": "50% 55%",
+    "motif": "cafe"
+  },
+  "protection-biens": {
+    "alt": "Cuves de fermentation et caisses de bouteilles empilées dans une brasserie",
+    "cadrage": "50% 62%",
+    "motif": "cuves"
+  },
+  "protection-patrimoine": {
+    "alt": "Bâtiment de brasserie en briques au crépuscule, grandes fenêtres éclairées",
+    "cadrage": "55% 55%",
+    "motif": "batiment"
+  },
+  "protection-responsabilites": {
+    "alt": "Manomètre et thermomètre fixés sur une cuve couverte de gouttelettes",
+    "cadrage": "42% 55%",
+    "motif": "manometre"
+  },
+  "protection-salaries": {
+    "alt": "Vestiaire de brasserie : bottes alignées, tabliers, lunettes et casque de protection",
+    "cadrage": "55% 62%",
+    "motif": "vestiaire"
+  },
+  "protection-outils": {
+    "alt": "Ligne d'embouteillage : bouteilles vides sur le convoyeur de la soutireuse",
+    "cadrage": "45% 60%",
+    "motif": "ligne"
+  },
+  "accueil-ouverture-mobile": {
+    "alt": "Salle de brassage au petit matin, cuves inox et verrières",
+    "cadrage": "60% 60%",
+    "motif": "cuves"
+  },
+  "accueil-final-mobile": {
+    "alt": "Allée de fûts inox dans une cave voûtée",
+    "cadrage": "50% 60%",
+    "motif": "futs"
+  },
+  "brasseries-ouverture": {
+    "alt": "Fermenteurs coniques en inox vus en contre-plongée, reliés par une passerelle",
+    "cadrage": "70% 50%",
+    "motif": "cuves",
+    "cote": "Fermenteurs"
+  },
+  "brasseries-stock": {
+    "alt": "Palettes de bouteilles et de canettes filmées dans l'entrepôt d'une brasserie",
+    "cadrage": "50% 50%",
+    "motif": "palettes"
+  },
+  "producteurs-ouverture": {
+    "alt": "Houblonnière au soleil couchant, longues rangées de houblon sur treillis",
+    "cadrage": "50% 50%",
+    "motif": "houblon",
+    "cote": "Houblonnière"
+  },
+  "producteurs-qualite": {
+    "alt": "Main gantée prélevant un échantillon à la vanne d'une cuve",
+    "cadrage": "50% 50%",
+    "motif": "labo"
+  },
+  "producteurs-moderation": {
+    "alt": "Rangée de bouteilles capsulées sur un convoyeur",
+    "cadrage": "50% 50%",
+    "motif": "ligne"
+  },
+  "producteurs-environnement": {
+    "alt": "Drêches dans un bac inox près d'une cuve de récupération d'eau",
+    "cadrage": "50% 50%",
+    "motif": "cuves"
+  },
+  "producteurs-equipe": {
+    "alt": "Silhouettes de l'équipe en tablier entre les cuves, à contre-jour",
+    "cadrage": "50% 50%",
+    "motif": "vestiaire"
+  },
+  "negociants-ouverture": {
+    "alt": "Entrepôt de distribution, chariot élévateur portant une palette de fûts",
+    "cadrage": "50% 50%",
+    "motif": "futs",
+    "cote": "Entrepôt"
+  },
+  "negociants-quai": {
+    "alt": "Quais de chargement de nuit, camions à quai et palettes en attente",
+    "cadrage": "50% 50%",
+    "motif": "camion"
+  },
+  "fabricants-ouverture": {
+    "alt": "Atelier de chaudronnerie, grandes cuves inox en cours de fabrication",
+    "cadrage": "50% 50%",
+    "motif": "cuves",
+    "cote": "Atelier de chaudronnerie"
+  },
+  "fabricants-conformite": {
+    "alt": "Gros plan d'une soudure régulière sur inox brossé",
+    "cadrage": "50% 50%",
+    "motif": "soudure"
+  },
+  "fabricants-montage": {
+    "alt": "Ligne de brassage neuve en cours de raccordement, film de protection encore en place",
+    "cadrage": "50% 50%",
+    "motif": "ligne"
+  },
+  "services-ouverture": {
+    "alt": "Table de travail dans une brasserie : carnet, mètre, lampe torche et casque de chantier",
+    "cadrage": "50% 50%",
+    "motif": "plan",
+    "cote": "Table de travail"
+  },
+  "service-audit": {
+    "alt": "Classeurs et dossiers rangés sur un bureau, stylo plume",
+    "cadrage": "50% 50%",
+    "motif": "dossiers"
+  },
+  "service-visite": {
+    "alt": "Faisceau de lampe sur un extincteur et une tête de sprinkler dans la salle des cuves",
+    "cadrage": "50% 50%",
+    "motif": "extincteur"
+  },
+  "service-digitalisation": {
+    "alt": "Tablette posée sur le rebord d'une cuve inox",
+    "cadrage": "50% 50%",
+    "motif": "tablette"
+  },
+  "devis-ouverture": {
+    "alt": "Bureau de brasserie avec grande vitre sur la salle des cuves",
+    "cadrage": "50% 50%",
+    "motif": "plan",
+    "cote": "Bureau de brasserie"
+  },
+  "apropos-ouverture": {
+    "alt": "Microbrasserie installée dans un ancien bâtiment industriel en briques, à l'heure bleue",
+    "cadrage": "50% 50%",
+    "motif": "batiment",
+    "cote": "Bâtiment en briques"
+  },
+  "apropos-bureau": {
+    "alt": "Carnet de cuir, stylo plume, compas de laiton et capsule sur papier crème",
+    "cadrage": "50% 50%",
+    "motif": "capsule"
+  },
+  "reglementaire-ouverture": {
+    "alt": "Pile de documents vierges, tampon et encreur rouge",
+    "cadrage": "50% 50%",
+    "motif": "dossiers",
+    "cote": "Documents et tampon"
+  },
+  "blog-ouverture": {
+    "alt": "Carnet ouvert près d'une fenêtre donnant sur les cuves",
+    "cadrage": "50% 50%",
+    "motif": "dossiers",
+    "cote": "Carnet de notes"
+  },
+  "contact-ouverture": {
+    "alt": "Porte d'atelier entrouverte sur une salle de brassage lumineuse",
+    "cadrage": "50% 50%",
+    "motif": "porte",
+    "cote": "Porte d’atelier"
+  },
+  "legal-ouverture": {
+    "alt": "Tiroirs d'archives en bois et acier, dossiers crème",
+    "cadrage": "50% 50%",
+    "motif": "dossiers",
+    "cote": "Archives"
+  },
+  "404-cuve-vide": {
+    "alt": "Intérieur d'une cuve inox vide, vu vers le trou d'homme ouvert",
+    "cadrage": "50% 50%",
+    "motif": "cuves",
+    "cote": "Cuve vide"
+  }
+}

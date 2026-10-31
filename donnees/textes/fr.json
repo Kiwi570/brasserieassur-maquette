@@ -1,0 +1,449 @@
+{
+  "commun": {
+    "navigation": "Navigation principale",
+    "menu": "Menu",
+    "fermer": "Fermer",
+    "actionEntete": "Demander un devis",
+    "actionEnteteCourt": "Devis",
+    "marqueB": "BRASSERIE",
+    "marqueA": "assur",
+    "accueilLogo": "BRASSERIEassur, retour à l’accueil",
+    "menuMetiers": "Métiers",
+    "menuCabinet": "Le cabinet",
+    "calmeReduire": "Réduire les animations",
+    "calmeRetablir": "Rétablir les animations",
+    "calmeSysteme": "Animations réduites par le réglage de votre appareil",
+    "sommaire": "Sommaire",
+    "confort": "Confort de lecture",
+    "retourHaut": "Retour en haut",
+    "maquette": "Maquette : les informations marquées « à compléter » seront fournies par le client.",
+    "evitement": "Aller au contenu",
+    "mentionIa": "Illustration générée",
+    "imageAttente": "Illustration à venir",
+    "pause": "Pause",
+    "lecture": "Lecture",
+    "introLigne": "Courtier en assurance · filière bière",
+    "cachet": "COUVERT",
+    "ecrire": "Écrire",
+    "futCote": "FÛT · 50 L",
+    "voileVers": "Direction",
+    "nouvelOnglet": "(nouvel onglet)",
+    "aCompleter": "à compléter",
+    "registre": {
+      "etiquette": "Immatriculation ORIAS",
+      "titre": "Ce que l’ORIAS contrôle à l’inscription",
+      "tampon": "INSCRIT",
+      "verifier": "Inscription déclarée par le cabinet, à vérifier sur orias.fr"
+    },
+    "pied": {
+      "activite": "Courtier en assurance des professionnels de la bière. Une marque d’ADVISSUR.",
+      "orias": "Courtier inscrit à l’ORIAS sous le n° {n}.",
+      "oriasLien": "Vérifier sur orias.fr",
+      "copyright": "© BRASSERIEassur, marque d’ADVISSUR"
+    },
+    "appel": {
+      "repere": "Et maintenant",
+      "titre": "Parlons de votre activité",
+      "texte": "Un devis sur mesure, un rendez-vous d’audit ou une simple question : écrivez-nous.",
+      "devis": "Demander un devis",
+      "rdv": "Prendre rendez-vous"
+    },
+    "autres": {
+      "repere": "Les autres métiers",
+      "titre": "Vous exercez un autre métier de la bière ?",
+      "voir": "Voir les garanties"
+    },
+    "glisser": "Faites glisser",
+    "touchez": "Touchez une zone"
+  },
+  "pages": {
+    "accueil": {
+      "titre": "BRASSERIEassur : l’assurance des métiers de la bière",
+      "description": "Courtier en assurance des brasseries, producteurs, négociants en gros et fabricants de matériel : biens, responsabilités, perte d’exploitation, devis sur mesure.",
+      "nav": "Accueil",
+      "partageAlt": "BRASSERIEassur, l’assurance des métiers de la bière, devant une salle de brassage",
+      "accroche": "L’assurance des métiers de la bière"
+    },
+    "brasseries": {
+      "titre": "Assurer sa brasserie : les 8 points à vérifier | BRASSERIEassur",
+      "description": "Multirisque, responsabilité civile, assurance des biens, vol, interruption d’activité, responsabilité des produits : bien assurer votre local de brasserie.",
+      "nav": "Brasseries",
+      "partageAlt": "Bien assurer sa brasserie, BRASSERIEassur",
+      "accroche": "Bien assurer sa brasserie"
+    },
+    "producteurs": {
+      "titre": "La responsabilité des producteurs de bière | BRASSERIEassur",
+      "description": "Sécurité et qualité, consommation responsable, environnement, responsabilité sociale : ce qui engage un producteur de bière.",
+      "nav": "Producteurs",
+      "partageAlt": "La responsabilité des producteurs, BRASSERIEassur",
+      "accroche": "La responsabilité des producteurs"
+    },
+    "negociants": {
+      "titre": "Négociants en gros : se protéger des engagements | BRASSERIEassur",
+      "description": "Interruption d’activité, assurance-crédit, risques commerciaux, responsabilité des produits : assurer vos engagements d’achat et d’approvisionnement.",
+      "nav": "Négociants",
+      "partageAlt": "Se protéger des engagements, BRASSERIEassur",
+      "accroche": "Se protéger des engagements"
+    },
+    "fabricants": {
+      "titre": "Fabricants de matériel de brasserie : garanties et assurances | BRASSERIEassur",
+      "description": "Garanties légales, responsabilité civile professionnelle, protection juridique, produits défectueux, garanties de montage et d’essai.",
+      "nav": "Fabricants",
+      "partageAlt": "La responsabilité des fabricants, BRASSERIEassur",
+      "accroche": "La responsabilité des fabricants"
+    },
+    "services": {
+      "titre": "Audit, visite de risques, digitalisation : rendez-vous | BRASSERIEassur",
+      "description": "Réservez un audit de vos assurances, une visite de risques ou un accompagnement à la digitalisation.",
+      "nav": "Services",
+      "partageAlt": "Les services de BRASSERIEassur",
+      "accroche": "Audit, visite de risques, digitalisation"
+    },
+    "devis": {
+      "titre": "Demande de devis | BRASSERIEassur",
+      "description": "Votre métier, votre local, votre entreprise : une demande de devis en quatre étapes, et le devis en ligne pour les TPE éligibles.",
+      "nav": "Devis",
+      "partageAlt": "Demande de devis, BRASSERIEassur",
+      "accroche": "Demandez votre devis"
+    },
+    "a-propos": {
+      "titre": "Notre histoire : BRASSERIEassur, une marque d’ADVISSUR",
+      "description": "ADVISSUR a créé BRASSERIEassur pour proposer des solutions d’assurance adaptées aux professionnels de la bière.",
+      "nav": "À propos",
+      "partageAlt": "Notre histoire, BRASSERIEassur",
+      "accroche": "Notre histoire"
+    },
+    "reglementaire": {
+      "titre": "Cadre réglementaire : ORIAS, devoir de conseil, rémunération | BRASSERIEassur",
+      "description": "Immatriculation ORIAS, devoir de conseil, positionnement vis-à-vis des assureurs, rémunération, autorité de contrôle, données personnelles.",
+      "nav": "Réglementaire",
+      "partageAlt": "Cadre réglementaire, BRASSERIEassur",
+      "accroche": "Cadre réglementaire"
+    },
+    "blog": {
+      "titre": "Le blog : l’assurance des professionnels de la bière | BRASSERIEassur",
+      "description": "Articles et conseils sur l’assurance des brasseries et des professionnels de la bière.",
+      "nav": "Blog",
+      "partageAlt": "Le blog de BRASSERIEassur",
+      "accroche": "Le blog"
+    },
+    "article": {
+      "titre": "Intoxication alimentaire ou liée aux boissons : la responsabilité | BRASSERIEassur",
+      "description": "La responsabilité en cas d’intoxication alimentaire ou d’intoxication liée à la consommation de boissons.",
+      "nav": "Article : intoxication et responsabilité",
+      "partageAlt": "Article du blog de BRASSERIEassur sur la responsabilité en cas d’intoxication",
+      "accroche": "Intoxication : qui est responsable ?"
+    },
+    "contact": {
+      "titre": "Contact | BRASSERIEassur",
+      "description": "Une question, une demande de devis ou de rendez-vous : écrivez à BRASSERIEassur.",
+      "nav": "Contact",
+      "partageAlt": "Contacter BRASSERIEassur",
+      "accroche": "Contactez-nous"
+    },
+    "mentions-legales": {
+      "titre": "Mentions légales | BRASSERIEassur",
+      "description": "Éditeur, hébergeur, crédits : les mentions légales de BRASSERIEassur.",
+      "nav": "Mentions légales",
+      "partageAlt": "Mentions légales de BRASSERIEassur",
+      "accroche": "Mentions légales"
+    },
+    "confidentialite": {
+      "titre": "Politique de confidentialité | BRASSERIEassur",
+      "description": "Données recueillies, finalités, durée de conservation et droits : la politique de confidentialité de BRASSERIEassur.",
+      "nav": "Confidentialité",
+      "partageAlt": "Politique de confidentialité de BRASSERIEassur",
+      "accroche": "Confidentialité"
+    },
+    "404": {
+      "titre": "Page introuvable | BRASSERIEassur",
+      "description": "Cette page n’existe pas ou plus.",
+      "nav": "Page introuvable",
+      "partageAlt": "Page introuvable",
+      "accroche": "Page introuvable"
+    }
+  },
+  "accueil": {
+    "hero": {
+      "repere": "Courtier en assurance · filière bière",
+      "titre1": "L’assurance",
+      "titre2": "des métiers",
+      "titre3": "de la bière",
+      "texte": "BRASSERIEassur, courtier spécialisé, conseille et accompagne les brasseries, les producteurs, les négociants en gros et les fabricants de matériel.",
+      "action": "Demander un devis",
+      "action2": "Devis en ligne pour les TPE",
+      "info": "Courtier inscrit à l’ORIAS, n° {n}",
+      "coteGauche": "Salle de brassage",
+      "coteDroite": "Cuves"
+    },
+    "metiers": {
+      "repere": "Votre métier",
+      "titre": "À chaque métier, ses risques",
+      "texte": "Brasseurs, producteurs, négociants, fabricants : chaque activité a ses risques et les garanties qui y répondent.",
+      "voir": "Voir les garanties",
+      "aCompleter": "Fiche à compléter",
+      "devis": "Demander un devis",
+      "tpe": "Tester mon éligibilité"
+    },
+    "carte": {
+      "repere": "La carte des risques",
+      "titre": "Une brasserie, six zones de risques",
+      "texte": "De la salle de brassage à la livraison, chaque zone s’allume avec ses risques et les garanties que le cabinet met en place.",
+      "consigne": "Faites défiler : les zones s’allument une à une.",
+      "consigneTactile": "Touchez une zone ou une fiche.",
+      "compteur": "zones couvertes",
+      "risques": "Risques",
+      "garanties": "Garanties",
+      "titrePlan": "Plan isométrique d’une brasserie type : salle de brassage (A), fermentation et garde (B), conditionnement (C), stockage (D), livraison (E), accueil, bureaux et équipe (F)",
+      "liste": "Les six zones"
+    },
+    "protections": {
+      "repere": "Cinq protections",
+      "titre": "Ce que nous vous aidons à assurer",
+      "texte": "Biens, patrimoine, responsabilités, salariés, outils : cinq protections à mettre en place avec le cabinet.",
+      "region": "Les cinq protections, galerie à faire défiler"
+    },
+    "methode": {
+      "repere": "Notre méthode",
+      "titre": "Un conseil écrit et motivé",
+      "texte": "Du premier rendez-vous au suivi de votre contrat, six étapes."
+    },
+    "tpe": {
+      "repere": "Devis en ligne",
+      "titre": "Une TPE ? Votre devis en trois minutes",
+      "texte": "Devis instantané et souscription 100 % en ligne pour les brasseries, cafés et bars éligibles.",
+      "criteres": "TPE de moins de 500 m² et de moins de 3 M€ de chiffre d’affaires annuel.",
+      "test": "Testez votre éligibilité",
+      "q1": "Votre activité",
+      "q1a": "Brasserie-restaurant, café ou bar",
+      "q1b": "Autre métier de la bière",
+      "q2": "Surface de votre local",
+      "q2a": "Moins de 500 m²",
+      "q2b": "500 m² ou plus",
+      "q3": "Chiffre d’affaires annuel",
+      "q3a": "Moins de 3 M€",
+      "q3b": "3 M€ ou plus",
+      "verdictAttente": "Répondez aux trois questions : l’aiguille vous oriente.",
+      "verdictOui": "Vous semblez éligible au devis en ligne.",
+      "verdictNon": "Une étude sur mesure est plus adaptée à votre activité.",
+      "orus": "Faire mon devis en 3 minutes",
+      "mesure": "Demander une étude sur mesure",
+      "avantage1": "Devis immédiat",
+      "avantage2": "Attestation rapide",
+      "avantage3": "Accompagnement BRASSERIEassur",
+      "partenaire": "Devis et souscription sur la plateforme partenaire Orus.",
+      "manoTitre": "Manomètre d’éligibilité : l’aiguille va vers « en ligne » quand votre activité est éligible au devis en ligne, vers « sur mesure » sinon",
+      "manoMesure1": "SUR",
+      "manoMesure2": "MESURE",
+      "manoLigne1": "EN",
+      "manoLigne2": "LIGNE"
+    },
+    "engagements": {
+      "repere": "Ce qui nous engage",
+      "titre": "Un courtier immatriculé, indépendant des assureurs",
+      "texte": "Nous représentons nos clients, pas les compagnies : voici ce que la réglementation nous impose, et ce que nous nous imposons.",
+      "lien": "Tout le cadre réglementaire"
+    },
+    "faq": {
+      "repere": "Questions fréquentes",
+      "titre": "Vos questions"
+    },
+    "article": {
+      "repere": "À lire",
+      "lire": "Lire l’article"
+    },
+    "final": {
+      "titre": "Parlons de votre activité",
+      "texte": "Un devis sur mesure, un rendez-vous d’audit ou une simple question : écrivez-nous.",
+      "devis": "Demander un devis",
+      "rdv": "Prendre rendez-vous"
+    }
+  },
+  "metier": {
+    "repere": "Métier",
+    "planTitre": "Sur le plan",
+    "planTexte": "Les zones concernées dans une brasserie type.",
+    "planAlt": "Plan isométrique d’une brasserie type, zones concernées par ce métier mises en évidence",
+    "resumeRepere": "En résumé",
+    "lieesTitre": "Les garanties liées",
+    "garantiesRepere": "Garanties",
+    "lieesVoir": "Voir",
+    "note": "À valider",
+    "legalesRepere": "Garanties légales",
+    "assurancesRepere": "Assurances",
+    "montageRepere": "Montage et essai",
+    "responsabilitesRepere": "Responsabilités"
+  },
+  "services": {
+    "repere": "Services sur rendez-vous",
+    "titre": "Audit, visite de risques, digitalisation",
+    "texte": "Trois services pour faire le point sur vos assurances. Demandez votre rendez-vous en ligne.",
+    "action": "Demander un rendez-vous",
+    "info": "Visite de risques et digitalisation : devis sur demande",
+    "cartesRepere": "Trois services",
+    "cartesTitre": "Choisissez votre rendez-vous",
+    "description": "Description du service : à compléter.",
+    "reserver": "Réserver ce service",
+    "rdv": {
+      "repere": "Rendez-vous",
+      "titre": "Demande de rendez-vous",
+      "texte": "Trois étapes : le service, la date souhaitée, vos coordonnées. Le cabinet vous recontacte pour confirmer.",
+      "service": "Service",
+      "date": "Date souhaitée",
+      "dateAide": "Les jours passés ne sont pas proposés. Le cabinet vous confirme le créneau. Horaires du cabinet : à compléter.",
+      "moisPrecedent": "Mois précédent",
+      "moisSuivant": "Mois suivant",
+      "moment": "Moment de la journée",
+      "matin": "Matin",
+      "apresmidi": "Après-midi",
+      "indifferent": "Indifférent",
+      "entreprise": "Nom de votre entreprise",
+      "email": "E-mail",
+      "tel": "Téléphone",
+      "message": "Message (facultatif)",
+      "envoyer": "Envoyer la demande",
+      "recap": "Votre demande",
+      "recapService": "Service",
+      "recapDate": "Date souhaitée",
+      "recapMoment": "Moment",
+      "recapVide": "à choisir",
+      "aujourdhui": "aujourd’hui"
+    }
+  },
+  "devis": {
+    "repere": "Demande de devis",
+    "titre": "Demandez votre devis",
+    "texte": "Votre métier, votre local, votre entreprise : vos réponses, et une étude sur mesure en retour.",
+    "action": "Commencer",
+    "info": "TPE éligibles : devis en ligne en trois minutes",
+    "formRepere": "Formulaire",
+    "formTitre": "Quatre étapes",
+    "etapesAnnonce": "Votre métier, votre local, votre entreprise, puis le contrat en cours et vos coordonnées.",
+    "etape": "Étape",
+    "sur": "sur",
+    "e1": "Votre métier",
+    "e2": "Votre local",
+    "e3": "Votre entreprise",
+    "e4": "Contrat et coordonnées",
+    "metier": "Votre métier",
+    "autre": "Autre activité",
+    "adresse": "Adresse de votre local",
+    "occupation": "Qualité de l’occupation",
+    "occProprio": "Propriétaire occupant",
+    "occLocataire": "Locataire",
+    "occAutre": "Autre",
+    "superficie": "Superficie de votre local (m²)",
+    "contenu": "Valeur du contenu : matériels et marchandises (€)",
+    "protections": "Protections contre le vol et le vandalisme",
+    "entreprise": "Nom de votre entreprise",
+    "ca": "Chiffre d’affaires annuel (€)",
+    "salaries": "Nombre de salariés",
+    "activites": "Descriptif de vos activités",
+    "contrat": "Copie de votre contrat d’assurance en cours (facultatif)",
+    "contratAide": "PDF, image ou document, 15 Mo au plus.",
+    "email": "E-mail",
+    "tel": "Téléphone",
+    "suivant": "Étape suivante",
+    "precedent": "Étape précédente",
+    "envoyer": "Envoyer ma demande",
+    "recapTitre": "Votre demande",
+    "recapVide": "à renseigner",
+    "eligible": "Votre activité semble éligible au devis en ligne pour les TPE.",
+    "eligibleLien": "Faire mon devis en 3 minutes",
+    "tpeRepere": "TPE",
+    "tpeTitre": "Brasserie-restaurant, café ou bar de moins de 500 m² ?",
+    "tpeTexte": "Devis instantané et souscription 100 % en ligne pour les brasseries, cafés et bars éligibles : TPE de moins de 500 m² et de moins de 3 M€ de chiffre d’affaires annuel.",
+    "fichierTrop": "Fichier trop lourd : 15 Mo au plus."
+  },
+  "apropos": {
+    "repere": "À propos",
+    "titre": "Notre histoire",
+    "texte": "ADVISSUR a fait le choix de s’inscrire dans les métiers de la production de bière, et a créé en son sein la marque BRASSERIEassur, qui propose des solutions adaptées aux professionnels du secteur.",
+    "action": "Nous contacter",
+    "info": "Une marque d’ADVISSUR, courtier inscrit à l’ORIAS",
+    "faconRepere": "Notre façon de travailler",
+    "faconTitre": "Un courtier, à vos côtés",
+    "engagementsRepere": "Nos engagements",
+    "engagementsTitre": "Ce qui nous engage",
+    "equipeRepere": "L’équipe",
+    "equipeTitre": "Les visages du cabinet",
+    "equipeTexte": "Portraits, parcours et coordonnées de l’équipe : à compléter. Les photos viendront du client, jamais d’une banque d’images.",
+    "equipeVisuel": "Emplacement des portraits de l’équipe, à fournir"
+  },
+  "reglementaire": {
+    "repere": "Réglementaire",
+    "titre": "Cadre réglementaire",
+    "texte": "Immatriculation, devoir de conseil, rémunération, réclamations : ce que tout courtier doit vous dire, en clair.",
+    "orias": "Vérifier sur orias.fr",
+    "rgpdEcrire": "Écrire au délégué :"
+  },
+  "blog": {
+    "repere": "Le blog",
+    "titre": "Conseils et décryptages",
+    "texte": "Articles sur l’assurance des professionnels de la bière.",
+    "lire": "Lire l’article"
+  },
+  "article": {
+    "retour": "Tous les articles",
+    "corps": "Texte de l’article à reprendre du site actuel : à compléter.",
+    "liees": "Pour aller plus loin",
+    "lieesTexte": "Les garanties qui répondent à ce risque :",
+    "lien1": "Responsabilité des produits",
+    "lien2": "Produits défectueux"
+  },
+  "contact": {
+    "repere": "Contact",
+    "titre": "Contactez-nous",
+    "texte": "Une question, une demande de devis ou de rendez-vous : écrivez-nous, nous vous répondons.",
+    "action": "Écrire un message",
+    "formRepere": "Message",
+    "formTitre": "Votre message",
+    "entreprise": "Nom de votre entreprise",
+    "email": "E-mail",
+    "objet": "Objet",
+    "objetDevis": "Demande de devis",
+    "objetRdv": "Demande de rendez-vous",
+    "objetContrat": "Question sur un contrat",
+    "objetAutre": "Autre",
+    "objetChoisir": "Choisir un objet",
+    "message": "Message",
+    "tel": "Téléphone (facultatif)",
+    "envoyer": "Envoyer",
+    "coordonnees": "Coordonnées",
+    "telephone": "Téléphone : à compléter",
+    "adresse": "Adresse du cabinet : à compléter",
+    "autresTitre": "Autres démarches",
+    "autresDevis": "Faire une demande de devis",
+    "autresRdv": "Réserver un rendez-vous",
+    "autresReglementaire": "Réclamations et cadre réglementaire"
+  },
+  "formulaire": {
+    "donnees": "Vos données servent uniquement à traiter votre demande. Voir la <a href=\"/confidentialite\">politique de confidentialité</a> (à compléter).",
+    "simule": "Demande simulée : rien n’a été envoyé. Sur le site final, elle partira vers le cabinet."
+  },
+  "mentions": {
+    "repere": "Mentions légales",
+    "titre": "Mentions légales",
+    "fiche": { "titre": "À fournir par le client", "texte": "Raison sociale d’ADVISSUR · forme juridique et capital · SIREN et RCS · adresse du siège · directeur de la publication · téléphone · numéro ORIAS à confirmer (24008249 sur le site actuel) · assureur RC professionnelle et garantie financière · médiateur · photos réelles · politique de confidentialité : à compléter." },
+    "editeur": { "titre": "Éditeur", "texte": "BRASSERIEassur, marque d’ADVISSUR, courtier en assurance inscrit à l’ORIAS. Raison sociale, adresse, SIREN et directeur de la publication : à compléter." },
+    "hebergeur": { "titre": "Hébergeur", "texte": "Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis." },
+    "credits": { "titre": "Crédits", "texte": "Les images marquées « Illustration générée » ont été créées par intelligence artificielle. Logotype provisoire, à valider. Polices Fraunces et IBM Plex, sous licence SIL Open Font License." }
+  },
+  "confidentialite": {
+    "repere": "Données personnelles",
+    "titre": "Politique de confidentialité",
+    "responsable": { "titre": "Responsable du traitement", "texte": "ADVISSUR, pour sa marque BRASSERIEassur. Coordonnées complètes : à compléter." },
+    "donnees": { "titre": "Données recueillies", "texte": "Celles que vous saisissez dans les formulaires de devis, de rendez-vous et de contact : identité de l’entreprise, coordonnées, informations sur votre activité et votre local, contrat joint." },
+    "finalites": { "titre": "Finalités", "texte": "Traiter votre demande et vous recontacter. Base légale et destinataires : à compléter." },
+    "duree": { "titre": "Durée de conservation", "texte": "À compléter." },
+    "droits": { "titre": "Vos droits", "texte": "Accès, rectification, effacement, limitation, portabilité et opposition : écrivez à l’adresse dédiée." },
+    "cookies": { "titre": "Cookies", "texte": "Cette maquette ne dépose aucun cookie de mesure d’audience. Politique du site final : à compléter." }
+  },
+  "introuvable": {
+    "repere": "Erreur 404",
+    "titre": "Cette cuve est vide",
+    "texte": "La page demandée n’existe pas ou plus. Repartez de l’accueil, ou demandez directement votre devis.",
+    "retour": "Revenir à l’accueil",
+    "devis": "Demander un devis"
+  }
+}

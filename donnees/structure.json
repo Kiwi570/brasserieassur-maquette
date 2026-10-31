@@ -1,0 +1,11 @@
+{
+  "@context": "https://schema.org",
+  "@type": "InsuranceAgency",
+  "name": "BRASSERIEassur",
+  "url": "https://brasserieassur-maquette.vercel.app/",
+  "email": "contact@brasserieassur.com",
+  "description": "Courtier en assurance spécialisé dans les professionnels de la bière : brasseries, producteurs, négociants en gros, fabricants de matériel.",
+  "parentOrganization": { "@type": "Organization", "name": "ADVISSUR" },
+  "knowsAbout": ["Assurance multirisque professionnelle", "Responsabilité civile", "Perte d'exploitation", "Responsabilité des produits", "Garantie de montage et d'essai"],
+  "areaServed": "FR"
+}

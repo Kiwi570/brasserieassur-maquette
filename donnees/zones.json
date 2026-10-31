@@ -1,0 +1,121 @@
+[
+  {
+    "cle": "brassage",
+    "numero": "A",
+    "nom": "Salle de brassage",
+    "risques": [
+      "Incendie",
+      "Dégâts des eaux",
+      "Catastrophes naturelles"
+    ],
+    "garanties": [
+      {
+        "nom": "Assurance des biens",
+        "detail": "Cuves de brassage et installations, contre l’incendie, les dégâts des eaux et les catastrophes naturelles."
+      },
+      {
+        "nom": "Machines stationnaires",
+        "detail": "Une approche sur mesure en dommages et pertes financières consécutives."
+      }
+    ]
+  },
+  {
+    "cle": "fermentation",
+    "numero": "B",
+    "nom": "Fermentation et garde",
+    "risques": [
+      "Dommages aux équipements",
+      "Interruption d’activité"
+    ],
+    "garanties": [
+      {
+        "nom": "Assurance des biens",
+        "detail": "Les équipements de refroidissement et de stockage."
+      },
+      {
+        "nom": "Perte d’exploitation",
+        "detail": "Pertes de revenus et frais fixes pendant l’interruption qui suit un sinistre couvert."
+      }
+    ]
+  },
+  {
+    "cle": "conditionnement",
+    "numero": "C",
+    "nom": "Conditionnement",
+    "risques": [
+      "Intoxication",
+      "Réaction allergique",
+      "Rappel de produits"
+    ],
+    "garanties": [
+      {
+        "nom": "Responsabilité des produits",
+        "detail": "Les dommages causés à des tiers par vos produits."
+      },
+      {
+        "nom": "Produits défectueux",
+        "detail": "Les coûts des rappels de produits et des réclamations."
+      }
+    ]
+  },
+  {
+    "cle": "stockage",
+    "numero": "D",
+    "nom": "Stockage et entrepôt",
+    "risques": [
+      "Vol",
+      "Vandalisme",
+      "Incendie"
+    ],
+    "garanties": [
+      {
+        "nom": "Multirisque industrielle",
+        "detail": "Bâtiments, équipements et stocks, et les conséquences financières qui en découlent."
+      },
+      {
+        "nom": "Assurance vol",
+        "detail": "Vol et vandalisme, sur la valeur totale de vos biens."
+      }
+    ]
+  },
+  {
+    "cle": "livraison",
+    "numero": "E",
+    "nom": "Livraison",
+    "risques": [
+      "Retard de livraison",
+      "Pénurie de matières",
+      "Dommages aux véhicules"
+    ],
+    "garanties": [
+      {
+        "nom": "Matériel mobile",
+        "detail": "Fourgons et véhicules de société, en dommages et pertes financières."
+      },
+      {
+        "nom": "Risques commerciaux",
+        "detail": "Retards de livraison, pénuries de matières premières, fluctuations des prix."
+      }
+    ]
+  },
+  {
+    "cle": "accueil",
+    "numero": "F",
+    "nom": "Accueil, bureaux et équipe",
+    "risques": [
+      "Réclamation d’un tiers",
+      "Dommage à un visiteur",
+      "Litige"
+    ],
+    "garanties": [
+      {
+        "nom": "Responsabilité civile",
+        "detail": "Générale, professionnelle, des mandataires sociaux : les réclamations de clients, fournisseurs ou visiteurs."
+      },
+      {
+        "nom": "Protection sociale et juridique",
+        "detail": "Protection sociale complémentaire des salariés, protection juridique en cas de litige."
+      }
+    ]
+  }
+]

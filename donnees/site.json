@@ -1,0 +1,26 @@
+{
+  "nom": "BRASSERIEassur",
+  "adresse": "https://brasserieassur-maquette.vercel.app",
+  "siteActuel": "brasserieassur.com",
+  "version": 1,
+  "langues": ["fr"],
+  "navigation": ["brasseries", "producteurs", "negociants", "fabricants", "services", "a-propos", "contact"],
+  "menu": {
+    "metiers": ["brasseries", "producteurs", "negociants", "fabricants"],
+    "cabinet": ["accueil", "services", "devis", "a-propos", "reglementaire", "blog", "contact"]
+  },
+  "actionEntete": { "page": "devis" },
+  "couleurs": { "fond": "#f4efe6", "texte": "#14213d", "voile": "#14213d", "ouverture": "#f4efe6", "menu": "#14213d", "theme": "#f4efe6" },
+  "contact": {
+    "email": "contact@brasserieassur.com",
+    "emailRgpd": "rgpd@advissur.com",
+    "orias": "24008249"
+  },
+  "liens": {
+    "orus": "https://www.orus.eu/partnerships/brasserieassur",
+    "orias": "https://www.orias.fr"
+  },
+  "polices": ["/assets/fonts/fraunces.woff2", "/assets/fonts/plex-sans-400.woff2"],
+  "imagePartage": "grok/accueil-ouverture-1168.webp",
+  "curseur": true
+}

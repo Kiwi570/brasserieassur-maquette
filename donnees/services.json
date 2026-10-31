@@ -1,0 +1,5 @@
+[
+  { "cle": "audit", "nom": "Audit assurances", "image": "service-audit", "prix": "", "description": "" },
+  { "cle": "visite", "nom": "Visite de risques", "image": "service-visite", "prix": "Devis sur demande", "description": "" },
+  { "cle": "digitalisation", "nom": "Digitalisation", "image": "service-digitalisation", "prix": "Devis sur demande", "description": "" }
+]

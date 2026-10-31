@@ -1,0 +1,12 @@
+[
+  { "cle": "biens", "numero": "01", "titre": "Assurez vos biens", "image": "protection-biens",
+    "texte": "Nous vous conseillons dans la mise en place d’un contrat multirisques industriels : dommages causés à vos bâtiments, vos équipements et vos stocks, et les conséquences financières qui en découlent." },
+  { "cle": "patrimoine", "numero": "02", "titre": "Assurez votre patrimoine", "image": "protection-patrimoine",
+    "texte": "Notre connaissance des assureurs nous permet de proposer les garanties qui correspondent à vos besoins et de vous orienter vers la compagnie adaptée, pour constituer, transmettre et valoriser un patrimoine dans le cadre de votre activité." },
+  { "cle": "responsabilites", "numero": "03", "titre": "Assurez vos responsabilités", "image": "protection-responsabilites",
+    "texte": "Votre activité vous expose aux réclamations de tiers : être couvert préserve votre trésorerie. Responsabilité civile générale, professionnelle, des mandataires sociaux." },
+  { "cle": "salaries", "numero": "04", "titre": "Protégez vos salariés", "image": "protection-salaries",
+    "texte": "La protection sociale complémentaire nourrit le dialogue social et la politique RH, autour d’un enjeu commun : la qualité de vie et la santé au travail." },
+  { "cle": "outils", "numero": "05", "titre": "Conservez vos outils", "image": "protection-outils",
+    "texte": "Matériel mobile (fourgons, véhicules de société) ou machines stationnaires : une approche sur mesure en dommages et pertes financières consécutives, pour préserver vos marges et vos prévisions." }
+]

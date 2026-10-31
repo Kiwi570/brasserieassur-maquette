@@ -1,0 +1,8 @@
+[
+  { "numero": "1", "titre": "L’audit de vos assurances", "texte": "Un rendez-vous pour faire le point sur vos contrats en cours.", "lien": { "page": "services", "ancre": "rendez-vous", "params": "service=audit", "texte": "Réserver un audit" } },
+  { "numero": "2", "titre": "La visite de risques", "texte": "Sur place, dans vos locaux. Devis sur demande.", "lien": { "page": "services", "ancre": "rendez-vous", "params": "service=visite", "texte": "Demander une visite" } },
+  { "numero": "3", "titre": "Vos exigences et besoins, par écrit", "texte": "À partir des informations que vous nous donnez, nous précisons par écrit vos exigences et vos besoins." },
+  { "numero": "4", "titre": "Une recommandation motivée", "texte": "Garanties et exclusions confrontées à vos besoins : nous expliquons pourquoi un contrat ou une option vous correspond le mieux." },
+  { "numero": "5", "titre": "Souscription ou résiliation", "texte": "Nous nous chargeons des démarches, et vous recevez vos attestations d’assurance." },
+  { "numero": "6", "titre": "Un contrat qui évolue avec vous", "texte": "Des contrats flexibles, adaptés à chaque étape du développement de votre entreprise." }
+]

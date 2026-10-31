@@ -1,0 +1,9 @@
+[
+  { "q": "Suis-je éligible au devis en ligne ?", "r": "Le devis instantané et la souscription en ligne s’adressent aux brasseries, cafés et bars éligibles : des TPE de moins de 500 m² et de moins de 3 M€ de chiffre d’affaires annuel. Pour les autres activités, nous réalisons une étude sur mesure." },
+  { "q": "Comment êtes-vous rémunérés ?", "r": "Par une commission versée par l’entreprise d’assurance, comprise dans la cotisation, et le cas échéant par des honoraires et des frais qui s’ajoutent à la cotisation." },
+  { "q": "Travaillez-vous avec un seul assureur ?", "r": "Non : nous n’avons aucune obligation de travailler exclusivement avec une ou plusieurs entreprises d’assurance. Nous vous indiquons leur identité lors de l’étude préalable." },
+  { "q": "Vous occupez-vous de mon contrat actuel ?", "r": "Oui : pour souscrire comme pour résilier, nous nous chargeons des démarches. Vous pouvez joindre une copie de votre contrat en cours à votre demande de devis." },
+  { "q": "Qu’est-ce que la garantie de montage et d’essai ?", "r": "Une protection contre les défauts de fabrication, les erreurs de montage et les problèmes de performance pendant la mise en service d’un nouvel équipement." },
+  { "q": "Que couvre la perte d’exploitation ?", "r": "Après un sinistre couvert, elle aide à couvrir les pertes de revenus et les frais fixes pendant l’interruption, pour reprendre l’activité rapidement." },
+  { "q": "Fournissez-vous des attestations d’assurance ?", "r": "Oui, notamment pour les activités soumises à une obligation d’assurance : vous justifiez ainsi de votre conformité." }
+]

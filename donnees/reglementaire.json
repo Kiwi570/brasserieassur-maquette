@@ -1,0 +1,88 @@
+[
+  {
+    "id": "orias", "titre": "Registre unique tenu par l’ORIAS",
+    "paragraphes": [
+      "De par la réglementation relative à la distribution d’assurance, nous sommes inscrits au registre unique tenu par l’ORIAS sous le n° 24008249, en qualité de courtier en assurance. Cette immatriculation est vérifiable sur le site de l’ORIAS.",
+      "Elle constitue la preuve que nous satisfaisons aux exigences :"
+    ],
+    "liste": [
+      "d’immatriculation au registre du commerce et des sociétés ;",
+      "d’honorabilité, au sens de l’article L512-4 du Code des assurances ;",
+      "de capacité professionnelle (formation, diplôme, expérience), au sens des articles L512-5 et R512-9 ;",
+      "de formation et de développement professionnel continus, au sens des articles L511-2 II, R512-13-1 et A512-8 ;",
+      "d’assurance de responsabilité civile professionnelle, conforme aux articles L512-6, R512-14 et A512-4 ;",
+      "de garantie financière, conforme aux articles L512-7, R512-15 et A512-5."
+    ],
+    "lienOrias": true
+  },
+  {
+    "id": "conseil", "titre": "Devoir de conseil",
+    "paragraphes": [
+      "Conformément aux articles L521-1 I et III, L521-2 II b et L521-4 I du Code des assurances, nous agissons de manière honnête, impartiale et professionnelle, au mieux de vos intérêts :"
+    ],
+    "liste": [
+      "nous n’acceptons aucune rémunération, aucun objectif de vente ni aucune autre disposition qui pourrait nous encourager à vous recommander un produit d’assurance plutôt qu’un autre, mieux adapté à vos exigences et à vos besoins ;",
+      "au regard du nombre d’entreprises d’assurance avec lesquelles nous travaillons, nous ne fondons pas notre analyse sur un nombre suffisant de contrats offerts sur le marché ; nous proposons un service de recommandation fondé sur une analyse impartiale et personnalisée, parmi les contrats négociés auprès de ces entreprises ;",
+      "nous précisons par écrit, d’après les informations obtenues auprès de vous, vos exigences et vos besoins, et nous vous donnons des informations objectives, compréhensibles, exactes et non trompeuses sur le produit proposé ;",
+      "nous vous conseillons un contrat cohérent avec vos exigences et vos besoins, et nous vous en précisons les raisons ;",
+      "notre recommandation personnalisée explique pourquoi un ou plusieurs contrats ou options vous correspondent le mieux : les garanties et exclusions essentielles sont confrontées à vos besoins, et ce test met en évidence le niveau d’adéquation. Vous décidez ensuite d’accepter, ou non, l’offre proposée."
+    ]
+  },
+  {
+    "id": "positionnement", "titre": "Positionnement vis-à-vis des entreprises d’assurance",
+    "paragraphes": [
+      "Conformément à l’article R521-1 II du Code des assurances : notre société ne détient aucune participation, directe ou indirecte, dans les droits de vote ou le capital d’une entreprise d’assurance, et aucune entreprise d’assurance, ou entreprise mère d’une entreprise d’assurance, ne détient de participation dans les droits de vote ou le capital de notre société.",
+      "Conformément à l’article L521-2 II 1° b : notre société n’est soumise à aucune obligation contractuelle de travailler exclusivement avec une ou plusieurs entreprises d’assurance. Nous pouvons vous indiquer, lors de l’étude préalable, l’identité des entreprises d’assurance avec lesquelles nous travaillons."
+    ]
+  },
+  {
+    "id": "remuneration", "titre": "Rémunération",
+    "paragraphes": [
+      "Conformément à l’article L521-2 II 2° d du Code des assurances : nous travaillons sur la base d’une commission versée par l’entreprise d’assurance, c’est-à-dire une rémunération incluse dans la cotisation d’assurance, proportionnelle à son montant hors taxes, ainsi que, le cas échéant, d’honoraires et de frais qui s’ajoutent à cette cotisation."
+    ]
+  },
+  {
+    "id": "assureurs", "titre": "Choix des entreprises d’assurance",
+    "paragraphes": [
+      "L’ACPR rappelle que chaque professionnel d’une chaîne de distribution d’assurance est responsable de la sélection de ses partenaires, intermédiaires ou assureurs.",
+      "Nous avons sélectionné des entreprises d’assurance disposant d’équipes opérationnelles implantées en France. ADVISSUR a fait le choix de ne pas travailler avec les compagnies intervenant en libre prestation de services en France."
+    ]
+  },
+  {
+    "id": "gouvernance", "titre": "Gouvernance produits",
+    "paragraphes": [
+      "Conformément à l’article L516-1 du Code des assurances, nous participons à la validation, à l’adaptation et à l’évolution des produits d’assurance dont nous sommes co-concepteurs, et nous appliquons les dispositifs prévus pour les produits que nous distribuons sans les avoir conçus."
+    ]
+  },
+  {
+    "id": "rc-garantie", "titre": "Responsabilité civile professionnelle et garantie financière",
+    "paragraphes": ["Assureur, numéro de contrat et montants garantis : à compléter."],
+    "aCompleter": true
+  },
+  {
+    "id": "acpr", "titre": "Autorité de contrôle",
+    "paragraphes": ["Autorité de contrôle prudentiel et de résolution (ACPR), 4 place de Budapest, CS 92459, 75436 Paris Cedex 09."]
+  },
+  {
+    "id": "reclamations", "titre": "Réclamations et médiation",
+    "paragraphes": ["Adresse de réclamation, délais de réponse et coordonnées du médiateur : à compléter."],
+    "aCompleter": true
+  },
+  {
+    "id": "rgpd", "titre": "Protection des données (RGPD)",
+    "paragraphes": [
+      "Conformément au Règlement général sur la protection des données, vous pouvez exercer vos droits d’accès, de rectification, d’effacement, de limitation, de portabilité et d’opposition en écrivant à l’adresse dédiée."
+    ],
+    "emailRgpd": true
+  },
+  {
+    "id": "tva", "titre": "TVA",
+    "paragraphes": ["Mention relative à la TVA : à compléter."],
+    "aCompleter": true
+  },
+  {
+    "id": "syndicats", "titre": "Syndicats et organisations professionnelles",
+    "paragraphes": ["Organisations professionnelles auxquelles le cabinet adhère : à compléter."],
+    "aCompleter": true
+  }
+]

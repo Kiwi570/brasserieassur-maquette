@@ -1,0 +1,22 @@
+[
+  {"source": "recu/grok/accueil-ouverture.jpg", "nom": "grok/accueil-ouverture", "cadrage": [62, 55]},
+  {"source": "recu/grok/accueil-ouverture-mobile.jpg", "nom": "grok/accueil-ouverture-mobile", "cadrage": [60, 60]},
+  {"source": "recu/grok/accueil-final.jpg", "nom": "grok/accueil-final", "cadrage": [70, 60]},
+  {"source": "recu/grok/accueil-final-mobile.jpg", "nom": "grok/accueil-final-mobile", "cadrage": [50, 60]},
+  {"source": "recu/grok/accueil-methode.jpg", "nom": "grok/accueil-methode", "cadrage": [62, 55]},
+  {"source": "recu/grok/accueil-tpe.jpg", "nom": "grok/accueil-tpe", "cadrage": [60, 50]},
+  {"source": "recu/grok/blog-intoxication.jpg", "nom": "grok/blog-intoxication", "cadrage": [58, 60]},
+  {"source": "recu/grok/brasseries-ouverture.jpg", "nom": "grok/brasseries-ouverture", "cadrage": [70, 50]},
+  {"source": "recu/grok/metier-brasseries.jpg", "nom": "grok/metier-brasseries", "cadrage": [45, 70]},
+  {"source": "recu/grok/metier-cafes.jpg", "nom": "grok/metier-cafes", "cadrage": [50, 55]},
+  {"source": "recu/grok/metier-distributeurs.jpg", "nom": "grok/metier-distributeurs", "cadrage": [55, 55]},
+  {"source": "recu/grok/metier-evenements.jpg", "nom": "grok/metier-evenements", "cadrage": [55, 55]},
+  {"source": "recu/grok/metier-fabricants.jpg", "nom": "grok/metier-fabricants", "cadrage": [55, 55]},
+  {"source": "recu/grok/metier-negociants.jpg", "nom": "grok/metier-negociants", "cadrage": [50, 50]},
+  {"source": "recu/grok/metier-producteurs.jpg", "nom": "grok/metier-producteurs", "cadrage": [60, 62]},
+  {"source": "recu/grok/protection-biens.jpg", "nom": "grok/protection-biens", "cadrage": [50, 60]},
+  {"source": "recu/grok/protection-outils.jpg", "nom": "grok/protection-outils", "cadrage": [45, 60]},
+  {"source": "recu/grok/protection-patrimoine.jpg", "nom": "grok/protection-patrimoine", "cadrage": [55, 55]},
+  {"source": "recu/grok/protection-responsabilites.jpg", "nom": "grok/protection-responsabilites", "cadrage": [42, 55]},
+  {"source": "recu/grok/protection-salaries.jpg", "nom": "grok/protection-salaries", "cadrage": [55, 60]}
+]

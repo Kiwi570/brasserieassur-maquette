@@ -1,0 +1,27 @@
+{
+  "orias": [
+    "Immatriculation au registre du commerce et des sociétés",
+    "Honorabilité",
+    "Capacité professionnelle",
+    "Formation et développement professionnel continus",
+    "Assurance de responsabilité civile professionnelle"
+  ],
+  "points": [
+    {
+      "titre": "Aucune rémunération incitative",
+      "texte": "Ni rémunération ni objectif de vente qui nous pousserait à recommander un produit plutôt qu’un autre mieux adapté."
+    },
+    {
+      "titre": "Aucun lien capitalistique",
+      "texte": "Aucune participation, directe ou indirecte, entre notre société et une entreprise d’assurance."
+    },
+    {
+      "titre": "Aucune exclusivité",
+      "texte": "Aucune obligation de travailler exclusivement avec une ou plusieurs entreprises d’assurance."
+    },
+    {
+      "titre": "Une rémunération claire",
+      "texte": "Une commission comprise dans la cotisation, et le cas échéant des honoraires et des frais."
+    }
+  ]
+}
