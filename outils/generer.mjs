@@ -149,7 +149,7 @@ function contexte(l, meta) {
       const style = `--cadrage:${cadrage}` + (ratio ? `;aspect-ratio:${ratio}` : '') + (cadrageMobile ? `;--cadrage-mobile:${cadrageMobile}` : '');
       return html`<figure class="media ${classe}"${grok ? brut(' data-grok') : ''} style="${style}">
   <picture>${mobiles.length ? html`<source media="(max-width: 760px) and (orientation: portrait)" srcset="${srcset(`${nom}-mobile`, mobiles)}" sizes="${sizes}">` : ''}
-    <img src="${src}"${tailles.length ? html` srcset="${srcset(nom, tailles)}" sizes="${sizes}"` : ''} alt="${alt}"${dims ? brut(` width="${dims.largeur}" height="${dims.hauteur}"`) : ''} ${brut(priorite ? 'fetchpriority="high" loading="eager"' : 'loading="lazy"')} decoding="async">
+    <img src="${src}"${tailles.length ? html` srcset="${srcset(nom, tailles)}" sizes="${sizes}"` : ''} alt="${alt}"${dims ? brut(` width="${dims.largeur}" height="${dims.hauteur}"`) : ''} ${brut(priorite ? 'fetchpriority="high" loading="eager" decoding="sync"' : 'loading="lazy" decoding="async"')}>
   </picture>${grok ? html`<figcaption class="mention-ia">${brutTexte('commun.mentionIa')}</figcaption>` : ''}${legende ? html`<figcaption class="media-legende">${legende}</figcaption>` : ''}
 </figure>`;
     },

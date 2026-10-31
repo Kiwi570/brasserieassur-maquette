@@ -2,6 +2,22 @@
 
 Chaque version ajoute sa partie en tête de ce fichier, construite en comparant l'archive précédente et la nouvelle, jamais de mémoire.
 
+## v2 — les 35 images
+
+**Images** : les 35 images Grok restantes prennent leur place, et plus aucun emplacement n'affiche « Illustration à venir ».
+- Ouvertures de Producteurs, Négociants, Fabricants, Services, Devis, À propos, Réglementaire, Blog, Contact, Mentions légales et Confidentialité (une image commune), et 404 : chacune avec sa version téléphone. Brasseries reçoit aussi sa version téléphone.
+- Producteurs : les quatre responsabilités (contrôle qualité, embouteillage, drêches, équipe).
+- Brasseries : le stock de palettes ; Négociants : le quai de chargement de nuit.
+- Fabricants : la soudure (garanties légales) et la ligne en cours de montage.
+- Services : l'audit, la visite de risques et la digitalisation ; À propos : le bureau.
+- Chaque image a son point de cadrage, sur ordinateur et sur téléphone ; deux textes alternatifs ajustés à l'image reçue (Blog, Digitalisation).
+
+**Images de partage** : refaites avec la nouvelle photo d'ouverture de chaque page (les pages légales gardent celle de l'accueil) ; le titre ne chevauche plus la ligne ORIAS quand il tient sur trois lignes.
+
+**Retour arrière et avant** : la photo d'ouverture s'affiche dès la première image quand on revient sur une page (elle laissait un cadre vide un instant sur téléphone).
+
+**Version** : fichiers en ?v=2, pour que les navigateurs prennent les nouveaux fichiers.
+
 ## v1 — la base
 
 **Pages (15)** : accueil ; quatre pages métiers (Brasseries, Producteurs, Négociants en gros, Fabricants de matériel) ; Services et rendez-vous ; Devis ; À propos ; Réglementaire ; Blog et son article ; Contact ; Mentions légales ; Confidentialité ; page 404 « Cette cuve est vide ». Tous les textes viennent du site actuel, corrigés où il le fallait (liste dans le README).

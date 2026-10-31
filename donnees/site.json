@@ -2,7 +2,7 @@
   "nom": "BRASSERIEassur",
   "adresse": "https://brasserieassur-maquette.vercel.app",
   "siteActuel": "brasserieassur.com",
-  "version": 1,
+  "version": 2,
   "langues": ["fr"],
   "navigation": ["brasseries", "producteurs", "negociants", "fabricants", "services", "a-propos", "contact"],
   "menu": {

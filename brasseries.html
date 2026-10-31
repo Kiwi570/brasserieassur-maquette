@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" data-v="1" data-page="brasseries" data-curseur>
+<html lang="fr" data-v="2" data-page="brasseries" data-curseur>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -42,14 +42,14 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 })();</script>
 <link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/socle.css?v=1">
-<link rel="stylesheet" href="/assets/css/site.css?v=1">
-<link rel="modulepreload" href="/assets/js/site.js?v=1">
-<link rel="modulepreload" href="/assets/js/socle/index.js?v=1">
+<link rel="stylesheet" href="/assets/css/socle.css?v=2">
+<link rel="stylesheet" href="/assets/css/site.css?v=2">
+<link rel="modulepreload" href="/assets/js/site.js?v=2">
+<link rel="modulepreload" href="/assets/js/socle/index.js?v=2">
 <script src="/assets/vendor/gsap.min.js" defer></script>
 <script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
 <script src="/assets/vendor/SplitText.min.js" defer></script>
-<script type="module" src="/assets/js/site.js?v=1"></script>
+<script type="module" src="/assets/js/site.js?v=2"></script>
 <meta name="theme-color" content="#f4efe6">
 <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
@@ -147,9 +147,9 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
   </div>
   <div class="cadre-plan page-tete-cadre" data-cadre>
     <span class="cote cadre-cote" aria-hidden="true"><span class="cote-trait"></span><span class="cote-texte">Fermenteurs</span></span>
-    <div class="cadre-image" data-encre><figure class="media page-tete-media" data-grok style="--cadrage:70% 50%">
-  <picture>
-    <img src="/assets/images/grok/brasseries-ouverture-1168.webp" srcset="/assets/images/grok/brasseries-ouverture-640.webp 640w, /assets/images/grok/brasseries-ouverture-1168.webp 1168w" sizes="(max-width: 760px) 100vw, 46vw" alt="Fermenteurs coniques en inox vus en contre-plongée, reliés par une passerelle" width="1168" height="784" fetchpriority="high" loading="eager" decoding="async">
+    <div class="cadre-image" data-encre><figure class="media page-tete-media" data-grok style="--cadrage:70% 50%;--cadrage-mobile:50% 45%">
+  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/brasseries-ouverture-mobile-640.webp 640w, /assets/images/grok/brasseries-ouverture-mobile-784.webp 784w" sizes="(max-width: 760px) 100vw, 46vw">
+    <img src="/assets/images/grok/brasseries-ouverture-1168.webp" srcset="/assets/images/grok/brasseries-ouverture-640.webp 640w, /assets/images/grok/brasseries-ouverture-1168.webp 1168w" sizes="(max-width: 760px) 100vw, 46vw" alt="Fermenteurs coniques en inox vus en contre-plongée, reliés par une passerelle" width="1168" height="784" fetchpriority="high" loading="eager" decoding="sync">
   </picture><figcaption class="mention-ia">Illustration générée</figcaption>
 </figure></div>
     <span class="cadre-repere cadre-repere--hg" aria-hidden="true"></span><span class="cadre-repere cadre-repere--bd" aria-hidden="true"></span>
@@ -287,13 +287,10 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 </li></ol>
 </section>
 <section class="resume conteneur" id="resume">
-  <figure class="media media-provisoire resume-media" data-visuel data-image-attendue="grok/brasseries-stock" style="aspect-ratio:3 / 2" role="img" aria-label="Palettes de bouteilles et de canettes filmées dans l&#39;entrepôt d&#39;une brasserie">
-  <svg viewBox="0 0 400 330" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-    <defs><pattern id="q-brasseries-stock" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" class="grille"/></pattern></defs>
-    <rect width="400" height="330" fill="url(#q-brasseries-stock)"/>
-    <g class="motif"><path d="M90 250v-60h100v60M210 250v-60h100v60M90 190v-60h100v60"/><path class="fin" d="M90 220h100M210 220h100M90 160h100"/></g>
-  </svg>
-  <figcaption class="media-attente">Illustration à venir</figcaption>
+  <figure class="media resume-media" data-grok style="--cadrage:40% 55%;aspect-ratio:3 / 2">
+  <picture>
+    <img src="/assets/images/grok/brasseries-stock-1168.webp" srcset="/assets/images/grok/brasseries-stock-640.webp 640w, /assets/images/grok/brasseries-stock-1168.webp 1168w" sizes="(max-width: 760px) 100vw, 46vw" alt="Palettes de bouteilles et de canettes filmées dans l&#39;entrepôt d&#39;une brasserie" width="1168" height="784" loading="lazy" decoding="async">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
 </figure>
   <div class="resume-texte">
     <p class="repere"><span class="repere-numero">02</span><span class="repere-texte">En résumé</span></p>

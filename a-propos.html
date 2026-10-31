@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" data-v="1" data-page="a-propos" data-curseur>
+<html lang="fr" data-v="2" data-page="a-propos" data-curseur>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -42,14 +42,14 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 })();</script>
 <link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/socle.css?v=1">
-<link rel="stylesheet" href="/assets/css/site.css?v=1">
-<link rel="modulepreload" href="/assets/js/site.js?v=1">
-<link rel="modulepreload" href="/assets/js/socle/index.js?v=1">
+<link rel="stylesheet" href="/assets/css/socle.css?v=2">
+<link rel="stylesheet" href="/assets/css/site.css?v=2">
+<link rel="modulepreload" href="/assets/js/site.js?v=2">
+<link rel="modulepreload" href="/assets/js/socle/index.js?v=2">
 <script src="/assets/vendor/gsap.min.js" defer></script>
 <script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
 <script src="/assets/vendor/SplitText.min.js" defer></script>
-<script type="module" src="/assets/js/site.js?v=1"></script>
+<script type="module" src="/assets/js/site.js?v=2"></script>
 <meta name="theme-color" content="#f4efe6">
 <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
@@ -147,13 +147,10 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
   </div>
   <div class="cadre-plan page-tete-cadre" data-cadre>
     <span class="cote cadre-cote" aria-hidden="true"><span class="cote-trait"></span><span class="cote-texte">Bâtiment en briques</span></span>
-    <div class="cadre-image" data-encre><figure class="media media-provisoire page-tete-media" data-visuel data-image-attendue="grok/apropos-ouverture" role="img" aria-label="Microbrasserie installée dans un ancien bâtiment industriel en briques, à l&#39;heure bleue">
-  <svg viewBox="0 0 400 330" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-    <defs><pattern id="q-apropos-ouverture" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" class="grille"/></pattern></defs>
-    <rect width="400" height="330" fill="url(#q-apropos-ouverture)"/>
-    <g class="motif"><path d="M90 250V130l110-40 110 40v120z"/><path class="fin" d="M130 250v-60h40v60M220 170h50v40h-50z"/></g>
-  </svg>
-  <figcaption class="media-attente">Illustration à venir</figcaption>
+    <div class="cadre-image" data-encre><figure class="media page-tete-media" data-grok style="--cadrage:72% 55%;--cadrage-mobile:50% 55%">
+  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/apropos-ouverture-mobile-640.webp 640w, /assets/images/grok/apropos-ouverture-mobile-784.webp 784w" sizes="(max-width: 760px) 100vw, 46vw">
+    <img src="/assets/images/grok/apropos-ouverture-1168.webp" srcset="/assets/images/grok/apropos-ouverture-640.webp 640w, /assets/images/grok/apropos-ouverture-1168.webp 1168w" sizes="(max-width: 760px) 100vw, 46vw" alt="Microbrasserie installée dans un ancien bâtiment industriel en briques, à l&#39;heure bleue" width="1168" height="784" fetchpriority="high" loading="eager" decoding="sync">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
 </figure></div>
     <span class="cadre-repere cadre-repere--hg" aria-hidden="true"></span><span class="cadre-repere cadre-repere--bd" aria-hidden="true"></span>
   </div>
@@ -162,13 +159,10 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
   <div class="facon-cote">
     <p class="repere"><span class="repere-numero">01</span><span class="repere-texte">Notre façon de travailler</span></p>
     <h2 data-titre-anime>Un courtier, à vos côtés</h2>
-    <figure class="media media-provisoire facon-media" data-visuel data-image-attendue="grok/apropos-bureau" style="aspect-ratio:3 / 2" role="img" aria-label="Carnet de cuir, stylo plume, compas de laiton et capsule sur papier crème">
-  <svg viewBox="0 0 400 330" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-    <defs><pattern id="q-apropos-bureau" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" class="grille"/></pattern></defs>
-    <rect width="400" height="330" fill="url(#q-apropos-bureau)"/>
-    <g class="motif"><circle cx="200" cy="165" r="70"/><circle cx="200" cy="165" r="54" class="fin"/></g>
-  </svg>
-  <figcaption class="media-attente">Illustration à venir</figcaption>
+    <figure class="media facon-media" data-grok style="--cadrage:50% 50%;aspect-ratio:3 / 2">
+  <picture>
+    <img src="/assets/images/grok/apropos-bureau-1168.webp" srcset="/assets/images/grok/apropos-bureau-640.webp 640w, /assets/images/grok/apropos-bureau-1168.webp 1168w" sizes="(max-width: 760px) 100vw, 40vw" alt="Carnet de cuir, stylo plume, compas de laiton et capsule sur papier crème" width="1168" height="784" loading="lazy" decoding="async">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
 </figure>
   </div>
   <ol class="fiches"><li class="fiche" data-anime>

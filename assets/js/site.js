@@ -2,8 +2,8 @@
    le mode calme, les boucles et les mesures : ce fichier ne contient que ce qui est propre au client.
    Effets : compas et capsule (intro), révélation à l'encre, carte des risques épinglée, galerie des protections,
    tuyauterie de la méthode, manomètre d'éligibilité, registre tamponné, fiches cachetées, formulaires en étapes. */
-import { demarrer, etat, rafraichir, aller, allerAncre, quand } from './socle/index.js?v=1';
-import { revelerEncre, encreFinale } from './encre.js?v=1';
+import { demarrer, etat, rafraichir, aller, allerAncre, quand } from './socle/index.js?v=2';
+import { revelerEncre, encreFinale } from './encre.js?v=2';
 
 const gsap = window.gsap;
 const ST = window.ScrollTrigger;

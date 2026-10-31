@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" data-v="1" data-page="producteurs" data-curseur>
+<html lang="fr" data-v="2" data-page="producteurs" data-curseur>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -42,14 +42,14 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 })();</script>
 <link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/socle.css?v=1">
-<link rel="stylesheet" href="/assets/css/site.css?v=1">
-<link rel="modulepreload" href="/assets/js/site.js?v=1">
-<link rel="modulepreload" href="/assets/js/socle/index.js?v=1">
+<link rel="stylesheet" href="/assets/css/socle.css?v=2">
+<link rel="stylesheet" href="/assets/css/site.css?v=2">
+<link rel="modulepreload" href="/assets/js/site.js?v=2">
+<link rel="modulepreload" href="/assets/js/socle/index.js?v=2">
 <script src="/assets/vendor/gsap.min.js" defer></script>
 <script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
 <script src="/assets/vendor/SplitText.min.js" defer></script>
-<script type="module" src="/assets/js/site.js?v=1"></script>
+<script type="module" src="/assets/js/site.js?v=2"></script>
 <meta name="theme-color" content="#f4efe6">
 <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
@@ -147,13 +147,10 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
   </div>
   <div class="cadre-plan page-tete-cadre" data-cadre>
     <span class="cote cadre-cote" aria-hidden="true"><span class="cote-trait"></span><span class="cote-texte">Houblonnière</span></span>
-    <div class="cadre-image" data-encre><figure class="media media-provisoire page-tete-media" data-visuel data-image-attendue="grok/producteurs-ouverture" role="img" aria-label="Houblonnière au soleil couchant, longues rangées de houblon sur treillis">
-  <svg viewBox="0 0 400 330" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-    <defs><pattern id="q-producteurs-ouverture" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" class="grille"/></pattern></defs>
-    <rect width="400" height="330" fill="url(#q-producteurs-ouverture)"/>
-    <g class="motif"><path d="M200 90q-40 40 0 90q40-50 0-90zM200 180q-50 30-10 80q50-20 10-80z"/><path class="fin" d="M200 90v170"/></g>
-  </svg>
-  <figcaption class="media-attente">Illustration à venir</figcaption>
+    <div class="cadre-image" data-encre><figure class="media page-tete-media" data-grok style="--cadrage:55% 55%;--cadrage-mobile:50% 60%">
+  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/producteurs-ouverture-mobile-640.webp 640w, /assets/images/grok/producteurs-ouverture-mobile-784.webp 784w" sizes="(max-width: 760px) 100vw, 46vw">
+    <img src="/assets/images/grok/producteurs-ouverture-1168.webp" srcset="/assets/images/grok/producteurs-ouverture-640.webp 640w, /assets/images/grok/producteurs-ouverture-1168.webp 1168w" sizes="(max-width: 760px) 100vw, 46vw" alt="Houblonnière au soleil couchant, longues rangées de houblon sur treillis" width="1168" height="784" fetchpriority="high" loading="eager" decoding="sync">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
 </figure></div>
     <span class="cadre-repere cadre-repere--hg" aria-hidden="true"></span><span class="cadre-repere cadre-repere--bd" aria-hidden="true"></span>
     <svg class="cachet cadre-cachet" viewBox="0 0 120 120" aria-hidden="true" focusable="false" data-superpose data-audit-ignorer>
@@ -172,13 +169,10 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
     <p data-anime>Ce qui engage aujourd’hui un producteur de bière.</p>
   </div>
   <ol class="blocs"><li class="bloc">
-    <figure class="media media-provisoire bloc-media" data-visuel data-image-attendue="grok/producteurs-qualite" style="aspect-ratio:3 / 2" role="img" aria-label="Main gantée prélevant un échantillon à la vanne d&#39;une cuve">
-  <svg viewBox="0 0 400 330" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-    <defs><pattern id="q-producteurs-qualite" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" class="grille"/></pattern></defs>
-    <rect width="400" height="330" fill="url(#q-producteurs-qualite)"/>
-    <g class="motif"><path d="M120 250V130h18v120M160 250V110h18v140M200 250V140h18v110M240 250V120h18v130M100 250h190"/></g>
-  </svg>
-  <figcaption class="media-attente">Illustration à venir</figcaption>
+    <figure class="media bloc-media" data-grok style="--cadrage:55% 60%;aspect-ratio:3 / 2">
+  <picture>
+    <img src="/assets/images/grok/producteurs-qualite-1168.webp" srcset="/assets/images/grok/producteurs-qualite-640.webp 640w, /assets/images/grok/producteurs-qualite-1168.webp 1168w" sizes="(max-width: 760px) 100vw, 44vw" alt="Main gantée prélevant un échantillon à la vanne d&#39;une cuve" width="1168" height="784" loading="lazy" decoding="async">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
 </figure>
     <div class="bloc-texte">
       <p class="fiche-numero">01</p>
@@ -186,13 +180,10 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
       <p data-anime>Respecter les normes sanitaires et la réglementation de la production alimentaire : des installations propres et conformes, des produits exempts de contaminants. Un écart peut mettre en danger les consommateurs et la réputation de la brasserie.</p>
     </div>
   </li><li class="bloc bloc--inverse">
-    <figure class="media media-provisoire bloc-media" data-visuel data-image-attendue="grok/producteurs-moderation" style="aspect-ratio:3 / 2" role="img" aria-label="Rangée de bouteilles capsulées sur un convoyeur">
-  <svg viewBox="0 0 400 330" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-    <defs><pattern id="q-producteurs-moderation" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" class="grille"/></pattern></defs>
-    <rect width="400" height="330" fill="url(#q-producteurs-moderation)"/>
-    <g class="motif"><path d="M70 210h260v20H70z"/><path class="fin" d="M100 210v-50M140 210v-50M180 210v-50M220 210v-50M260 210v-50M300 210v-50"/></g>
-  </svg>
-  <figcaption class="media-attente">Illustration à venir</figcaption>
+    <figure class="media bloc-media" data-grok style="--cadrage:50% 50%;aspect-ratio:3 / 2">
+  <picture>
+    <img src="/assets/images/grok/producteurs-moderation-1168.webp" srcset="/assets/images/grok/producteurs-moderation-640.webp 640w, /assets/images/grok/producteurs-moderation-1168.webp 1168w" sizes="(max-width: 760px) 100vw, 44vw" alt="Rangée de bouteilles capsulées sur un convoyeur" width="1168" height="784" loading="lazy" decoding="async">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
 </figure>
     <div class="bloc-texte">
       <p class="fiche-numero">02</p>
@@ -200,13 +191,10 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
       <p data-anime>Sensibiliser aux dangers de l’alcool au volant et de l’abus d’alcool, promouvoir une consommation modérée. De nombreuses brasseries soutiennent des initiatives locales de prévention.</p>
     </div>
   </li><li class="bloc">
-    <figure class="media media-provisoire bloc-media" data-visuel data-image-attendue="grok/producteurs-environnement" style="aspect-ratio:3 / 2" role="img" aria-label="Drêches dans un bac inox près d&#39;une cuve de récupération d&#39;eau">
-  <svg viewBox="0 0 400 330" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-    <defs><pattern id="q-producteurs-environnement" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" class="grille"/></pattern></defs>
-    <rect width="400" height="330" fill="url(#q-producteurs-environnement)"/>
-    <g class="motif"><path d="M120 250V120q0-34 40-34t40 34v130M220 250V100q0-30 36-30t36 30v150M110 250h200"/><path class="fin" d="M120 150h80M120 200h80M220 140h72M220 190h72"/></g>
-  </svg>
-  <figcaption class="media-attente">Illustration à venir</figcaption>
+    <figure class="media bloc-media" data-grok style="--cadrage:50% 50%;aspect-ratio:3 / 2">
+  <picture>
+    <img src="/assets/images/grok/producteurs-environnement-1168.webp" srcset="/assets/images/grok/producteurs-environnement-640.webp 640w, /assets/images/grok/producteurs-environnement-1168.webp 1168w" sizes="(max-width: 760px) 100vw, 44vw" alt="Drêches dans un bac inox près d&#39;une cuve de récupération d&#39;eau" width="1168" height="784" loading="lazy" decoding="async">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
 </figure>
     <div class="bloc-texte">
       <p class="fiche-numero">03</p>
@@ -214,13 +202,10 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
       <p data-anime>La bière demande beaucoup d’eau, d’énergie, d’orge et de houblon. Réutilisation de l’eau, compostage des déchets organiques, énergies renouvelables : les brasseries réduisent leur empreinte.</p>
     </div>
   </li><li class="bloc bloc--inverse">
-    <figure class="media media-provisoire bloc-media" data-visuel data-image-attendue="grok/producteurs-equipe" style="aspect-ratio:3 / 2" role="img" aria-label="Silhouettes de l&#39;équipe en tablier entre les cuves, à contre-jour">
-  <svg viewBox="0 0 400 330" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
-    <defs><pattern id="q-producteurs-equipe" width="20" height="20" patternUnits="userSpaceOnUse"><path d="M20 0H0V20" class="grille"/></pattern></defs>
-    <rect width="400" height="330" fill="url(#q-producteurs-equipe)"/>
-    <g class="motif"><path d="M90 120h220M130 120v60M200 120v80M270 120v60M100 250h200"/><path class="fin" d="M120 250v-40h30v40M170 250v-40h30v40"/></g>
-  </svg>
-  <figcaption class="media-attente">Illustration à venir</figcaption>
+    <figure class="media bloc-media" data-grok style="--cadrage:50% 50%;aspect-ratio:3 / 2">
+  <picture>
+    <img src="/assets/images/grok/producteurs-equipe-1168.webp" srcset="/assets/images/grok/producteurs-equipe-640.webp 640w, /assets/images/grok/producteurs-equipe-1168.webp 1168w" sizes="(max-width: 760px) 100vw, 44vw" alt="Silhouettes de l&#39;équipe en tablier entre les cuves, à contre-jour" width="1168" height="784" loading="lazy" decoding="async">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
 </figure>
     <div class="bloc-texte">
       <p class="fiche-numero">04</p>
