@@ -5,10 +5,15 @@ import { ouverture, appel, autresMetiers } from './sections.mjs';
 import { image, cachet, repere } from './visuels.mjs';
 import { plan } from './plan.mjs';
 
-const miniPlan = (c, m) => html`<figure class="mini-plan" data-visuel>
-  ${plan(c, { actives: m.zones, id: `plan-${m.cle}`, titre: c.s('metier.planAlt'), classe: 'plan--mini' })}
-  <figcaption><strong>${c.t('metier.planTitre')}</strong> ${m.planTexte || c.t('metier.planTexte')}</figcaption>
+/* Mini-plan des pages métiers : brasserie type, entrepôt (Négociants) ou atelier (Fabricants).
+   Il suit la lecture : la zone de la fiche lue s'allume et son nom s'affiche (data-plan-suit). */
+const miniPlan = (c, m) => {
+  const autre = m.plan && c.donnees.plans[m.plan];
+  return html`<figure class="mini-plan" data-visuel data-plan-suit>
+  ${plan(c, { actives: m.zones, id: `plan-${m.cle}`, titre: autre ? autre.titre : c.s('metier.planAlt'), classe: 'plan--mini', scene: m.plan || 'brasserie' })}
+  <figcaption><strong>${c.t('metier.planTitre')}</strong> <span data-plan-legende>${autre ? autre.texte : c.t('metier.planTexte')}</span></figcaption>
 </figure>`;
+};
 
 const fiches = (c, points, { zones = true } = {}) => html`<ol class="fiches">${points.map((p, i) => html`<li class="fiche" data-anime${p.ancre ? html` id="${p.ancre}"` : ''}${zones && p.zone ? html` data-zone-lien="${p.zone}"` : ''}>
   <p class="fiche-numero">${String(i + 1).padStart(2, '0')}</p>

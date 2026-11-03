@@ -1,0 +1,64 @@
+{
+  "entrepot": {
+    "titre": "Plan isométrique d’un entrepôt de négoce : réception (A), stockage (B), bureaux (C), préparation des commandes (D), expédition (E)",
+    "texte": "Un entrepôt de négoce : les zones où vos engagements se jouent.",
+    "zones": [
+      {
+        "cle": "reception",
+        "numero": "A",
+        "nom": "Réception"
+      },
+      {
+        "cle": "stockage",
+        "numero": "B",
+        "nom": "Stockage"
+      },
+      {
+        "cle": "bureaux",
+        "numero": "C",
+        "nom": "Bureaux"
+      },
+      {
+        "cle": "preparation",
+        "numero": "D",
+        "nom": "Préparation des commandes"
+      },
+      {
+        "cle": "expedition",
+        "numero": "E",
+        "nom": "Expédition"
+      }
+    ]
+  },
+  "atelier": {
+    "titre": "Plan isométrique d’un atelier de fabrication de matériel de brasserie : chaudronnerie (A), soudure et assemblage (B), montage et essai (C), bureau d’études (D), expédition (E)",
+    "texte": "Votre atelier, de la chaudronnerie aux essais chez le client.",
+    "zones": [
+      {
+        "cle": "chaudronnerie",
+        "numero": "A",
+        "nom": "Chaudronnerie"
+      },
+      {
+        "cle": "assemblage",
+        "numero": "B",
+        "nom": "Soudure et assemblage"
+      },
+      {
+        "cle": "essais",
+        "numero": "C",
+        "nom": "Montage et essai"
+      },
+      {
+        "cle": "etudes",
+        "numero": "D",
+        "nom": "Bureau d’études"
+      },
+      {
+        "cle": "expedition",
+        "numero": "E",
+        "nom": "Expédition"
+      }
+    ]
+  }
+}

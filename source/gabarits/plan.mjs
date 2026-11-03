@@ -1,5 +1,5 @@
-/* Plan isométrique d'une brasserie type, dessiné en SVG au moment de la génération.
-   Six zones (A à F) tirées de donnees/zones.json. Chaque trait a pathLength="1" : il se dessine
+/* Plans isométriques dessinés en SVG au moment de la génération : brasserie type (six zones A à F, donnees/zones.json),
+   entrepôt de négoce et atelier de fabrication (cinq zones chacun, donnees/plans.json). Chaque trait a pathLength="1" : il se dessine
    au défilement sans mesure (stroke-dashoffset de 1 à 0). Les volumes sont remplis couleur papier
    et dessinés de l'arrière vers l'avant : les traits cachés le restent. */
 import { html, brut } from '../../outils/gabarit.mjs';
@@ -96,19 +96,110 @@ const objets = {
     + [[9.3, 6.9], [10.9, 6.9], [11.7, 6.8]].map(([x, y]) => { const [cx, cy] = P(x, y, 0.3); return `<ellipse class="face face-roue" cx="${f(cx)}" cy="${f(cy)}" rx="${f(0.24 * S)}" ry="${f(0.3 * S)}"/>` + trait(`M${f(cx)} ${f(cy - 0.3 * S)} A${f(0.24 * S)} ${f(0.3 * S)} 0 1 0 ${f(cx)} ${f(cy + 0.3 * S)} A${f(0.24 * S)} ${f(0.3 * S)} 0 1 0 ${f(cx)} ${f(cy - 0.3 * S)}`); }).join(''),
 };
 
-/* Emprise au sol et position de l'étiquette de chaque zone. */
-const emprises = {
-  brassage: [0, 4, 0, 4, [2.0, 2.0, 2.9]], fermentation: [4, 8, 0, 4, [5.9, 2.0, 4.0]], conditionnement: [8, 12, 0, 4, [10.0, 1.6, 2.4]],
-  accueil: [0, 4, 4, 8, [2.0, 6.0, 2.6]], stockage: [4, 8, 4, 8, [6.0, 6.0, 3.0]], livraison: [8, 12, 4, 8, [10.0, 6.2, 2.7]],
+/* Un objet dessiné ailleurs sur la grille : la projection isométrique est linéaire, un simple décalage suffit. */
+const deplacer = (dx, dy, svg) => { const [x, y] = P(dx, dy); return `<g transform="translate(${f(x)} ${f(y)})">${svg}</g>`; };
+
+/* Rayonnage : montants, trois niveaux, fûts posés sur chaque niveau. */
+function rayonnage(x0, x1, y0, y1, h = 2.6) {
+  const niveaux = [0.85, 1.7];
+  let s = pave(x0, x1, y0, y1, 0, h, {
+    lignes: [
+      ...niveaux.map((z) => `M${pt(P(x0, y1, z))} L${pt(P(x1, y1, z))} L${pt(P(x1, y0, z))}`),
+      ...[0.25, 0.5, 0.75].map((k) => { const x = x0 + (x1 - x0) * k; return `M${pt(P(x, y1, 0))} L${pt(P(x, y1, h))}`; }),
+    ],
+  });
+  for (let x = x0 + 0.45; x < x1 - 0.2; x += 0.75) s += cylindre(x, y1 + 0.32, 0.26, 0, 0.7, { cercles: [0.12, 0.58] });
+  return s;
+}
+
+/* Camion à quai (repris de la zone livraison du plan de brasserie). */
+const camion = (dx, dy) => deplacer(dx, dy, objets.livraison());
+
+/* Chariot élévateur : châssis, mât, fourches, une palette de fûts. */
+function chariot(x, y) {
+  return pave(x, x + 0.9, y, y + 0.7, 0.15, 0.75)
+    + trait(`M${pt(P(x + 0.95, y + 0.1, 0.1))} L${pt(P(x + 0.95, y + 0.1, 2.0))} M${pt(P(x + 0.95, y + 0.6, 0.1))} L${pt(P(x + 0.95, y + 0.6, 2.0))}`)
+    + pave(x + 1.0, x + 1.9, y, y + 0.7, 0.2, 0.32)
+    + [[x + 1.25, y + 0.2], [x + 1.65, y + 0.2], [x + 1.25, y + 0.5], [x + 1.65, y + 0.5]].map(([cx, cy]) => cylindre(cx, cy, 0.17, 0.32, 0.8)).join('');
+}
+
+/* Ligne de brassage en essai : deux cuves, tuyauterie, banc de mesure. */
+function ligneEssai() {
+  return pave(8.4, 11.6, 0.4, 3.6, 0, 0.18)
+    + cylindre(9.3, 1.4, 0.55, 0.18, 1.7, { dome: 0.4, cercles: [0.9] })
+    + cylindre(10.7, 1.4, 0.55, 0.18, 1.7, { dome: 0.4, cercles: [0.9] })
+    + tuyau([[9.3, 1.4, 2.2], [9.3, 1.4, 2.5], [10.7, 1.4, 2.5], [10.7, 1.4, 2.2]])
+    + pave(9.0, 11.0, 2.6, 3.3, 0.18, 1.05, { lignes: [`M${pt(P(9.3, 3.3, 0.5))} L${pt(P(10.7, 3.3, 0.5))}`] });
+}
+
+/* Chaudronnerie : virole en cours de roulage, rouleuse, cuve sous échafaudage. */
+function chaudronnerie() {
+  return pave(0.5, 2.2, 0.6, 1.5, 0, 0.9, { lignes: [`M${pt(P(0.7, 1.5, 0.45))} L${pt(P(2.0, 1.5, 0.45))}`] })
+    + cylindre(2.9, 1.3, 0.62, 0, 2.2, { cercles: [0.7, 1.45] })
+    + trait(`M${pt(P(2.0, 2.1, 0))} L${pt(P(2.0, 2.1, 2.5))} M${pt(P(3.8, 2.1, 0))} L${pt(P(3.8, 2.1, 2.5))} M${pt(P(2.0, 2.1, 2.5))} L${pt(P(3.8, 2.1, 2.5))} M${pt(P(2.0, 2.1, 1.25))} L${pt(P(3.8, 2.1, 1.25))}`, 'trait trait-fin')
+    + cylindre(1.5, 3.0, 0.45, 0, 0.9, { cercles: [0.45] });
+}
+
+/* Soudure et assemblage : deux fermenteurs sur pieds, poste de soudure. */
+function assemblage() {
+  return cylindre(5.2, 1.3, 0.5, 1.0, 2.9, { cone: 0.55, pieds: true, cercles: [1.9] })
+    + cylindre(6.8, 1.3, 0.5, 1.0, 2.9, { cone: 0.55, pieds: true, cercles: [1.9] })
+    + pave(5.0, 7.0, 2.6, 3.4, 0, 0.85)
+    + cylindre(6.6, 3.0, 0.16, 0.85, 1.5);
+}
+
+/* Expédition des équipements : caisses, une cuve couchée sur palette, camion. */
+function expeditionAtelier() {
+  return pave(4.4, 5.6, 4.6, 5.6, 0, 1.0) + pave(4.4, 5.6, 6.0, 7.0, 0, 1.0)
+    + pave(5.9, 7.4, 4.6, 7.2, 0, 0.25)
+    + cylindre(6.65, 5.9, 0.55, 0.25, 1.4, { cercles: [0.8] })
+    + camion(0, 0);
+}
+
+/* Les trois plans : brasserie type (accueil, Brasseries, Producteurs), entrepôt (Négociants), atelier (Fabricants). */
+const SCENES = {
+  brasserie: {
+    ordre: ['brassage', 'fermentation', 'conditionnement', 'accueil', 'stockage', 'livraison'],
+    emprises: {
+      brassage: [0, 4, 0, 4, [2.0, 2.0, 2.9]], fermentation: [4, 8, 0, 4, [5.9, 2.0, 4.0]], conditionnement: [8, 12, 0, 4, [10.0, 1.6, 2.4]],
+      accueil: [0, 4, 4, 8, [2.0, 6.0, 2.6]], stockage: [4, 8, 4, 8, [6.0, 6.0, 3.0]], livraison: [8, 12, 4, 8, [10.0, 6.2, 2.7]],
+    },
+    objets: (cle) => objets[cle](),
+  },
+  entrepot: {
+    ordre: ['reception', 'stockage', 'bureaux', 'preparation', 'expedition'],
+    emprises: {
+      reception: [0, 4, 0, 4, [2.0, 2.0, 2.4]], stockage: [4, 12, 0, 4, [8.0, 2.0, 3.6]],
+      bureaux: [0, 4, 4, 8, [2.0, 6.0, 2.6]], preparation: [4, 8, 4, 8, [6.0, 6.0, 2.6]], expedition: [8, 12, 4, 8, [10.0, 6.2, 2.7]],
+    },
+    objets: (cle) => ({
+      reception: () => pave(0.4, 3.6, 0.4, 1.3, 0, 0.6) + [[1.0, 2.3], [2.4, 2.3], [1.0, 3.2]].map(([x, y]) => pave(x, x + 1.0, y, y + 0.7, 0, 0.7, { lignes: [`M${pt(P(x, y + 0.7, 0.35))} L${pt(P(x + 1.0, y + 0.7, 0.35))}`] })).join(''),
+      stockage: () => rayonnage(4.4, 11.6, 0.5, 1.2) + rayonnage(4.4, 11.6, 2.4, 3.1),
+      bureaux: () => objets.accueil(),
+      preparation: () => [[4.6, 4.7], [4.6, 5.6]].map(([x, y]) => [[0, 0], [0.55, 0], [0, 0.45], [0.55, 0.45]].map(([a, b]) => cylindre(x + 0.3 + a, y + 0.25 + b, 0.22, 0, 0.6)).join('')).join('') + chariot(5.6, 6.4),
+      expedition: () => camion(0, 0),
+    })[cle](),
+  },
+  atelier: {
+    ordre: ['chaudronnerie', 'assemblage', 'essais', 'etudes', 'expedition'],
+    emprises: {
+      chaudronnerie: [0, 4, 0, 4, [2.0, 2.0, 3.2]], assemblage: [4, 8, 0, 4, [6.0, 2.0, 3.8]], essais: [8, 12, 0, 4, [10.0, 2.0, 3.1]],
+      etudes: [0, 4, 4, 8, [2.0, 6.0, 2.6]], expedition: [4, 12, 4, 8, [8.0, 6.2, 2.7]],
+    },
+    objets: (cle) => ({
+      chaudronnerie, assemblage, essais: ligneEssai, etudes: () => objets.accueil(), expedition: expeditionAtelier,
+    })[cle](),
+  },
 };
-const ORDRE = ['brassage', 'fermentation', 'conditionnement', 'accueil', 'stockage', 'livraison'];
 
 /**
  * @param {object} c contexte du gabarit (zones dans c.donnees.zones)
  * @param {object} o { actives: [cle], etiquettes: true, id, titre }
  */
-export function plan(c, { actives = null, etiquettes = true, id = 'plan', titre = '', classe = '' } = {}) {
-  const zones = Object.fromEntries(c.donnees.zones.map((z) => [z.cle, z]));
+export function plan(c, { actives = null, etiquettes = true, id = 'plan', titre = '', classe = '', scene = 'brasserie' } = {}) {
+  const sc = SCENES[scene];
+  const liste = scene === 'brasserie' ? c.donnees.zones : c.donnees.plans[scene].zones;
+  const zones = Object.fromEntries(liste.map((z) => [z.cle, z]));
   const sol = [];
   for (let i = 0; i <= 12; i++) sol.push(`M${pt(P(i, 0))} L${pt(P(i, 8))}`);
   for (let j = 0; j <= 8; j++) sol.push(`M${pt(P(0, j))} L${pt(P(12, j))}`);
@@ -118,16 +209,16 @@ export function plan(c, { actives = null, etiquettes = true, id = 'plan', titre 
   const [c1x, c1y] = P(0, 8.9), [c2x, c2y] = P(12, 8.9);
   const cote = trait(`M${f(c1x)} ${f(c1y)} L${f(c2x)} ${f(c2y)} M${f(c1x)} ${f(c1y - 6)} L${f(c1x)} ${f(c1y + 6)} M${f(c2x)} ${f(c2y - 6)} L${f(c2x)} ${f(c2y + 6)}`, 'trait trait-cote');
   const lettres = [];
-  const groupes = ORDRE.map((cle) => {
+  const groupes = sc.ordre.map((cle) => {
     const z = zones[cle];
-    const [x0, x1, y0, y1, [lx, ly, lz]] = emprises[cle];
+    const [x0, x1, y0, y1, [lx, ly, lz]] = sc.emprises[cle];
     const [ex, ey] = P(lx, ly, lz);
     const active = actives ? actives.includes(cle) : false;
     const etiquette = etiquettes ? `<use class="zone-cachet" href="#${id}-cachet" x="${f(ex + 8)}" y="${f(ey - 34)}" width="26" height="26"/>` : '';
-    lettres.push({ cle, numero: z.numero, x: (ex + 320) / 800 * 100, y: (ey + 170) / 610 * 100, active });
+    lettres.push({ cle, numero: z.numero, nom: z.nom, x: (ex + 320) / 800 * 100, y: (ey + 170) / 610 * 100, active });
     return `<g class="zone${active ? ' zone--active' : ''}" data-zone="${cle}">
       <path class="zone-sol" d="${poly([P(x0 + 0.08, y0 + 0.08), P(x1 - 0.08, y0 + 0.08), P(x1 - 0.08, y1 - 0.08), P(x0 + 0.08, y1 - 0.08)])}"/>
-      <g class="zone-objets">${objets[cle]()}</g>${etiquette}
+      <g class="zone-objets">${sc.objets(cle)}</g>${etiquette}
     </g>`;
   }).join('');
   const titreId = `${id}-titre`;
@@ -137,5 +228,5 @@ export function plan(c, { actives = null, etiquettes = true, id = 'plan', titre 
   ${brut(`<g class="plan-sol">${sol.map((d) => `<path d="${d}"/>`).join('')}</g>`)}
   ${brut(murs + cote)}
   ${brut(groupes)}
-</svg>${etiquettes ? brut(lettres.map((l) => `<span class="plan-lettre${l.active ? ' zone-active' : ''}" data-zone-lettre="${l.cle}" style="left:${f(l.x)}%;top:${f(l.y)}%" aria-hidden="true">${l.numero}</span>`).join('')) : ''}</div>`;
+</svg>${etiquettes ? brut(lettres.map((l) => `<span class="plan-lettre${l.active ? ' zone-active' : ''}" data-zone-lettre="${l.cle}" data-zone-nom="${l.nom}" style="left:${f(l.x)}%;top:${f(l.y)}%" aria-hidden="true">${l.numero}</span>`).join('')) : ''}</div>`;
 }

@@ -1,7 +1,7 @@
 /* Accueil : ouverture, métiers, carte des risques (épinglée), cinq protections (galerie épinglée),
    méthode (tuyauterie), test d'éligibilité TPE (manomètre), engagements (registre), questions, appel final. */
 import { html, brut } from '../../outils/gabarit.mjs';
-import { image, cachet, cote, repere, registre, manometre, recue } from '../gabarits/visuels.mjs';
+import { image, cachet, cote, repere, registre, manometre, recue, reticule } from '../gabarits/visuels.mjs';
 import { plan } from '../gabarits/plan.mjs';
 
 export const page = { cle: 'accueil', fichier: 'index', imagePartage: recue('accueil-ouverture') ? 'grok/accueil-ouverture-1168.webp' : null };
@@ -31,6 +31,8 @@ export default (c) => {
     ${cachet(c, { classe: 'cadre-cachet hero-cachet' })}
   </div>
 </section>
+
+<div class="bandeau" aria-hidden="true" data-audit-ignorer><div class="bandeau-piste" data-bandeau>${[0, 1].map(() => html`<span class="bandeau-groupe">${metiers.map((m, i) => html`<span class="bandeau-mot${i % 2 ? ' bandeau-mot--rouge' : ''}">${m.nom}</span>${reticule()}`)}</span>`)}</div></div>
 
 <section class="metiers conteneur" id="metiers">
   <div class="section-tete">
@@ -84,6 +86,7 @@ export default (c) => {
     ${repere('03', c.t('accueil.protections.repere'))}
     <h2>${c.t('accueil.protections.titre')}</h2>
     <p>${c.t('accueil.protections.texte')} <span class="indice-glisser">${c.t('commun.glisser')}</span></p>
+    <div class="galerie-fleches"><button type="button" class="galerie-fleche" data-galerie-prec aria-label="${c.s('commun.galeriePrecedente')}">←</button><button type="button" class="galerie-fleche" data-galerie-suiv aria-label="${c.s('commun.galerieSuivante')}">→</button></div>
   </div>
   <div class="piste protections-piste" data-galerie tabindex="0" role="region" aria-label="${c.s('accueil.protections.region')}">
     ${c.donnees.protections.map((p) => html`<article class="protection" id="protection-${p.cle}">
@@ -127,7 +130,11 @@ export default (c) => {
       ${repere('05', c.t('accueil.tpe.repere'))}
       <h2 data-titre-anime>${c.t('accueil.tpe.titre')}</h2>
       <p data-anime>${c.t('accueil.tpe.texte')}</p>
-      <p class="tpe-criteres" data-anime>${c.t('accueil.tpe.criteres')}</p>
+      <dl class="compteurs" data-anime>
+        <div><dt>${c.t('accueil.tpe.compteurDevis')}</dt><dd><span class="compteur-avant">${c.t('accueil.tpe.compteurDevisAvant')}</span> <span data-odometre>3</span> ${c.t('accueil.tpe.compteurDevisUnite')}</dd></div>
+        <div><dt>${c.t('accueil.tpe.compteurSurface')}</dt><dd><span class="compteur-avant">${c.t('accueil.tpe.compteurMoins')}</span> <span data-odometre>500</span> m²</dd></div>
+        <div><dt>${c.t('accueil.tpe.compteurCa')}</dt><dd><span class="compteur-avant">${c.t('accueil.tpe.compteurMoins')}</span> <span data-odometre>3</span> M€</dd></div>
+      </dl>
       <form class="eligibilite" data-eligibilite aria-describedby="eligibilite-verdict">
         <p class="eligibilite-titre">${c.t('accueil.tpe.test')}</p>
         ${[['activite', 'q1', 'cafe', 'autre'], ['surface', 'q2', 'petite', 'grande'], ['ca', 'q3', 'petit', 'grand']].map(([nom, q, oui, non]) => html`<fieldset class="choix">

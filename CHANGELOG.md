@@ -2,6 +2,32 @@
 
 Chaque version ajoute sa partie en tête de ce fichier, construite en comparant l'archive précédente et la nouvelle, jamais de mémoire.
 
+## v3 — un site plus vivant
+
+**Effets signature** (nouveau fichier `assets/js/effets.js`) :
+- changement de page « la cuve se remplit » : une bière ambrée monte avec sa mousse et ses bulles, puis le niveau redescend sur la nouvelle page (elle remplace le voile bleu nuit) ;
+- « du plan à la réalité » : chaque photo se trace d'abord au trait à l'encre, puis se développe en taches, quand elle arrive à l'écran (WebGL ; sans WebGL, simple découverte) ;
+- bulles de fermentation et vapeur sur la photo d'ouverture de l'accueil, écartées par la souris ;
+- jauge de niveau à droite de l'écran (ordinateur) : un tube de cuve se remplit pendant la lecture, une graduation par section.
+
+**Pages intérieures** :
+- pages métiers : le plan suit la lecture (zone de la fiche lue allumée, cachetée, nommée sous le plan) et s'incline en 3D à la souris ; plan d'entrepôt pour Négociants et plan d'atelier pour Fabricants (nouveau fichier `donnees/plans.json`) ;
+- Services : trois fiches sortent d'une chemise ; Contact : l'enveloppe s'ouvre ; 404 : une lumière tourne dans la cuve vide ; pages légales : tampon « CLASSÉ » près du titre ;
+- les grands titres s'encrent : ils passent de fins à gras en apparaissant.
+
+**Détails vivants** :
+- boutons qui se remplissent de bière au survol, liens fléchés soulignés d'une cote rouge, coordonnées près du réticule sur les plans et les photos ;
+- accueil : bandeau des métiers qui défile et s'incline avec la vitesse du défilement, chiffres du devis en ligne en rouleaux (3 min, 500 m², 3 M€), flèches et images glissantes dans la galerie des protections ;
+- devis : une cuve se remplit à chaque étape ; formulaires : tampon « SIMULÉE » à l'envoi ;
+- pied de page : le nom BRASSERIEassur en très grand, qui se remplit de bière en fin de page.
+
+**Corrections** :
+- les grands titres ne changent plus de hauteur à la fin de leur apparition (la page ne bouge plus de quelques pixels sous le lecteur) ;
+- calendrier de rendez-vous : choisir un jour ne reconstruit plus la grille (le focus reste sur le jour choisi) ;
+- effets allégés pour les ordinateurs lents : bulles calculées à mi-résolution, jauge et bandeau sans calcul de mise en page au défilement.
+
+Tout s'arrête en mode « animations réduites » et au retour arrière (la page revient dans son état final). Fichiers en ?v=3.
+
 ## v2 — les 35 images
 
 **Images** : les 35 images Grok restantes prennent leur place, et plus aucun emplacement n'affiche « Illustration à venir ».

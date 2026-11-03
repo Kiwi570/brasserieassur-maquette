@@ -2,8 +2,9 @@
    le mode calme, les boucles et les mesures : ce fichier ne contient que ce qui est propre au client.
    Effets : compas et capsule (intro), révélation à l'encre, carte des risques épinglée, galerie des protections,
    tuyauterie de la méthode, manomètre d'éligibilité, registre tamponné, fiches cachetées, formulaires en étapes. */
-import { demarrer, etat, rafraichir, aller, allerAncre, quand } from './socle/index.js?v=2';
-import { revelerEncre, encreFinale } from './encre.js?v=2';
+import { demarrer, etat, rafraichir, aller, allerAncre, quand } from './socle/index.js?v=3';
+import { encreFinale } from './encre.js?v=3';
+import { developper, armerDeveloppements, bullesEtVapeur, jauge, toutDevelopper } from './effets.js?v=3';
 
 const gsap = window.gsap;
 const ST = window.ScrollTrigger;
@@ -28,9 +29,11 @@ function decouperTitres() {
       onSplit(self) {
         etatTitre.split = self;
         if (etatTitre.fini || (premiers.has(el) && etat.pret)) { requestAnimationFrame(() => self.revert()); return null; }
-        if (premiers.has(el)) { gsap.set(self.lines, { yPercent: 110 }); return null; }
-        return gsap.fromTo(self.lines, { yPercent: 110 }, {
-          yPercent: 0, duration: .9, stagger: .09, ease: 'power3.out',
+        const encre = !petit();
+        if (premiers.has(el)) { gsap.set(self.lines, encre ? { yPercent: 110, fontWeight: 300, whiteSpace: 'nowrap' } : { yPercent: 110 }); return null; }
+        const graisse = parseInt(getComputedStyle(el).fontWeight, 10) || 520;
+        return gsap.fromTo(self.lines, encre ? { yPercent: 110, fontWeight: 300, whiteSpace: 'nowrap' } : { yPercent: 110 }, {
+          yPercent: 0, ...(encre ? { fontWeight: graisse, snap: { fontWeight: 20 } } : {}), duration: 1.1, stagger: .09, ease: 'power3.out',
           scrollTrigger: { trigger: el, start: 'top 88%', once: true },
           onComplete: () => { etatTitre.fini = true; requestAnimationFrame(() => self.revert()); },
         });
@@ -53,19 +56,31 @@ function premierEcran(tl, t0) {
   const textes = $$('.hero-intro, .hero-actions, .hero-info, .page-chapo, .page-actions, .page-info');
   if (titre) tl.set(titre, { opacity: 1 }, t0);
   if (lignes.length) {
-    tl.fromTo(lignes, { yPercent: 110 }, { yPercent: 0, duration: .75, stagger: .09, ease: 'power3.out' }, t0);
-    tl.call(() => finTitre(titre), null, t0 + .75 + .09 * lignes.length + .05);
+    const graisse = parseInt(getComputedStyle(titre).fontWeight, 10) || 500;
+    const encre = !petit();
+    tl.fromTo(lignes, { yPercent: 110, ...(encre ? { fontWeight: 300 } : {}) }, { yPercent: 0, duration: .75, stagger: .09, ease: 'power3.out' }, t0);
+    /* L'encre « sèche » : la graisse monte un peu après la sortie de chaque ligne (ordinateur). */
+    if (encre) tl.to(lignes, { fontWeight: graisse, snap: { fontWeight: 20 }, duration: .9, stagger: .09, ease: 'power2.inOut' }, t0 + .25);
+    tl.call(() => finTitre(titre), null, t0 + 1.15 + .09 * lignes.length + .05);
   }
+  const tampon = $('.titre-cachet');
+  if (tampon) tl.call(() => tampon.classList.add('tamponne'), null, t0 + 1.0);
   if (textes.length) tl.fromTo(textes, { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: .55, stagger: .07, ease: 'power2.out' }, t0 + .22);
   const cadre = $('[data-cadre]');
   if (cadre) {
     tl.call(() => {
       cadre.classList.add('revele');
       $$('.cote', cadre).forEach((c) => c.classList.add('trace'));
-      revelerEncre($('[data-encre]', cadre), { duree: 1150 });
+      const encre = $('[data-encre]', cadre);
+      /* Du plan à la réalité : la photo d'ouverture se trace puis se développe ; ensuite, bulles et vapeur sur l'accueil. */
+      developper($('.media', encre), { duree: 1700, avant: () => encre && encre.classList.add('revelee') }).then(() => {
+        if (cadre.classList.contains('hero-cadre') && !etat.calme) bullesEtVapeur(encre, { souris });
+      });
     }, null, t0);
     const c = $('.cadre-cachet', cadre);
     if (c) tl.call(() => c.classList.add('tamponne'), null, t0 + .75);
+    const dossier = $('.dossier', cadre);
+    if (dossier) tl.call(() => dossier.classList.add('ouvert'), null, t0 + 1.1);
   }
 }
 
@@ -101,8 +116,11 @@ function etatFinalProjet() {
     if (titre) finTitre(titre);
   }
   $$('[data-cadre]').forEach((c) => { c.classList.add('revele'); $$('.cote', c).forEach((x) => x.classList.add('trace')); });
-  $$('.cadre-cachet').forEach((c) => c.classList.add('tamponne'));
+  $$('.cadre-cachet, .titre-cachet').forEach((c) => c.classList.add('tamponne'));
+  $$('.dossier, .enveloppe').forEach((d) => d.classList.add('ouvert'));
+  $$('[data-plan-suit] .zone').forEach((z) => z.classList.add('est-cachetee'));
   encreFinale();
+  toutDevelopper();
 }
 
 function arriveeProjet() {
@@ -239,14 +257,17 @@ function protections() {
       piste.removeAttribute('tabindex');
       const distance = () => Math.max(0, piste.scrollWidth - window.innerWidth);
       const regle = $('.regle-remplie', section);
-      gsap.fromTo(piste, { x: 0 }, {
+      pisteTween = gsap.fromTo(piste, { x: 0 }, {
         x: () => -distance(), ease: 'none',
         scrollTrigger: {
           trigger: section, start: 'top top', end: () => '+=' + distance(), pin: true, anticipatePin: 1, scrub: .6, invalidateOnRefresh: true,
           onUpdate: (s) => { if (regle) regle.style.transform = `scaleX(${s.progress})`; },
         },
       });
-      return () => piste.setAttribute('tabindex', '0');
+      $$('.protection-media img', piste).forEach((img) => {
+        gsap.fromTo(img, { xPercent: -7, scale: 1.18 }, { xPercent: 7, scale: 1.18, ease: 'none', scrollTrigger: { trigger: img.closest('.protection'), containerAnimation: pisteTween, start: 'left right', end: 'right left', scrub: true } });
+      });
+      return () => { piste.setAttribute('tabindex', '0'); pisteTween = null; };
     },
   });
 }
@@ -319,11 +340,164 @@ function aLEcran() {
     if (!e.isIntersecting) return;
     const el = e.target;
     if (el.classList.contains('registre')) el.classList.add('tamponne');
+    if (el.classList.contains('enveloppe')) el.classList.add('ouvert');
     if (el.classList.contains('plan')) { el.classList.add('dessine'); el.parentElement.classList.add('dessine'); }
     io.unobserve(el);
   }), { threshold: .3 });
   $$('.registre').forEach((r) => (etat.calme ? r.classList.add('tamponne') : io.observe(r)));
+  $$('.enveloppe').forEach((e) => (etat.calme ? e.classList.add('ouvert') : io.observe(e)));
   $$('.plan--mini').forEach((p) => { if (etat.calme || !gsap) return; p.classList.add('a-dessiner'); p.parentElement.classList.add('a-dessiner'); io.observe(p); });
+}
+
+/* ---------- Bandeau des métiers : défile en continu, accélère et s'incline avec la vitesse du défilement. */
+function bandeau() {
+  const piste = $('[data-bandeau]');
+  if (!piste || !gsap || !ST || etat.calme) return;
+  const boucle = gsap.to(piste, { xPercent: -50, ease: 'none', duration: 38, repeat: -1 });
+  const vitesse = { t: 1 };
+  const vers = gsap.quickTo(vitesse, 't', { duration: .3, ease: 'power2.out', onUpdate: () => boucle.timeScale(vitesse.t) });
+  const pencher = gsap.quickTo(piste, 'skewX', { duration: .5, ease: 'power3.out' });
+  let inclinaison = 0, sens = 1, calme = 0;
+  ST.create({
+    trigger: piste.parentElement, start: 'top bottom', end: 'bottom top',
+    onToggle: (s) => (s.isActive ? boucle.play() : boucle.pause()),
+    onUpdate: (s) => {
+      const v = s.getVelocity();
+      sens = v < 0 ? -1 : 1;
+      vers(sens * Math.min(6, 1 + Math.abs(v) / 400));
+      const cible = Math.round(Math.max(-10, Math.min(10, v / -220)));
+      if (cible !== inclinaison) { inclinaison = cible; pencher(cible); }
+      clearTimeout(calme);
+      calme = setTimeout(() => { inclinaison = 0; pencher(0); vers(sens); }, 160);
+    },
+  });
+}
+
+/* ---------- Compteurs en rouleaux : chaque chiffre défile jusqu'à sa valeur (le nombre reste lisible pour tous). */
+function odometres() {
+  const liste = $$('[data-odometre]');
+  if (!liste.length || etat.calme || etat.arrivee === 'retour') return;
+  liste.forEach((el) => {
+    const valeur = el.textContent.trim();
+    el.textContent = '';
+    const lu = document.createElement('span'); lu.className = 'visuellement-cache'; lu.textContent = valeur;
+    const vu = document.createElement('span'); vu.className = 'odometre'; vu.setAttribute('aria-hidden', 'true'); vu.setAttribute('data-audit-ignorer', '');
+    [...valeur].forEach((ch, i) => {
+      const col = document.createElement('span'); col.className = 'odometre-col';
+      if (/\d/.test(ch)) {
+        /* Les dix chiffres du rouleau sont dessinés en CSS (::before) : aucun texte en double dans la page. */
+        col.innerHTML = '<span class="odometre-piste"></span>';
+        col.style.setProperty('--chiffre', ch);
+        col.style.setProperty('--i', i);
+      } else col.textContent = ch;
+      vu.appendChild(col);
+    });
+    el.append(lu, vu);
+  });
+  const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) { e.target.classList.add('tourne'); io.unobserve(e.target); } }), { threshold: .6 });
+  liste.forEach((el) => io.observe(el));
+}
+
+/* ---------- Galerie des protections : flèches (épinglée, elles font défiler la page jusqu'à la fiche voisine),
+   images qui glissent dans leur cadre pendant le mouvement. */
+let pisteTween = null;
+function galerieFleches() {
+  const section = $('.protections');
+  if (!section) return;
+  const piste = $('.protections-piste', section);
+  const fiches = $$('.protection', section);
+  const aller1 = (sens) => {
+    const st = pisteTween && pisteTween.scrollTrigger;
+    if (st && st.end > st.start && !petit()) {
+      const n = fiches.length - 1;
+      const i = Math.max(0, Math.min(n, Math.round(st.progress * n) + sens));
+      aller(st.start + (st.end - st.start) * (i / n) + 1);
+    } else {
+      const largeur = fiches[0] ? fiches[0].getBoundingClientRect().width + 20 : 320;
+      piste.scrollBy({ left: sens * largeur, behavior: etat.calme ? 'auto' : 'smooth' });
+    }
+  };
+  const p = $('[data-galerie-prec]', section), s = $('[data-galerie-suiv]', section);
+  if (p) p.addEventListener('click', () => aller1(-1));
+  if (s) s.addEventListener('click', () => aller1(1));
+}
+
+/* ---------- Pied de page : le nom se remplit de bière à mesure que la page se termine. */
+function piedGeant() {
+  const el = $('[data-pied-geant]');
+  if (!el) return;
+  if (!gsap || !ST || etat.calme) { el.style.setProperty('--niveau', '100%'); return; }
+  ST.create({
+    trigger: el, start: 'top bottom', end: 'bottom bottom',
+    onUpdate: (s) => { const n = Math.round(s.progress * 100); if (n !== el._niveau) { el._niveau = n; el.style.setProperty('--niveau', n + '%'); } },
+  });
+}
+
+/* ---------- Formulaires : un tampon « simulée » tombe à côté du bouton une fois la demande validée. */
+function tamponsEnvoi() {
+  $$('[data-message-envoi]').forEach((msg) => {
+    const f = msg.closest('form');
+    if (!f) return;
+    new MutationObserver(() => { if (!msg.hidden) f.classList.add('envoye'); }).observe(msg, { attributes: true, attributeFilter: ['hidden'] });
+  });
+}
+
+/* ---------- Réticule : coordonnées affichées sur les plans et les cadres photo (souris seulement). */
+function coordonnees() {
+  if (!souris || etat.calme) return;
+  let lab = null;
+  const zones = '[data-cadre], .plan-cadre, .mini-plan';
+  addEventListener('pointermove', (e) => {
+    const c = $('.curseur');
+    if (!c) return;
+    if (!lab) { lab = document.createElement('span'); lab.className = 'curseur-coord'; c.appendChild(lab); }
+    const z = e.target.closest && e.target.closest(zones);
+    c.classList.toggle('avec-coord', !!z);
+    if (!z) return;
+    const r = z.getBoundingClientRect();
+    const x = Math.round(e.clientX - r.left), y = Math.round(e.clientY - r.top);
+    lab.textContent = `X ${String(x).padStart(4, '0')}  Y ${String(y).padStart(4, '0')}`;
+  }, { passive: true });
+}
+
+/* ---------- Pages métiers : le plan suit la lecture. La zone de la fiche lue s'allume, reçoit son cachet,
+   et son nom s'affiche sous le plan ; à la souris, le plan s'incline en 3D. */
+function planQuiSuit() {
+  $$('[data-plan-suit]').forEach((fig) => {
+    const section = fig.closest('section');
+    const fiches = section ? $$('[data-zone-lien]', section) : [];
+    const legende = $('[data-plan-legende]', fig);
+    const depart = legende ? legende.textContent : '';
+    if (!fiches.length) return;
+    let courante = null;
+    const allumer = (fiche) => {
+      if (fiche === courante) return;
+      courante = fiche;
+      const cle = fiche ? fiche.dataset.zoneLien : null;
+      $$('.zone', fig).forEach((z) => z.classList.toggle('est-lue', z.dataset.zone === cle));
+      $$('.plan-lettre', fig).forEach((l) => l.classList.toggle('est-lue', l.dataset.zoneLettre === cle));
+      if (!cle) { if (legende) legende.textContent = depart; return; }
+      const z = $(`.zone[data-zone="${cle}"]`, fig);
+      if (z) z.classList.add('est-cachetee');
+      const l = $(`.plan-lettre[data-zone-lettre="${cle}"]`, fig);
+      const titre = $('h3', fiche);
+      if (legende && l) legende.textContent = `${l.textContent} · ${l.dataset.zoneNom}\u00a0: ${titre ? titre.textContent.trim() : ''}`;
+    };
+    const io = new IntersectionObserver((es) => es.forEach((e) => { if (e.isIntersecting) allumer(e.target); }), { rootMargin: '-42% 0px -42% 0px' });
+    fiches.forEach((f) => {
+      io.observe(f);
+      if (souris) f.addEventListener('pointerenter', () => allumer(f));
+    });
+    if (souris && gsap && !etat.calme) {
+      const cadre = $('.plan-cadre', fig);
+      fig.addEventListener('pointermove', (e) => {
+        const r = fig.getBoundingClientRect();
+        const px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+        gsap.to(cadre, { rotationY: px * 10, rotationX: -py * 8, transformPerspective: 900, duration: .5, ease: 'power2.out' });
+      });
+      fig.addEventListener('pointerleave', () => gsap.to(cadre, { rotationY: 0, rotationX: 0, duration: .8, ease: 'power3.out' }));
+    }
+  });
 }
 
 /* ---------- Parallaxes : photo d'ouverture, cave de l'appel final, capsule de l'appel. */
@@ -507,7 +681,11 @@ function rendezVous() {
     const nav = e.target.closest('[data-nav-mois]');
     if (nav && !nav.disabled) { mois = new Date(Date.UTC(mois.getUTCFullYear(), mois.getUTCMonth() + (+nav.dataset.navMois), 1)); rendre(); return; }
     const j = e.target.closest('[data-jour]');
-    if (j && !j.disabled) { source.value = j.dataset.jour; erreurChamp(source, ''); rendre(j.dataset.jour); majRecap(); }
+    if (j && !j.disabled) {
+      source.value = j.dataset.jour; erreurChamp(source, '');
+      $$('[data-jour]', cal).forEach((b) => { const sel = b === j; b.setAttribute('aria-pressed', String(sel)); b.tabIndex = sel ? 0 : -1; });
+      majRecap();
+    }
   });
   cal.addEventListener('keydown', (e) => {
     const j = e.target.closest('[data-jour]');
@@ -539,6 +717,7 @@ function rendezVous() {
 
 demarrer({
   preparer() {
+    odometres();
     decouperTitres();
     classeur();
     carteDesRisques();
@@ -549,9 +728,17 @@ demarrer({
     aLEcran();
     parallaxes();
     microInteractions();
+    planQuiSuit();
+    bandeau();
+    galerieFleches();
+    piedGeant();
+    tamponsEnvoi();
+    coordonnees();
     formulaires();
     devisEtapes();
     rendezVous();
+    jauge();
+    if (!etat.calme && etat.arrivee !== 'retour') armerDeveloppements('.media[data-grok]', { exclure: '.hero-media, .page-tete-media, .final-media' });
   },
   jouer: jouerIntro,
   etatFinal: etatFinalProjet,

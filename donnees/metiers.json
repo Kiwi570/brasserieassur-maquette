@@ -1,124 +1,279 @@
 [
   {
-    "cle": "brasserie", "page": "brasseries", "numero": "01", "nom": "Brasseries", "image": "metier-brasseries",
+    "cle": "brasserie",
+    "page": "brasseries",
+    "numero": "01",
+    "nom": "Brasseries",
+    "image": "metier-brasseries",
     "question": "Les garanties pour ma brasserie ?",
     "titre": "Bien assurer sa brasserie",
     "chapo": "Assurer correctement votre local de brasserie protège votre investissement et votre entreprise contre les risques du métier.",
     "ouverture": "brasseries-ouverture",
     "infoCle": "8 points à vérifier, une étude sur mesure",
     "actionDevis": "Demander un devis pour ma brasserie",
-    "zones": ["brassage", "fermentation", "conditionnement", "stockage", "accueil"],
+    "zones": [
+      "brassage",
+      "fermentation",
+      "conditionnement",
+      "stockage",
+      "accueil"
+    ],
     "pointsTitre": "Les huit points à vérifier",
     "pointsIntro": "Les conseils du cabinet pour bien assurer votre local de brasserie.",
     "points": [
-      { "titre": "Évaluation des risques", "texte": "Avant de choisir une assurance, évaluez les risques propres à votre local : incendie, dégâts des eaux, vol, intempéries…", "zone": "stockage" },
-      { "titre": "Assurance multirisque professionnelle", "texte": "Une couverture étendue : dommages matériels, responsabilité civile, interruption d’activité. Elle s’adapte aux besoins de votre brasserie.", "zone": "brassage" },
-      { "titre": "Responsabilité civile", "texte": "Les dommages corporels ou matériels causés à des tiers sur les lieux de votre brasserie : clients, fournisseurs ou autres visiteurs.", "zone": "accueil" },
-      { "titre": "Assurance des biens", "texte": "Cuves de brassage, installations de stockage, équipements de refroidissement : contre l’incendie, les dégâts des eaux, les catastrophes naturelles.", "zone": "fermentation" },
-      { "titre": "Assurance vol", "texte": "Contre le vol et le vandalisme, en tenant compte de la valeur totale de vos biens et équipements à la souscription.", "zone": "stockage" },
-      { "titre": "Interruption d’activité", "texte": "Après un sinistre garanti, elle compense les pertes de revenus et les frais fixes pendant l’interruption.", "zone": "fermentation" },
-      { "titre": "Responsabilité des produits", "texte": "Si votre brasserie vend ses produits : les dommages causés à des tiers, comme des intoxications alimentaires ou des réactions allergiques.", "zone": "conditionnement", "ancre": "rc-produits" },
-      { "titre": "Conformité réglementaire", "texte": "Votre assurance doit répondre aux exigences légales et réglementaires de votre secteur et de votre région : certaines sont obligatoires.", "zone": "accueil" }
+      {
+        "titre": "Évaluation des risques",
+        "texte": "Avant de choisir une assurance, évaluez les risques propres à votre local : incendie, dégâts des eaux, vol, intempéries…",
+        "zone": "stockage"
+      },
+      {
+        "titre": "Assurance multirisque professionnelle",
+        "texte": "Une couverture étendue : dommages matériels, responsabilité civile, interruption d’activité. Elle s’adapte aux besoins de votre brasserie.",
+        "zone": "brassage"
+      },
+      {
+        "titre": "Responsabilité civile",
+        "texte": "Les dommages corporels ou matériels causés à des tiers sur les lieux de votre brasserie : clients, fournisseurs ou autres visiteurs.",
+        "zone": "accueil"
+      },
+      {
+        "titre": "Assurance des biens",
+        "texte": "Cuves de brassage, installations de stockage, équipements de refroidissement : contre l’incendie, les dégâts des eaux, les catastrophes naturelles.",
+        "zone": "fermentation"
+      },
+      {
+        "titre": "Assurance vol",
+        "texte": "Contre le vol et le vandalisme, en tenant compte de la valeur totale de vos biens et équipements à la souscription.",
+        "zone": "stockage"
+      },
+      {
+        "titre": "Interruption d’activité",
+        "texte": "Après un sinistre garanti, elle compense les pertes de revenus et les frais fixes pendant l’interruption.",
+        "zone": "fermentation"
+      },
+      {
+        "titre": "Responsabilité des produits",
+        "texte": "Si votre brasserie vend ses produits : les dommages causés à des tiers, comme des intoxications alimentaires ou des réactions allergiques.",
+        "zone": "conditionnement",
+        "ancre": "rc-produits"
+      },
+      {
+        "titre": "Conformité réglementaire",
+        "texte": "Votre assurance doit répondre aux exigences légales et réglementaires de votre secteur et de votre région : certaines sont obligatoires.",
+        "zone": "accueil"
+      }
     ],
     "resumeTitre": "En résumé",
     "resume": "Bien assurer votre local, c’est évaluer les risques avec soin, choisir les bonnes assurances et rester conforme à la réglementation. Un courtier vous aide à obtenir une couverture adaptée à vos besoins.",
     "resumeImage": "brasseries-stock"
   },
   {
-    "cle": "producteur", "page": "producteurs", "numero": "02", "nom": "Producteurs", "image": "metier-producteurs",
+    "cle": "producteur",
+    "page": "producteurs",
+    "numero": "02",
+    "nom": "Producteurs",
+    "image": "metier-producteurs",
     "question": "Quelles responsabilités ?",
     "titre": "La responsabilité des producteurs",
     "chapo": "Avec l’essor de la bière artisanale et des microbrasseries, les producteurs font face à de nouveaux défis : sécurité, santé publique, responsabilité sociale.",
     "ouverture": "producteurs-ouverture",
     "infoCle": "4 responsabilités, 2 garanties",
     "actionDevis": "Demander un devis pour ma production",
-    "zones": ["brassage", "conditionnement", "accueil"],
+    "zones": [
+      "brassage",
+      "conditionnement",
+      "accueil"
+    ],
     "pointsTitre": "Quatre responsabilités",
     "pointsIntro": "Ce qui engage aujourd’hui un producteur de bière.",
     "points": [
-      { "titre": "Sécurité et qualité", "texte": "Respecter les normes sanitaires et la réglementation de la production alimentaire : des installations propres et conformes, des produits exempts de contaminants. Un écart peut mettre en danger les consommateurs et la réputation de la brasserie.", "image": "producteurs-qualite" },
-      { "titre": "Consommation responsable", "texte": "Sensibiliser aux dangers de l’alcool au volant et de l’abus d’alcool, promouvoir une consommation modérée. De nombreuses brasseries soutiennent des initiatives locales de prévention.", "image": "producteurs-moderation" },
-      { "titre": "Responsabilité environnementale", "texte": "La bière demande beaucoup d’eau, d’énergie, d’orge et de houblon. Réutilisation de l’eau, compostage des déchets organiques, énergies renouvelables : les brasseries réduisent leur empreinte.", "image": "producteurs-environnement" },
-      { "titre": "Responsabilité sociale", "texte": "Représentation et diversité dans les équipes comme dans la communication, soutien à des causes sociales et locales : égalité, lutte contre les discriminations.", "image": "producteurs-equipe" }
+      {
+        "titre": "Sécurité et qualité",
+        "texte": "Respecter les normes sanitaires et la réglementation de la production alimentaire : des installations propres et conformes, des produits exempts de contaminants. Un écart peut mettre en danger les consommateurs et la réputation de la brasserie.",
+        "image": "producteurs-qualite"
+      },
+      {
+        "titre": "Consommation responsable",
+        "texte": "Sensibiliser aux dangers de l’alcool au volant et de l’abus d’alcool, promouvoir une consommation modérée. De nombreuses brasseries soutiennent des initiatives locales de prévention.",
+        "image": "producteurs-moderation"
+      },
+      {
+        "titre": "Responsabilité environnementale",
+        "texte": "La bière demande beaucoup d’eau, d’énergie, d’orge et de houblon. Réutilisation de l’eau, compostage des déchets organiques, énergies renouvelables : les brasseries réduisent leur empreinte.",
+        "image": "producteurs-environnement"
+      },
+      {
+        "titre": "Responsabilité sociale",
+        "texte": "Représentation et diversité dans les équipes comme dans la communication, soutien à des causes sociales et locales : égalité, lutte contre les discriminations.",
+        "image": "producteurs-equipe"
+      }
     ],
     "liees": [
-      { "titre": "Responsabilité des produits", "texte": "Intoxications alimentaires, réactions allergiques : les dommages causés à des tiers par vos produits.", "page": "brasseries", "ancre": "rc-produits" },
-      { "titre": "Produits défectueux", "texte": "Les coûts liés aux rappels de produits et aux réclamations.", "page": "fabricants", "ancre": "assurances" }
+      {
+        "titre": "Responsabilité des produits",
+        "texte": "Intoxications alimentaires, réactions allergiques : les dommages causés à des tiers par vos produits.",
+        "page": "brasseries",
+        "ancre": "rc-produits"
+      },
+      {
+        "titre": "Produits défectueux",
+        "texte": "Les coûts liés aux rappels de produits et aux réclamations.",
+        "page": "fabricants",
+        "ancre": "assurances"
+      }
     ],
     "resumeTitre": "En résumé",
     "resume": "La responsabilité d’un producteur va bien au-delà de la fabrication.",
     "lieesIntro": "Un défaut de qualité peut engager votre responsabilité envers les consommateurs : deux garanties y répondent directement."
   },
   {
-    "cle": "negociant", "page": "negociants", "numero": "03", "nom": "Négociants en gros", "image": "metier-negociants",
+    "cle": "negociant",
+    "page": "negociants",
+    "numero": "03",
+    "nom": "Négociants en gros",
+    "image": "metier-negociants",
     "question": "Comment se protéger des engagements contractuels ?",
     "titre": "Se protéger des engagements",
     "chapo": "Vos engagements d’achat et d’approvisionnement vous exposent : plusieurs assurances, combinées, en limitent les conséquences.",
     "ouverture": "negociants-ouverture",
     "infoCle": "Une combinaison à étudier selon vos contrats",
     "actionDevis": "Demander un devis pour mon négoce",
-    "zones": ["stockage", "livraison", "accueil"],
+    "zones": [
+      "reception",
+      "stockage",
+      "bureaux",
+      "expedition"
+    ],
     "pointsTitre": "Quatre assurances à combiner",
-    "planTexte": "Dans une brasserie cliente : stockage, livraison et bureaux, là où vos engagements se jouent.",
     "pointsIntro": "Chacune répond à un aspect des risques commerciaux.",
     "points": [
-      { "titre": "Interruption d’activité", "texte": "Les pertes financières dues à une interruption imprévue : un fournisseur clé qui ne livre pas, des matières premières en retard. Elle aide à couvrir les pertes de revenus et les frais fixes.", "zone": "stockage" },
-      { "titre": "Assurance-crédit", "texte": "Contre le non-paiement ou le retard de paiement de vos clients. Elle ne couvre pas directement les clauses d’achat, mais protège votre trésorerie si un client ne tient pas ses engagements.", "zone": "accueil" },
-      { "titre": "Risques commerciaux", "texte": "Retards de livraison, pénuries de matières premières, fluctuations des prix : une police à personnaliser avec votre courtier selon vos besoins.", "zone": "livraison" },
-      { "titre": "Responsabilité civile des produits", "texte": "Les réclamations de tiers en cas de produit défectueux ou de dommages causés par vos produits, surtout si vos contrats imposent des garanties de qualité ou de conformité.", "zone": "livraison" }
+      {
+        "titre": "Interruption d’activité",
+        "texte": "Les pertes financières dues à une interruption imprévue : un fournisseur clé qui ne livre pas, des matières premières en retard. Elle aide à couvrir les pertes de revenus et les frais fixes.",
+        "zone": "reception"
+      },
+      {
+        "titre": "Assurance-crédit",
+        "texte": "Contre le non-paiement ou le retard de paiement de vos clients. Elle ne couvre pas directement les clauses d’achat, mais protège votre trésorerie si un client ne tient pas ses engagements.",
+        "zone": "bureaux"
+      },
+      {
+        "titre": "Risques commerciaux",
+        "texte": "Retards de livraison, pénuries de matières premières, fluctuations des prix : une police à personnaliser avec votre courtier selon vos besoins.",
+        "zone": "stockage"
+      },
+      {
+        "titre": "Responsabilité civile des produits",
+        "texte": "Les réclamations de tiers en cas de produit défectueux ou de dommages causés par vos produits, surtout si vos contrats imposent des garanties de qualité ou de conformité.",
+        "zone": "expedition"
+      }
     ],
     "resumeTitre": "En résumé",
     "resume": "Se protéger de ces engagements demande souvent de combiner plusieurs assurances, chacune pour un aspect du risque commercial. Un courtier vous aide à évaluer vos risques et à choisir la bonne combinaison.",
-    "resumeImage": "negociants-quai"
+    "resumeImage": "negociants-quai",
+    "plan": "entrepot"
   },
   {
-    "cle": "fabricant", "page": "fabricants", "numero": "04", "nom": "Fabricants de matériel", "image": "metier-fabricants",
+    "cle": "fabricant",
+    "page": "fabricants",
+    "numero": "04",
+    "nom": "Fabricants de matériel",
+    "image": "metier-fabricants",
     "question": "Quelles sont les garanties légales ?",
     "titre": "La responsabilité des fabricants",
     "chapo": "Vendre du matériel de brasserie engage votre responsabilité en cas de défaut. Garanties légales, assurances de l’entreprise, garanties de montage et d’essai : l’essentiel.",
     "ouverture": "fabricants-ouverture",
     "infoCle": "Garanties légales, 3 assurances",
     "actionDevis": "Demander un devis pour mon atelier",
-    "zones": ["brassage", "fermentation", "conditionnement"],
+    "zones": [
+      "essais",
+      "etudes",
+      "expedition"
+    ],
     "legalesTitre": "Vos garanties légales",
-    "planTexte": "Chez vos clients brasseurs : les zones où votre matériel est installé et mis en service.",
     "legales": [
-      { "titre": "Garantie de conformité", "texte": "Le vendeur répond des défauts de conformité existant lors de la délivrance du bien, pendant deux ans.", "reference": "Articles L217-3 et suivants du Code de la consommation", "note": "Cette garantie protège les acheteurs consommateurs : sa portée dans les ventes entre professionnels est à valider." },
-      { "titre": "Garantie des vices cachés", "texte": "Le vendeur garantit l’acheteur contre les défauts cachés qui rendent le bien impropre à l’usage prévu. L’acheteur dispose de deux ans à compter de la découverte du vice.", "reference": "Articles 1641 et 1648 du Code civil" }
+      {
+        "titre": "Garantie de conformité",
+        "texte": "Le vendeur répond des défauts de conformité existant lors de la délivrance du bien, pendant deux ans.",
+        "reference": "Articles L217-3 et suivants du Code de la consommation",
+        "note": "Cette garantie protège les acheteurs consommateurs : sa portée dans les ventes entre professionnels est à valider."
+      },
+      {
+        "titre": "Garantie des vices cachés",
+        "texte": "Le vendeur garantit l’acheteur contre les défauts cachés qui rendent le bien impropre à l’usage prévu. L’acheteur dispose de deux ans à compter de la découverte du vice.",
+        "reference": "Articles 1641 et 1648 du Code civil"
+      }
     ],
     "pointsTitre": "Les assurances de l’entreprise",
     "pointsIntro": "Pour vous protéger des risques liés à la vente de vos produits.",
     "points": [
-      { "titre": "Responsabilité civile professionnelle", "texte": "Les dommages corporels, matériels ou immatériels causés à des tiers dans le cadre de votre activité, y compris les défauts de conformité des produits vendus.", "zone": "brassage" },
-      { "titre": "Protection juridique", "texte": "Les frais juridiques en cas de litige avec un client à propos d’un produit défectueux ou non conforme.", "zone": "accueil" },
-      { "titre": "Produits défectueux", "texte": "Les coûts liés aux rappels de produits ou aux réclamations en cas de produits défectueux.", "zone": "conditionnement" }
+      {
+        "titre": "Responsabilité civile professionnelle",
+        "texte": "Les dommages corporels, matériels ou immatériels causés à des tiers dans le cadre de votre activité, y compris les défauts de conformité des produits vendus.",
+        "zone": "essais"
+      },
+      {
+        "titre": "Protection juridique",
+        "texte": "Les frais juridiques en cas de litige avec un client à propos d’un produit défectueux ou non conforme.",
+        "zone": "etudes"
+      },
+      {
+        "titre": "Produits défectueux",
+        "texte": "Les coûts liés aux rappels de produits ou aux réclamations en cas de produits défectueux.",
+        "zone": "expedition"
+      }
     ],
     "montage": {
       "titre": "Garanties de montage et d’essai",
       "definition": "Une protection contre les défauts de fabrication, les erreurs de montage et les problèmes de performance pendant le montage, la mise en service et les essais d’un nouvel équipement. Elle couvre la réparation ou le remplacement des équipements défectueux, et les pertes financières liées à une interruption du projet.",
       "avantagesTitre": "Ses avantages",
       "avantages": [
-        { "titre": "Moins de risques financiers", "texte": "Pendant la phase critique de mise en service." },
-        { "titre": "Des investissements protégés", "texte": "Contre les problèmes imprévus qui compromettraient le projet." },
-        { "titre": "Un soutien technique", "texte": "Le contrat peut inclure l’assistance du fournisseur ou du fabricant." },
-        { "titre": "La confiance des clients", "texte": "Dans la qualité et la fiabilité de vos équipements." }
+        {
+          "titre": "Moins de risques financiers",
+          "texte": "Pendant la phase critique de mise en service."
+        },
+        {
+          "titre": "Des investissements protégés",
+          "texte": "Contre les problèmes imprévus qui compromettraient le projet."
+        },
+        {
+          "titre": "Un soutien technique",
+          "texte": "Le contrat peut inclure l’assistance du fournisseur ou du fabricant."
+        },
+        {
+          "titre": "La confiance des clients",
+          "texte": "Dans la qualité et la fiabilité de vos équipements."
+        }
       ],
       "souscrireTitre": "Pour la souscrire",
       "souscrire": "Bien comprendre les termes du contrat : durée de la garantie, exclusions, démarches en cas de problème. Travailler avec des fournisseurs ou des fabricants réputés."
     },
     "resumeTitre": "En résumé",
-    "resume": "Les garanties de montage et d’essai contribuent à limiter les conséquences financières d’un incident pendant la mise en service de vos équipements."
+    "resume": "Les garanties de montage et d’essai contribuent à limiter les conséquences financières d’un incident pendant la mise en service de vos équipements.",
+    "plan": "atelier"
   },
   {
-    "cle": "distributeur", "numero": "05", "nom": "Distributeurs", "image": "metier-distributeurs",
-    "question": "Bien assurer la marchandise, c’est possible ?", "aCompleter": true
+    "cle": "distributeur",
+    "numero": "05",
+    "nom": "Distributeurs",
+    "image": "metier-distributeurs",
+    "question": "Bien assurer la marchandise, c’est possible ?",
+    "aCompleter": true
   },
   {
-    "cle": "evenement", "numero": "06", "nom": "Événements (Bierologie)", "image": "metier-evenements",
-    "question": "Comment assurer mon événement ?", "aCompleter": true
+    "cle": "evenement",
+    "numero": "06",
+    "nom": "Événements (Bierologie)",
+    "image": "metier-evenements",
+    "question": "Comment assurer mon événement ?",
+    "aCompleter": true
   },
   {
-    "cle": "cafe", "numero": "07", "nom": "Cafés, bars, brasseries-restaurants", "image": "metier-cafes",
-    "question": "Devis instantané et souscription en ligne pour les TPE éligibles.", "versTpe": true
+    "cle": "cafe",
+    "numero": "07",
+    "nom": "Cafés, bars, brasseries-restaurants",
+    "image": "metier-cafes",
+    "question": "Devis instantané et souscription en ligne pour les TPE éligibles.",
+    "versTpe": true
   }
 ]

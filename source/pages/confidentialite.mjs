@@ -7,7 +7,7 @@ const sections = ['responsable', 'donnees', 'finalites', 'duree', 'droits', 'coo
 
 export default (c) => html`
 <div data-barre-lecture aria-hidden="true"></div>
-${ouverture(c, { repere: c.t('confidentialite.repere'), titre: c.t('confidentialite.titre'), image: 'legal-ouverture', court: true, cachet: false })}
+${ouverture(c, { repere: c.t('confidentialite.repere'), titre: c.t('confidentialite.titre'), image: 'legal-ouverture', court: true, cachet: false, tampon: c.s('commun.tamponClasse') })}
 <div class="texte-long conteneur" data-sans-visuel>
   <nav class="sommaire" data-sommaire aria-label="${c.s('commun.sommaire')}"><p class="sommaire-titre">${c.t('commun.sommaire')}</p><ul>${sections.map((s) => html`<li><a href="#${s}" data-sans-transition>${c.t(`confidentialite.${s}.titre`)}</a></li>`)}</ul></nav>
   <div class="texte-long-corps">

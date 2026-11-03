@@ -9,10 +9,10 @@
    - section : rechargement dû au bouton du mode calme : état final, retour à la section.
    - calme, secours : état final directement.
    Aucune attente ne peut bloquer l'écran : en cas d'erreur, la page passe dans son état final. */
-import { html, etat, emettre, stockage, prochaineImage, attendre } from './etat.js?v=2';
-import { bloquerDefilement, debloquerDefilement, aller } from './defilement.js?v=2';
-import { toutAfficher, demarrerApparitions } from './apparitions.js?v=2';
-import { suivre, lacher, lacherTout } from './gouttiere.js?v=2';
+import { html, etat, emettre, stockage, prochaineImage, attendre } from './etat.js?v=3';
+import { bloquerDefilement, debloquerDefilement, aller } from './defilement.js?v=3';
+import { toutAfficher, demarrerApparitions } from './apparitions.js?v=3';
+import { suivre, lacher, lacherTout } from './gouttiere.js?v=3';
 
 const MAX_ATTENTE = 1500;
 const BUDGET = 2900; /* ms depuis le premier octet jusqu'à la fin de l'intro */
@@ -34,8 +34,10 @@ function voile() { return document.querySelector('[data-voile]'); }
 function leverVoile() {
   const v = voile();
   if (!v || etat.calme) { html.classList.add('voile-leve'); return Promise.resolve(); }
-  const a = v.animate([{ transform: 'translateY(0)' }, { transform: 'translateY(-100%)' }],
-    { duration: 520, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'forwards' });
+  /* data-voile-sortie="bas" : le panneau redescend (sur un voile en forme de liquide, le niveau baisse). */
+  const sens = v.dataset.voileSortie === 'bas' ? '100%' : '-100%';
+  const a = v.animate([{ transform: 'translateY(0)' }, { transform: `translateY(${sens})` }],
+    { duration: 620, easing: 'cubic-bezier(.65,0,.35,1)', fill: 'forwards' });
   return a.finished.catch(() => {}).then(() => { html.classList.add('voile-leve'); a.cancel(); });
 }
 

@@ -118,14 +118,31 @@ export function fut(c, { classe = '' } = {}) {
 
 /* Enveloppe cachetée : dessin de la page Contact. */
 export function enveloppe(c, { classe = '' } = {}) {
-  return html`<svg class="dessin ${classe}" viewBox="0 0 220 150" aria-hidden="true" focusable="false" data-visuel>
+  return html`<svg class="dessin enveloppe ${classe}" viewBox="0 -44 220 194" aria-hidden="true" focusable="false" data-visuel>
   <rect class="remplissage" x="10" y="22" width="180" height="112" rx="3"/>
-  <path d="M10 25L100 88L190 25"/><path class="fin" d="M10 131L78 72M190 131L122 72"/>
-  <circle class="rouge" cx="168" cy="44" r="20"/><circle class="rouge fin" cx="168" cy="44" r="14"/>
-  <path class="rouge" d="M160 44L166 50L177 38"/>
-  <path class="fin" d="M120 40q8 -6 16 0t16 0M120 50q8 -6 16 0t16 0"/>
+  <path class="remplissage env-rabat-ouvert" d="M10 22L100 -36L190 22Z"/>
+  <g class="env-lettre"><rect class="remplissage" x="34" y="44" width="132" height="84" rx="2"/><path class="fin" d="M48 62H150M48 76H150M48 90H128M48 104H140"/></g>
+  <path class="remplissage" d="M10 70L100 112L190 70V134H10Z"/><path class="fin" d="M10 131L78 92M190 131L122 92"/>
+  <circle class="rouge" cx="168" cy="114" r="13"/><path class="rouge" d="M162 114L166 118L174 109"/>
+  <path class="remplissage env-rabat" d="M10 22L100 84L190 22Z"/>
 </svg>`;
 }
+
+/* Petite cuve de fermentation : son niveau suit l'avancement du formulaire (variable CSS --progres, de 0 à 1). */
+let nCuve = 0;
+export function cuve(c, { classe = '' } = {}) {
+  const id = `cuve-${++nCuve}`;
+  return html`<svg class="cuve ${classe}" viewBox="0 0 80 112" aria-hidden="true" focusable="false">
+  <defs><clipPath id="${id}"><path d="M14 22H66V72L40 96L14 72Z"/></clipPath></defs>
+  <path class="cuve-fond" d="M14 22H66V72L40 96L14 72Z"/>
+  <g clip-path="url(#${id})"><g class="cuve-liquide"><rect x="0" y="0" width="80" height="112"/><rect class="cuve-mousse" x="0" y="0" width="80" height="5"/><circle cx="30" cy="40" r="1.6"/><circle cx="46" cy="58" r="1.2"/><circle cx="38" cy="76" r="1.4"/></g></g>
+  <path class="cuve-trait" d="M14 22H66V72L40 96L14 72Z M14 22Q40 6 66 22 M40 96V104 M22 80L18 108 M58 80L62 108"/>
+  <path class="cuve-graduation" d="M66 34H72M66 46H70M66 58H72M66 70H70"/>
+</svg>`;
+}
+
+/* Réticule de plan (cercle et croix), séparateur du bandeau des métiers. */
+export const reticule = () => brut('<svg class="reticule" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="7"/><path d="M12 1V23M1 12H23"/></svg>');
 
 /* Manomètre du test d'éligibilité : aiguille pilotée par le script, zones « sur mesure » et « en ligne ». */
 export function manometre(c) {

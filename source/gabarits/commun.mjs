@@ -123,6 +123,7 @@ function pied(c) {
       </ul>
     </div>
   </div>
+  <p class="pied-geant" aria-hidden="true" data-audit-ignorer data-pied-geant><span>${c.s('commun.marqueB')}</span><em>${c.s('commun.marqueA')}</em></p>
   <div class="conteneur pied-bas">
     <p>${c.t('commun.maquette')}</p>
     <ul><li>${c.lien('mentions-legales')}</li><li>${c.lien('confidentialite')}</li></ul>
@@ -140,7 +141,7 @@ function barre(c) {
 }
 
 function voile(c) {
-  return html`<div data-voile data-gouttiere="${c.site.couleurs.voile}" aria-hidden="true"><div class="voile-contenu">
+  return html`<div data-voile data-voile-sortie="bas" data-gouttiere="${c.site.couleurs.voile}" aria-hidden="true"><span class="voile-mousse"></span><span class="voile-bulles">${brut('<i style="--x:31.8%;--s:5px;--d:1.61s;--t:0.08s"></i><i style="--x:74.6%;--s:4px;--d:1.58s;--t:0.09s"></i><i style="--x:47.6%;--s:4px;--d:1.21s;--t:0.67s"></i><i style="--x:24.7%;--s:8px;--d:1.65s;--t:1.32s"></i><i style="--x:14.6%;--s:5px;--d:1.92s;--t:0.93s"></i><i style="--x:9.3%;--s:8px;--d:1.62s;--t:1.56s"></i><i style="--x:8.0%;--s:12px;--d:1.27s;--t:0.67s"></i><i style="--x:50.5%;--s:8px;--d:1.50s;--t:1.31s"></i><i style="--x:19.5%;--s:8px;--d:1.84s;--t:0.30s"></i><i style="--x:12.4%;--s:10px;--d:1.18s;--t:0.10s"></i><i style="--x:21.7%;--s:10px;--d:1.79s;--t:1.24s"></i><i style="--x:44.0%;--s:7px;--d:1.57s;--t:0.40s"></i><i style="--x:19.5%;--s:12px;--d:1.42s;--t:0.92s"></i><i style="--x:49.2%;--s:6px;--d:2.05s;--t:0.46s"></i><i style="--x:88.3%;--s:4px;--d:1.77s;--t:0.26s"></i><i style="--x:33.4%;--s:7px;--d:1.65s;--t:1.54s"></i><i style="--x:10.7%;--s:8px;--d:1.84s;--t:1.40s"></i><i style="--x:31.0%;--s:10px;--d:1.56s;--t:0.79s"></i><i style="--x:72.5%;--s:4px;--d:2.19s;--t:1.51s"></i><i style="--x:44.8%;--s:10px;--d:1.18s;--t:1.17s"></i><i style="--x:30.6%;--s:8px;--d:2.39s;--t:1.32s"></i><i style="--x:28.5%;--s:7px;--d:2.25s;--t:0.56s"></i>')}</span><div class="voile-contenu">
   ${capsule(c, { classe: 'voile-capsule' })}
   <span class="voile-cote"><span class="voile-cote-trait"></span></span>
   <span class="voile-vers">${c.t('commun.voileVers')}</span>

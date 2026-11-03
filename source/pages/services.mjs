@@ -2,7 +2,7 @@
    demande de rendez-vous simulée avec calendrier (jours passés non proposés, calculés à la date réelle). */
 import { html } from '../../outils/gabarit.mjs';
 import { ouverture, appel } from '../gabarits/sections.mjs';
-import { image, repere, capsule, recue } from '../gabarits/visuels.mjs';
+import { image, repere, capsule, recue, cachet } from '../gabarits/visuels.mjs';
 
 export const page = { cle: 'services', fichier: 'services', imagePartage: recue('services-ouverture') ? 'grok/services-ouverture-1168.webp' : null };
 
@@ -13,6 +13,7 @@ ${ouverture(c, {
   repere: c.t('services.repere'), titre: c.t('services.titre'), texte: c.t('services.texte'), image: 'services-ouverture',
   action: html`<a class="bouton" href="#rendez-vous" data-action-principale data-magnetique>${c.t('services.action')}</a>`,
   info: c.t('services.info'),
+  decor: html`<div class="dossier" aria-hidden="true"><span class="dossier-chemise"></span>${s.map((x, i) => html`<span class="dossier-fiche" style="--i:${i}"><em>${String(i + 1).padStart(2, '0')}</em> ${x.nom}</span>`)}<span class="dossier-rabat"></span></div>`,
 })}
 
 <section class="services conteneur" id="services">
@@ -61,6 +62,7 @@ ${ouverture(c, {
       <div class="champ"><label for="r-message">${c.t('services.rdv.message')}</label><textarea id="r-message" name="message" rows="4"></textarea></div>
       <p class="mention-donnees">${c.tb('formulaire.donnees')}</p>
       <button type="submit" class="bouton">${c.t('services.rdv.envoyer')}</button>
+      ${cachet(c, { classe: 'envoi-cachet', texte: c.s('commun.tamponSimule') })}
       <p data-message-envoi data-texte="${c.s('formulaire.simule')}" role="status" tabindex="-1" hidden></p>
     </form>
     <aside class="recap" aria-live="polite" data-recap-rdv data-vide="${c.s('services.rdv.recapVide')}">

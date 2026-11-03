@@ -2,7 +2,7 @@
   "nom": "BRASSERIEassur",
   "adresse": "https://brasserieassur-maquette.vercel.app",
   "siteActuel": "brasserieassur.com",
-  "version": 2,
+  "version": 3,
   "langues": ["fr"],
   "navigation": ["brasseries", "producteurs", "negociants", "fabricants", "services", "a-propos", "contact"],
   "menu": {
@@ -10,7 +10,7 @@
     "cabinet": ["accueil", "services", "devis", "a-propos", "reglementaire", "blog", "contact"]
   },
   "actionEntete": { "page": "devis" },
-  "couleurs": { "fond": "#f4efe6", "texte": "#14213d", "voile": "#14213d", "ouverture": "#f4efe6", "menu": "#14213d", "theme": "#f4efe6" },
+  "couleurs": { "fond": "#f4efe6", "texte": "#14213d", "voile": "#cf9230", "ouverture": "#f4efe6", "menu": "#14213d", "theme": "#f4efe6" },
   "contact": {
     "email": "contact@brasserieassur.com",
     "emailRgpd": "rgpd@advissur.com",

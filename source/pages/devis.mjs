@@ -2,7 +2,7 @@
    récapitulatif en direct, orientation vers le devis en ligne (Orus) pour les TPE éligibles. */
 import { html } from '../../outils/gabarit.mjs';
 import { ouverture, appel } from '../gabarits/sections.mjs';
-import { image, repere, capsule, recue } from '../gabarits/visuels.mjs';
+import { image, repere, capsule, cuve, cachet, recue } from '../gabarits/visuels.mjs';
 
 export const page = { cle: 'devis', fichier: 'devis', imagePartage: recue('devis-ouverture') ? 'grok/devis-ouverture-1168.webp' : null };
 
@@ -71,10 +71,11 @@ ${ouverture(c, {
         <button type="button" class="bouton" data-etape-suivante hidden>${c.t('devis.suivant')}</button>
         <button type="submit" class="bouton" data-etape-envoi>${c.t('devis.envoyer')}</button>
       </div>
+      ${cachet(c, { classe: 'envoi-cachet', texte: c.s('commun.tamponSimule') })}
       <p data-message-envoi data-texte="${c.s('formulaire.simule')}" role="status" tabindex="-1" hidden></p>
     </form>
     <aside class="recap recap--devis" data-recap-devis data-vide="${c.s('devis.recapVide')}">
-      <div class="recap-visuel" data-visuel aria-hidden="true">${capsule(c, { classe: 'recap-capsule' })}<span class="recap-etape" data-recap-etape>1/4</span></div>
+      <div class="recap-visuel" data-visuel aria-hidden="true">${cuve(c, { classe: 'recap-cuve' })}<span class="recap-etape" data-recap-etape>1/4</span></div>
       <p class="recap-titre">${c.t('devis.recapTitre')}</p>
       <dl>
         <div><dt>${c.t('devis.e1')}</dt><dd data-recap="metier">${c.t('devis.recapVide')}</dd></div>

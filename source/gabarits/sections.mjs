@@ -5,13 +5,14 @@ import { image, cachet, cote, repere, capsule, fut } from './visuels.mjs';
 /**
  * Ouverture d'une page intérieure : texte et action à gauche, image dans un cadre de plan à droite.
  * La cote décrit l'image (donnees/images.json, champ « cote ») ; le cachet n'est posé que sur les pages métiers.
- * @param {object} o { repere, titre, texte, action: html, info, image, cote, court, cachet }
+ * @param {object} o { repere, titre, texte, action: html, info, image, cote, court, cachet, tampon (mot du tampon près du titre), decor (html posé dans le cadre) }
  */
 export function ouverture(c, o) {
   return html`<section class="page-tete${o.court ? ' page-tete--court' : ''}" id="debut">
   <div class="page-tete-texte">
     ${repere('', o.repere)}
     <h1 class="page-titre" data-titre-anime data-anime="gsap">${o.titre}</h1>
+    ${o.tampon ? cachet(c, { classe: 'titre-cachet', texte: o.tampon }) : ''}
     ${o.texte ? html`<p class="page-chapo" data-anime="gsap">${o.texte}</p>` : ''}
     ${o.action ? html`<div class="page-actions" data-anime="gsap">${o.action}</div>` : ''}
     ${o.info ? html`<p class="page-info" data-info-cle data-anime="gsap">${o.info}</p>` : ''}
@@ -20,6 +21,7 @@ export function ouverture(c, o) {
     ${cote(o.cote || (c.donnees.images[o.image] || {}).cote || o.repere, 'cadre-cote')}
     <div class="cadre-image" data-encre>${image(c, o.image, { classe: 'page-tete-media', priorite: true, sizes: '(max-width: 760px) 100vw, 46vw' })}</div>
     <span class="cadre-repere cadre-repere--hg" aria-hidden="true"></span><span class="cadre-repere cadre-repere--bd" aria-hidden="true"></span>
+    ${o.decor || ''}
     ${o.cachet === true ? cachet(c, { classe: 'cadre-cachet' }) : ''}
   </div>
 </section>`;

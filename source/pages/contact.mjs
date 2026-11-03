@@ -1,7 +1,7 @@
 /* Contact : formulaire du site actuel (entreprise, e-mail, objet, message, téléphone), simulé. */
 import { html } from '../../outils/gabarit.mjs';
 import { ouverture } from '../gabarits/sections.mjs';
-import { repere, enveloppe, recue } from '../gabarits/visuels.mjs';
+import { repere, enveloppe, recue, cachet } from '../gabarits/visuels.mjs';
 
 export const page = { cle: 'contact', fichier: 'contact', imagePartage: recue('contact-ouverture') ? 'grok/contact-ouverture-1168.webp' : null };
 
@@ -40,6 +40,7 @@ ${ouverture(c, {
     <div class="champ"><label for="c-message">${c.t('contact.message')}</label><textarea id="c-message" name="message" rows="6" required></textarea></div>
     <p class="mention-donnees">${c.tb('formulaire.donnees')}</p>
     <button type="submit" class="bouton">${c.t('contact.envoyer')}</button>
+    ${cachet(c, { classe: 'envoi-cachet', texte: c.s('commun.tamponSimule') })}
     <p data-message-envoi data-texte="${c.s('formulaire.simule')}" role="status" tabindex="-1" hidden></p>
   </form>
 </section>
