@@ -2,9 +2,10 @@
    le mode calme, les boucles et les mesures : ce fichier ne contient que ce qui est propre au client.
    Effets : compas et capsule (intro), révélation à l'encre, carte des risques épinglée, galerie des protections,
    tuyauterie de la méthode, manomètre d'éligibilité, registre tamponné, fiches cachetées, formulaires en étapes. */
-import { demarrer, etat, rafraichir, aller, allerAncre, quand } from './socle/index.js?v=3';
-import { encreFinale } from './encre.js?v=3';
-import { developper, armerDeveloppements, bullesEtVapeur, jauge, toutDevelopper } from './effets.js?v=3';
+import { demarrer, etat, rafraichir, aller, allerAncre, quand } from './socle/index.js?v=4';
+import { encreFinale } from './encre.js?v=4';
+import { developper, bullesEtVapeur, jauge, toutDevelopper } from './effets.js?v=4';
+import { revelerPhotos, toutReveler, pageDejaVue, marquerPage } from './photos.js?v=4';
 
 const gsap = window.gsap;
 const ST = window.ScrollTrigger;
@@ -13,6 +14,10 @@ const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const souris = matchMedia('(hover: hover) and (pointer: fine)').matches;
 const petit = () => matchMedia('(max-width: 860px)').matches;
+/* Page déjà vue pendant la visite : son ouverture s'affiche directement, ses photos aussi (photos.js). */
+const dejaVu = pageDejaVue();
+/* Façon d'apparaître des photos, page par page (photos.js). Les autres pages : aucune animation. */
+const STYLE_PHOTOS = { accueil: 'developpement', brasseries: 'cuve', producteurs: 'etiquette', negociants: 'rideau', fabricants: 'scanner', services: 'fondu', 'a-propos': 'fondu', blog: 'fondu', article: 'fondu' };
 if (gsap && Split) gsap.registerPlugin(Split);
 
 /* ---------- Titres découpés en lignes (masque, marge pour accents et jambages, nouveau découpage au redimensionnement).
@@ -22,6 +27,7 @@ function decouperTitres() {
   if (!gsap || !Split || etat.calme || etat.arrivee === 'retour') return;
   const premiers = new Set($$('.hero-titre, .page-titre'));
   $$('[data-titre-anime]').forEach((el) => {
+    if (dejaVu && premiers.has(el)) return;
     const etatTitre = { fini: false, split: null };
     decoupes.set(el, etatTitre);
     Split.create(el, {
@@ -48,14 +54,255 @@ function finTitre(el) {
   if (e.split) e.split.revert();
 }
 
+/* ---------- Ouvertures mises en scène : chaque forme (data-forme sur #debut) prépare son état de départ
+   (sous l'intro ou le voile) puis joue son entrée dans la timeline du premier écran.
+   À la fin, tout ce qui a été animé (data-tete-anime) retrouve son état normal, qui est l'état final. */
+const PROPS_TETE = 'transform,opacity,clipPath,filter,strokeDasharray,strokeDashoffset,visibility';
+function finOuverture(tete) {
+  if (!tete) return;
+  const animes = $$('[data-tete-anime]', tete);
+  if (gsap && animes.length) gsap.set(animes, { clearProps: PROPS_TETE });
+  const n = $('[data-niveau]', tete);
+  if (n) n.textContent = '100';
+  $$('.cote', tete).forEach((c) => c.classList.add('trace'));
+  $$('.cadre-cachet', tete).forEach((c) => c.classList.add('tamponne'));
+  tete.classList.add('ouverte');
+}
+const tamponner = (tl, tete, t) => { const c = $('.cadre-cachet', tete); if (c) tl.call(() => c.classList.add('tamponne'), null, t); };
+const tracer = (tl, tete, t) => tl.call(() => $$('.cote', tete).forEach((c) => c.classList.add('trace')), null, t);
+
+const ENTREES = {
+  /* Accueil : la caméra recule lentement sur la salle de brassage ; bulles et vapeur ensuite. */
+  cinema: {
+    preparer(t) { gsap.set($('.cinema-image', t), { scale: 1.16 }); },
+    jouer(tl, t0, t) {
+      const img = $('.cinema-image', t);
+      tl.call(() => gsap.fromTo(img, { scale: 1.16 }, { scale: 1, duration: 3.4, ease: 'power2.out', overwrite: true }), null, Math.max(0, t0 - .25));
+      tl.call(() => { if (!etat.calme) bullesEtVapeur($('.cinema-bulles', t), { souris }); }, null, t0 + .5);
+      tracer(tl, t, t0 + .2);
+      tamponner(tl, t, t0 + .95);
+    },
+  },
+  /* Brasseries : le fermenteur se dessine, puis la photo le remplit de bas en haut sous sa mousse. */
+  cuve: {
+    preparer(t) {
+      gsap.set($$('.tct-corps, .tct-detail', t), { strokeDasharray: 1, strokeDashoffset: 1 });
+      gsap.set($('.tete-cuve-corps img', t), { clipPath: 'inset(100% 0% 0% 0%)' });
+      gsap.set($$('.tct-niveau, .tct-graduations, .tete-cuve-niveau', t), { opacity: 0 });
+      const n = $('[data-niveau]', t); if (n) n.textContent = '0';
+    },
+    jouer(tl, t0, t) {
+      const corps = $('.tete-cuve-corps', t), img = $('img', corps), mousse = $('.tete-cuve-mousse', t), n = $('[data-niveau]', t);
+      const niveau = { v: 0 };
+      tl.to($$('.tct-corps, .tct-detail', t), { strokeDashoffset: 0, duration: .8, stagger: .14, ease: 'power2.inOut' }, t0)
+        .to($$('.tct-niveau, .tct-graduations, .tete-cuve-niveau', t), { opacity: 1, duration: .3 }, t0 + .45)
+        .fromTo(img, { clipPath: 'inset(100% 0% 0% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.25, ease: 'power2.inOut' }, t0 + .4)
+        .fromTo(mousse, { opacity: 1, y: () => corps.offsetHeight }, { y: 0, duration: 1.25, ease: 'power2.inOut' }, t0 + .4)
+        .to(mousse, { opacity: 0, duration: .3 }, t0 + 1.6)
+        .fromTo(niveau, { v: 0 }, { v: 100, duration: 1.25, ease: 'power2.inOut', onUpdate: () => { if (n) n.textContent = String(Math.round(niveau.v)); } }, t0 + .4);
+      tracer(tl, t, t0 + .1);
+      tamponner(tl, t, t0 + 1.55);
+    },
+  },
+  /* Producteurs : l'étiquette se colle, le médaillon se pose, son anneau se trace. */
+  etiquette: {
+    preparer(t) {
+      gsap.set($('.tete-etiquette', t), { y: 46, rotation: -7, opacity: 0 });
+      gsap.set($('.medaillon-photo', t), { scale: .55, opacity: 0 });
+      gsap.set($$('.ma-cercle', t), { strokeDasharray: 1, strokeDashoffset: 1 });
+      gsap.set($('.ma-texte', t), { opacity: 0 });
+    },
+    jouer(tl, t0, t) {
+      const angle = petit() ? 0 : -1.2;
+      tl.to($('.tete-etiquette', t), { y: 0, rotation: angle, opacity: 1, duration: .85, ease: 'back.out(1.7)' }, t0 - .1)
+        .to($('.medaillon-photo', t), { scale: 1, opacity: 1, duration: .75, ease: 'back.out(1.8)' }, t0 + .35)
+        .to($$('.ma-cercle', t), { strokeDashoffset: 0, duration: .9, stagger: .12, ease: 'power2.inOut' }, t0 + .3)
+        .to($('.ma-texte', t), { opacity: 1, duration: .45 }, t0 + .8);
+      tamponner(tl, t, t0 + 1.2);
+    },
+  },
+  /* Négociants : le panneau du quai s'allume, le rideau métallique se lève avec un à-coup. */
+  rideau: {
+    preparer(t) {
+      gsap.set($('.quai-rideau', t), { y: 0, yPercent: 0 });
+      gsap.set($('.quai-panneau', t), { opacity: 0, x: -16 });
+    },
+    jouer(tl, t0, t) {
+      const r = $('.quai-rideau', t);
+      tl.to($('.quai-panneau', t), { opacity: 1, x: 0, duration: .4 }, t0)
+        .to(r, { yPercent: -8, duration: .26, ease: 'power2.out' }, t0 + .3)
+        .to(r, { yPercent: -5, duration: .12, ease: 'power1.in' }, t0 + .56)
+        .to(r, { yPercent: -101, duration: 1, ease: 'power3.inOut' }, t0 + .7);
+      tamponner(tl, t, t0 + 1.5);
+    },
+  },
+  /* Fabricants : la ligne du scanner passe sur la photo, puis les repères de la planche se posent. */
+  'plan-bleu': {
+    preparer(t) {
+      gsap.set($('.planche-photo img', t), { clipPath: 'inset(0% 0% 100% 0%)' });
+      gsap.set($$('.planche-repere, .planche-cartouche', t), { opacity: 0 });
+    },
+    jouer(tl, t0, t) {
+      const photo = $('.planche-photo', t), scan = $('.planche-scan', t);
+      tl.fromTo($('img', photo), { clipPath: 'inset(0% 0% 100% 0%)' }, { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.2, ease: 'power2.inOut' }, t0 + .15)
+        .fromTo(scan, { opacity: 1, y: 0 }, { y: () => photo.offsetHeight - 2, duration: 1.2, ease: 'power2.inOut' }, t0 + .15)
+        .to(scan, { opacity: 0, duration: .25 }, t0 + 1.35)
+        .to($$('.planche-repere', t), { opacity: 1, duration: .3, stagger: .16 }, t0 + .9)
+        .fromTo($$('.pr-ligne', t), { scaleX: 0 }, { scaleX: 1, duration: .35, stagger: .16 }, t0 + .9)
+        .to($('.planche-cartouche', t), { opacity: 1, duration: .4 }, t0 + 1.2);
+      tamponner(tl, t, t0 + 1.45);
+    },
+  },
+  /* Services : les trois photos arrivent de trois côtés et s'assemblent en mosaïque. */
+  mosaique: {
+    preparer(t) {
+      const tuiles = $$('.mosaique-tuile', t);
+      gsap.set(tuiles, { opacity: 0, x: (i) => [-60, 70, 40][i] || 0, y: (i) => [40, -50, 70][i] || 0, rotation: (i) => [-5, 6, -4][i] || 0 });
+      gsap.set($$('.mosaique-etiquette', t), { opacity: 0, x: -12 });
+    },
+    jouer(tl, t0, t) {
+      tl.to($$('.mosaique-tuile', t), { opacity: 1, x: 0, y: 0, rotation: 0, duration: .9, stagger: .14, ease: 'power3.out' }, t0)
+        .to($$('.mosaique-etiquette', t), { opacity: 1, x: 0, duration: .4, stagger: .12 }, t0 + .75);
+      tracer(tl, t, t0 + .3);
+    },
+  },
+  /* Devis : la cuve se dessine, les quatre étapes se posent, le premier niveau monte. */
+  devis: {
+    preparer(t) {
+      gsap.set($('.tete-devis-dessin', t), { '--progres': 0 });
+      gsap.set($('.tete-devis-cuve', t), { opacity: 0, y: 24 });
+      gsap.set($$('.tete-devis-etapes li', t), { opacity: 0, x: 18 });
+    },
+    jouer(tl, t0, t) {
+      tl.to($('.tete-devis-cuve', t), { opacity: 1, y: 0, duration: .6, ease: 'power3.out' }, t0)
+        .to($$('.tete-devis-etapes li', t), { opacity: 1, x: 0, duration: .45, stagger: .1 }, t0 + .2)
+        .to($('.tete-devis-dessin', t), { '--progres': .25, duration: .9, ease: 'power2.out' }, t0 + .55);
+    },
+  },
+  /* À propos : les filets de la une se tirent, la photo descend dans sa colonne. */
+  magazine: {
+    preparer(t) {
+      gsap.set($('.magazine-numero', t), { clipPath: 'inset(0% 100% 0% 0%)' });
+      gsap.set($('.magazine-photo', t), { clipPath: 'inset(0% 0% 100% 0%)' });
+    },
+    jouer(tl, t0, t) {
+      tl.to($('.magazine-numero', t), { clipPath: 'inset(0% 0% 0% 0%)', duration: .8, ease: 'power3.inOut' }, t0 - .1)
+        .to($('.magazine-photo', t), { clipPath: 'inset(0% 0% 0% 0%)', duration: 1.1, ease: 'power3.inOut' }, t0 + .3);
+    },
+  },
+  /* Réglementaire : la feuille glisse, le titre se tape à la machine, la photo agrafée se pose. */
+  document: {
+    titre: true,
+    preparer(t) {
+      gsap.set($('.tete-document', t), { opacity: 0, y: 40, rotation: 1.5 });
+      gsap.set($('.document-agrafe', t), { opacity: 0, y: -30, rotation: -6 });
+    },
+    jouer(tl, t0, t, lignes) {
+      tl.to($('.tete-document', t), { opacity: 1, y: 0, rotation: petit() ? 0 : -.4, duration: .7, ease: 'power3.out' }, t0 - .15);
+      let at = t0 + .25;
+      lignes.forEach((l) => {
+        const n = Math.max(4, (l.textContent || '').length);
+        tl.fromTo(l, { yPercent: 0, clipPath: 'inset(-10% 100% -20% 0%)' }, { clipPath: 'inset(-10% 0% -20% 0%)', duration: n * .035, ease: `steps(${n})` }, at);
+        at += n * .035 + .05;
+      });
+      const h1 = $('.page-titre', t);
+      if (lignes.length) tl.call(() => finTitre(h1), null, at);
+      tl.to($('.document-agrafe', t), { opacity: 1, y: 0, rotation: 3, duration: .6, ease: 'back.out(1.6)' }, t0 + .55);
+    },
+  },
+  /* Contact : les rues se tracent, l'épingle tombe sur le cabinet, le trajet de l'enveloppe se dessine. */
+  quartier: {
+    preparer(t) {
+      gsap.set($$('.qp-rue-bord, .qp-rue, .qp-trajet-masque', t), { strokeDasharray: 1, strokeDashoffset: 1 });
+      gsap.set($('.qp-epingle', t), { opacity: 0, y: -70 });
+      gsap.set($$('.qp-legende, .qp-coord', t), { opacity: 0 });
+      gsap.set($('.quartier-carte', t), { opacity: 0, y: 40, rotation: 12 });
+      gsap.set($('.quartier-enveloppe', t), { opacity: 0, x: -30 });
+    },
+    jouer(tl, t0, t) {
+      tl.to($$('.qp-rue-bord', t), { strokeDashoffset: 0, duration: .9, stagger: .06, ease: 'power2.inOut' }, t0)
+        .to($$('.qp-rue', t), { strokeDashoffset: 0, duration: .9, stagger: .06, ease: 'power2.inOut' }, t0)
+        .to($('.quartier-enveloppe', t), { opacity: 1, x: 0, duration: .5 }, t0 + .3)
+        .to($('.qp-trajet-masque', t), { strokeDashoffset: 0, duration: .8, ease: 'power1.inOut' }, t0 + .5)
+        .to($('.qp-epingle', t), { opacity: 1, y: 0, duration: .55, ease: 'bounce.out' }, t0 + .9)
+        .to($$('.qp-legende, .qp-coord', t), { opacity: 1, duration: .3, stagger: .1 }, t0 + 1.25)
+        .to($('.quartier-carte', t), { opacity: 1, y: 0, rotation: 3.5, duration: .7, ease: 'back.out(1.5)' }, t0 + .6);
+      tracer(tl, t, t0 + .2);
+    },
+  },
+  /* Blog : le titre de la une s'imprime depuis le centre, les filets se tirent, la photo passe du gris à la couleur. */
+  journal: {
+    preparer(t) {
+      gsap.set($('.journal-titre-une', t), { clipPath: 'inset(0% 50% 0% 50%)' });
+      gsap.set($('.journal-filet', t), { scaleX: 0 });
+      gsap.set($('.journal-photo', t), { clipPath: 'inset(0% 100% 0% 0%)', filter: 'grayscale(1) contrast(1.25)' });
+      gsap.set($('.journal-legende', t), { opacity: 0, y: 12 });
+    },
+    jouer(tl, t0, t) {
+      tl.to($('.journal-titre-une', t), { clipPath: 'inset(0% 0% 0% 0%)', duration: .8, ease: 'power3.inOut' }, t0 - .15)
+        .to($('.journal-filet', t), { scaleX: 1, duration: .7, ease: 'power3.inOut' }, t0)
+        .to($('.journal-photo', t), { clipPath: 'inset(0% 0% 0% 0%)', duration: .9, ease: 'power2.inOut' }, t0 + .25)
+        .to($('.journal-photo', t), { filter: 'grayscale(0) contrast(1)', duration: .8, ease: 'power1.out' }, t0 + .95)
+        .to($('.journal-legende', t), { opacity: 1, y: 0, duration: .45 }, t0 + .9);
+    },
+  },
+  /* Article : la photo recule lentement sous le titre. */
+  article: {
+    preparer(t) { gsap.set($('.article-photo', t), { scale: 1.12, opacity: .4 }); },
+    jouer(tl, t0, t) { tl.to($('.article-photo', t), { scale: 1, opacity: 1, duration: 1.5, ease: 'power2.out' }, t0 - .2); },
+  },
+  /* Pages légales : le filet se trace, le tampon tombe. */
+  sobre: {
+    preparer() {},
+    jouer(tl, t0, t) { tracer(tl, t, t0 + .1); },
+  },
+  /* 404 : la lampe s'allume dans la cuve, les chiffres apparaissent derrière le titre. */
+  'cuve-vide': {
+    preparer(t) {
+      gsap.set($('.vide-photo', t), { opacity: 0, scale: 1.08 });
+      gsap.set($$('.vide-lumiere, .vide-chiffres', t), { opacity: 0 });
+    },
+    jouer(tl, t0, t) {
+      tl.to($('.vide-photo', t), { opacity: 1, scale: 1, duration: 1.3, ease: 'power2.out' }, t0 - .2)
+        .to($('.vide-lumiere', t), { opacity: .7, duration: .9 }, t0 + .3)
+        .fromTo($('.vide-chiffres', t), { opacity: 0, yPercent: 6 }, { opacity: 1, yPercent: 0, duration: 1, ease: 'power2.out' }, t0 + .2);
+    },
+  },
+};
+const formeTete = () => { const t = $('#debut'); return t && ENTREES[t.dataset.forme] ? t : null; };
+function preparerOuverture() {
+  const t = formeTete();
+  if (!t || !gsap || dejaVu || etat.calme || etat.arrivee === 'retour') return;
+  try { ENTREES[t.dataset.forme].preparer(t); } catch (err) { console.warn('[site] ouverture', err); finOuverture(t); }
+}
+
 /* ---------- Premier écran : accueil (.hero) ou page intérieure (.page-tete). */
+/* Ouverture dans son état final (page déjà vue pendant la visite) : rien ne rejoue. */
+function ouvertureFinale() {
+  const tete = $('#debut');
+  if (!tete) return;
+  $$('[data-anime]', tete).forEach((el) => el.classList.add('vu'));
+  $$('[data-cadre]', tete).forEach((c) => { c.classList.add('revele'); $$('.cote', c).forEach((x) => x.classList.add('trace')); });
+  $$('.cadre-cachet, .titre-cachet', tete).forEach((c) => c.classList.add('tamponne'));
+  $$('.dossier, .enveloppe', tete).forEach((d) => d.classList.add('ouvert'));
+  $$('[data-encre]', tete).forEach((e) => e.classList.add('revelee'));
+  finOuverture(tete);
+}
+
 function premierEcran(tl, t0) {
+  if (dejaVu) {
+    const bulles = $('.cinema-bulles');
+    if (bulles && !etat.calme) tl.call(() => bullesEtVapeur(bulles, { souris }), null, t0);
+    return;
+  }
   const titre = $('.hero-titre, .page-titre');
   const d = titre && decoupes.get(titre);
   const lignes = d && d.split ? d.split.lines : [];
   const textes = $$('.hero-intro, .hero-actions, .hero-info, .page-chapo, .page-actions, .page-info');
   if (titre) tl.set(titre, { opacity: 1 }, t0);
-  if (lignes.length) {
+  const teteForme = formeTete();
+  const titrePropre = !!(teteForme && ENTREES[teteForme.dataset.forme].titre);
+  if (lignes.length && !titrePropre) {
     const graisse = parseInt(getComputedStyle(titre).fontWeight, 10) || 500;
     const encre = !petit();
     tl.fromTo(lignes, { yPercent: 110, ...(encre ? { fontWeight: 300 } : {}) }, { yPercent: 0, duration: .75, stagger: .09, ease: 'power3.out' }, t0);
@@ -66,6 +313,12 @@ function premierEcran(tl, t0) {
   const tampon = $('.titre-cachet');
   if (tampon) tl.call(() => tampon.classList.add('tamponne'), null, t0 + 1.0);
   if (textes.length) tl.fromTo(textes, { y: 18, opacity: 0 }, { y: 0, opacity: 1, duration: .55, stagger: .07, ease: 'power2.out' }, t0 + .22);
+  const tete = teteForme;
+  if (tete) {
+    ENTREES[tete.dataset.forme].jouer(tl, t0, tete, lignes);
+    tl.call(() => finOuverture(tete), null, Math.max(tl.duration(), t0 + 1.2));
+    return;
+  }
   const cadre = $('[data-cadre]');
   if (cadre) {
     tl.call(() => {
@@ -121,6 +374,10 @@ function etatFinalProjet() {
   $$('[data-plan-suit] .zone').forEach((z) => z.classList.add('est-cachetee'));
   encreFinale();
   toutDevelopper();
+  toutReveler();
+  finOuverture($('#debut'));
+  const cinema = $('.cinema-image');
+  if (cinema && gsap) { gsap.killTweensOf(cinema); gsap.set(cinema, { clearProps: 'transform' }); }
 }
 
 function arriveeProjet() {
@@ -717,6 +974,8 @@ function rendezVous() {
 
 demarrer({
   preparer() {
+    if (dejaVu) ouvertureFinale(); else preparerOuverture();
+    marquerPage();
     odometres();
     decouperTitres();
     classeur();
@@ -738,7 +997,7 @@ demarrer({
     devisEtapes();
     rendezVous();
     jauge();
-    if (!etat.calme && etat.arrivee !== 'retour') armerDeveloppements('.media[data-grok]', { exclure: '.hero-media, .page-tete-media, .final-media' });
+    if (!etat.calme && etat.arrivee !== 'retour') revelerPhotos(STYLE_PHOTOS[document.documentElement.dataset.page], '.media[data-grok]', { exclure: '#debut .media, .final-media' });
   },
   jouer: jouerIntro,
   etatFinal: etatFinalProjet,

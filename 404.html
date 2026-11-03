@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" data-v="3" data-page="404" data-curseur>
+<html lang="fr" data-v="4" data-page="404" data-curseur>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -27,6 +27,7 @@ try { retourSection = !!ss.getItem('socle:calme-retour'); } catch (e) {}
 var mode = type === 'back_forward' || retourSection ? 'retour' : type === 'reload' ? 'intro' : depart ? 'voile' : 'intro';
 d.setAttribute('data-arrivee', mode);
 if (mode === 'voile' && depart.couleur) d.style.setProperty('--voile-fond', depart.couleur);
+try { var vues = JSON.parse((ss && ss.getItem('ba:pages-vues')) || '[]'); if (vues.indexOf(d.getAttribute('data-page')) > -1) d.classList.add('deja-vu'); } catch (e) {}
 if (type === 'reload' && 'scrollRestoration' in history) {
 if (!retourSection) history.scrollRestoration = 'manual';
 }
@@ -42,14 +43,14 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 })();</script>
 <link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/socle.css?v=3">
-<link rel="stylesheet" href="/assets/css/site.css?v=3">
-<link rel="modulepreload" href="/assets/js/site.js?v=3">
-<link rel="modulepreload" href="/assets/js/socle/index.js?v=3">
+<link rel="stylesheet" href="/assets/css/socle.css?v=4">
+<link rel="stylesheet" href="/assets/css/site.css?v=4">
+<link rel="modulepreload" href="/assets/js/site.js?v=4">
+<link rel="modulepreload" href="/assets/js/socle/index.js?v=4">
 <script src="/assets/vendor/gsap.min.js" defer></script>
 <script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
 <script src="/assets/vendor/SplitText.min.js" defer></script>
-<script type="module" src="/assets/js/site.js?v=3"></script>
+<script type="module" src="/assets/js/site.js?v=4"></script>
 <meta name="theme-color" content="#f4efe6">
 <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
@@ -137,23 +138,23 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
   </div>
 </div>
 <main id="contenu" tabindex="-1">
-<section class="page-tete" id="debut">
-  <div class="page-tete-texte">
+<section class="page-tete page-tete--cuve-vide" id="debut" data-forme="cuve-vide">
+  <div class="page-tete-texte ">
     <p class="repere"><span class="repere-numero"></span><span class="repere-texte">Erreur 404</span></p>
     <h1 class="page-titre" data-titre-anime data-anime="gsap">Cette cuve est vide</h1>
     <p class="page-chapo" data-anime="gsap">La page demandée n’existe pas ou plus. Repartez de l’accueil, ou demandez directement votre devis.</p>
-    <div class="page-actions" data-anime="gsap"><a href="/" class="bouton" data-libelle="Accueil" data-action-principale>Revenir à l’accueil</a> <a href="/devis" class="bouton bouton--contour" data-libelle="Devis">Demander un devis</a></div>
+    <div class="page-actions" data-anime="gsap"><a href="/" class="bouton" data-libelle="Accueil" data-action-principale>Revenir à l’accueil</a> <a href="/devis" class="bouton bouton--contour-clair" data-libelle="Devis">Demander un devis</a></div>
   </div>
-  <div class="cadre-plan page-tete-cadre" data-cadre>
-    <span class="cote cadre-cote" aria-hidden="true"><span class="cote-trait"></span><span class="cote-texte">Cuve vide</span></span>
-    <div class="cadre-image" data-encre><figure class="media page-tete-media" data-grok style="--cadrage:60% 30%;--cadrage-mobile:50% 22%">
-  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/404-cuve-vide-mobile-640.webp 640w, /assets/images/grok/404-cuve-vide-mobile-784.webp 784w" sizes="(max-width: 760px) 100vw, 46vw">
-    <img src="/assets/images/grok/404-cuve-vide-1168.webp" srcset="/assets/images/grok/404-cuve-vide-640.webp 640w, /assets/images/grok/404-cuve-vide-1168.webp 1168w" sizes="(max-width: 760px) 100vw, 46vw" alt="Intérieur d&#39;une cuve inox vide, vu vers le trou d&#39;homme ouvert" width="1168" height="784" fetchpriority="high" loading="eager" decoding="sync">
+  <div class="vide-fond" aria-hidden="true">
+  <div class="vide-photo" data-tete-anime><figure class="media page-tete-media" data-grok style="--cadrage:60% 30%;--cadrage-mobile:50% 22%">
+  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/404-cuve-vide-mobile-640.webp 640w, /assets/images/grok/404-cuve-vide-mobile-784.webp 784w" sizes="100vw">
+    <img src="/assets/images/grok/404-cuve-vide-1168.webp" srcset="/assets/images/grok/404-cuve-vide-640.webp 640w, /assets/images/grok/404-cuve-vide-1168.webp 1168w" sizes="100vw" alt="Intérieur d&#39;une cuve inox vide, vu vers le trou d&#39;homme ouvert" width="1168" height="784" fetchpriority="high" loading="eager" decoding="sync">
   </picture><figcaption class="mention-ia">Illustration générée</figcaption>
 </figure></div>
-    <span class="cadre-repere cadre-repere--hg" aria-hidden="true"></span><span class="cadre-repere cadre-repere--bd" aria-hidden="true"></span>
-    <span class="lumiere-cuve" aria-hidden="true"></span>
-  </div>
+  <span class="lumiere-cuve vide-lumiere" data-tete-anime></span>
+  <span class="vide-voile"></span>
+  <span class="vide-chiffres" data-audit-ignorer data-tete-anime>404</span>
+</div>
 </section>
 </main>
 <footer class="pied" id="pied">

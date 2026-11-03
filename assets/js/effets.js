@@ -3,7 +3,7 @@
      à l'encre sur le papier), puis se développe en taches, comme un tirage. Un canvas WebGL est posé sur la photo
      le temps de l'effet, puis disparaît : la vraie photo est dessous, identique. Résolution réduite (l'effet dure
      1,6 s), aucun calcul quand rien ne bouge.
-   - armerDeveloppements() : chaque photo du site se développe quand elle arrive à l'écran.
+   - armerDeveloppements() : les photos de l'accueil se développent quand elles arrivent à l'écran (photos.js).
    - bullesEtVapeur(cadre) : fines bulles qui montent et vapeur légère sur la photo d'ouverture de l'accueil,
      écartées par la souris ; arrêtées hors de l'écran.
    - jauge() : tube de niveau de cuve à droite de l'écran (ordinateur), rempli selon la lecture de la page.
@@ -69,6 +69,9 @@ function webgl() {
   }
   return webglOk;
 }
+
+/** WebGL avec une vraie carte graphique (sinon les effets passent à une apparition simple). */
+export const webglDispo = () => webgl();
 
 /* Position de la photo dans son cadre (object-fit: cover et point de cadrage). */
 function placement(img, w, h) {
@@ -212,13 +215,15 @@ export async function developper(media, { duree = 1600, avant } = {}) {
 }
 
 /** Toutes les autres photos : cachées un peu avant d'entrer à l'écran, développées quand elles y sont. */
-export function armerDeveloppements(selecteur, { exclure } = {}) {
-  const medias = [...document.querySelectorAll(selecteur)].filter((m) => !(exclure && m.matches(exclure)));
+export function armerDeveloppements(selecteur, { exclure, auDepart } = {}) {
+  const liste = typeof selecteur === 'string' ? [...document.querySelectorAll(selecteur)] : selecteur;
+  const medias = liste.filter((m) => !(exclure && m.matches(exclure)));
   if (!medias.length || !('IntersectionObserver' in window) || !webgl()) return;
   const prets = new Map();
   const jouerIo = new IntersectionObserver((es) => es.forEach((e) => {
     if (!e.isIntersecting) return;
     jouerIo.unobserve(e.target);
+    auDepart && auDepart(e.target);
     const p = prets.get(e.target);
     if (p) p.then((it) => it && jouer(it));
   }), { threshold: .2 });

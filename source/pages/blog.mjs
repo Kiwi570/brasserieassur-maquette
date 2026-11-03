@@ -9,7 +9,7 @@ export default (c) => {
   const a = c.donnees.articles;
   return html`
 ${ouverture(c, {
-  repere: c.t('blog.repere'), titre: c.t('blog.titre'), texte: c.t('blog.texte'), image: 'blog-ouverture',
+  forme: 'journal', repere: c.t('blog.repere'), titre: c.t('blog.titre'), texte: c.t('blog.texte'), image: 'blog-ouverture',
   action: c.lien(a[0].page, { classe: 'bouton', texte: c.t('blog.lire'), attrs: 'data-action-principale data-magnetique' }),
   court: true,
 })}

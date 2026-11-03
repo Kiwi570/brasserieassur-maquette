@@ -8,7 +8,7 @@ export default (c) => {
   const a = c.donnees.articles[0];
   return html`
 <div data-barre-lecture aria-hidden="true"></div>
-${ouverture(c, { repere: html`<time datetime="${a.date}">${a.dateTexte}</time> · ${a.lecture}`, titre: a.titre, image: a.image, court: true, cachet: false })}
+${ouverture(c, { forme: 'article', repere: html`<time datetime="${a.date}">${a.dateTexte}</time> · ${a.lecture}`, titre: a.titre, image: a.image, court: true, cachet: false })}
 <article class="texte-long texte-article conteneur" data-sans-visuel>
   <p class="article-chapo">${a.resume}</p>
   <p class="a-completer">${c.t('article.corps')}</p>

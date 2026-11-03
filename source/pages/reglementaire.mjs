@@ -10,7 +10,7 @@ export default (c) => {
   const sections = c.donnees.reglementaire;
   return html`
 <div data-barre-lecture aria-hidden="true"></div>
-${ouverture(c, { repere: c.t('reglementaire.repere'), titre: c.t('reglementaire.titre'), texte: c.t('reglementaire.texte'), image: 'reglementaire-ouverture', court: true, cachet: false, tampon: c.s('commun.tamponClasse') })}
+${ouverture(c, { forme: 'document', repere: c.t('reglementaire.repere'), titre: c.t('reglementaire.titre'), texte: c.t('reglementaire.texte'), image: 'reglementaire-ouverture', court: true, cachet: false, tampon: c.s('commun.tamponClasse') })}
 <div class="texte-long conteneur" data-sans-visuel>
   <nav class="sommaire" data-sommaire aria-label="${c.s('commun.sommaire')}"><p class="sommaire-titre">${c.t('commun.sommaire')}</p><ul>${sections.map((s) => html`<li><a href="#${s.id}" data-sans-transition>${s.titre}</a></li>`)}</ul></nav>
   <div class="texte-long-corps">

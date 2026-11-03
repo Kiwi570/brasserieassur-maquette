@@ -2,6 +2,32 @@
 
 Chaque version ajoute sa partie en tête de ce fichier, construite en comparant l'archive précédente et la nouvelle, jamais de mémoire.
 
+## v4 — une ouverture par page
+
+**Ouvertures** (nouveau fichier `source/gabarits/ouvertures.mjs`, une « forme » par page) :
+- Accueil : photo des cuves en plein écran, titre géant posé dessus, la caméra recule doucement, bulles et vapeur ;
+- Brasseries : la photo dans la silhouette d'un fermenteur qui se dessine puis se remplit, compteur de niveau ;
+- Producteurs : étiquette de bouteille qui se colle, houblonnière en médaillon avec son anneau de texte ;
+- Négociants : grand quai de chargement, le rideau métallique se lève avec un à-coup ;
+- Fabricants : planche technique sur fond de plan bleu, la photo passe au scanner, repères A, B, C et cartouche ;
+- Services : les trois photos des services arrivent de trois côtés et s'assemblent en mosaïque (la chemise de la v3 est retirée) ;
+- Devis : sans grande photo, la cuve de la demande et ses quatre étapes, le formulaire arrive tout de suite ;
+- À propos : mise en page de magazine, très grand titre, lettrine, photo en colonne, citation ;
+- Réglementaire : document officiel, titre tapé à la machine, tampon, photo agrafée ;
+- Contact : plan de quartier dessiné, l'épingle tombe sur le cabinet, trajet de l'enveloppe, carte postale ;
+- Blog : une de journal « La Gazette BRASSERIEassur », article à la une ;
+- Article : titre sur grande photo ; barre de lecture couleur bière (aussi sur les pages longues) ;
+- Mentions légales et Confidentialité : sobres, sans grande photo ;
+- 404 : la cuve vide en plein écran, une lampe tourne à l'intérieur.
+
+**Photos dans les pages** (nouveau fichier `assets/js/photos.js`) : le développement « du plan à la réalité » ne reste que sur l'accueil ; Brasseries : la photo se remplit comme une cuve ; Producteurs : elle se colle comme une étiquette ; Négociants : un rideau à lamelles se lève ; Fabricants : une ligne de scanner la balaie ; Services, À propos, Blog, Article : fondu discret ; Devis, Contact, Réglementaire et pages légales : aucune animation.
+
+**Une seule fois par visite** : une page déjà vue pendant la visite garde son ouverture dans son état final, et une photo déjà apparue s'affiche directement, sur toutes les pages (mémoire de l'onglet, effacée à la fermeture).
+
+**Corrections** : onglets de la carte des risques sans fondu de couleur (lisibles à tout moment) ; place gardée pour la barre du bas sur téléphone même sans JavaScript.
+
+Fichiers en ?v=4.
+
 ## v3 — un site plus vivant
 
 **Effets signature** (nouveau fichier `assets/js/effets.js`) :

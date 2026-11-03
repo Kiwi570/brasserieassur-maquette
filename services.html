@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" data-v="3" data-page="services" data-curseur>
+<html lang="fr" data-v="4" data-page="services" data-curseur>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -27,6 +27,7 @@ try { retourSection = !!ss.getItem('socle:calme-retour'); } catch (e) {}
 var mode = type === 'back_forward' || retourSection ? 'retour' : type === 'reload' ? 'intro' : depart ? 'voile' : 'intro';
 d.setAttribute('data-arrivee', mode);
 if (mode === 'voile' && depart.couleur) d.style.setProperty('--voile-fond', depart.couleur);
+try { var vues = JSON.parse((ss && ss.getItem('ba:pages-vues')) || '[]'); if (vues.indexOf(d.getAttribute('data-page')) > -1) d.classList.add('deja-vu'); } catch (e) {}
 if (type === 'reload' && 'scrollRestoration' in history) {
 if (!retourSection) history.scrollRestoration = 'manual';
 }
@@ -42,14 +43,14 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 })();</script>
 <link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/socle.css?v=3">
-<link rel="stylesheet" href="/assets/css/site.css?v=3">
-<link rel="modulepreload" href="/assets/js/site.js?v=3">
-<link rel="modulepreload" href="/assets/js/socle/index.js?v=3">
+<link rel="stylesheet" href="/assets/css/socle.css?v=4">
+<link rel="stylesheet" href="/assets/css/site.css?v=4">
+<link rel="modulepreload" href="/assets/js/site.js?v=4">
+<link rel="modulepreload" href="/assets/js/socle/index.js?v=4">
 <script src="/assets/vendor/gsap.min.js" defer></script>
 <script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
 <script src="/assets/vendor/SplitText.min.js" defer></script>
-<script type="module" src="/assets/js/site.js?v=3"></script>
+<script type="module" src="/assets/js/site.js?v=4"></script>
 <meta name="theme-color" content="#f4efe6">
 <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
@@ -137,24 +138,39 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
   </div>
 </div>
 <main id="contenu" tabindex="-1">
-<section class="page-tete" id="debut">
-  <div class="page-tete-texte">
+<section class="page-tete page-tete--mosaique" id="debut" data-forme="mosaique">
+  <div class="page-tete-texte ">
     <p class="repere"><span class="repere-numero"></span><span class="repere-texte">Services sur rendez-vous</span></p>
     <h1 class="page-titre" data-titre-anime data-anime="gsap">Audit, visite de risques, digitalisation</h1>
     <p class="page-chapo" data-anime="gsap">Trois services pour faire le point sur vos assurances. Demandez votre rendez-vous en ligne.</p>
     <div class="page-actions" data-anime="gsap"><a class="bouton" href="#rendez-vous" data-action-principale data-magnetique>Demander un rendez-vous</a></div>
     <p class="page-info" data-info-cle data-anime="gsap">Visite de risques et digitalisation : devis sur demande</p>
   </div>
-  <div class="cadre-plan page-tete-cadre" data-cadre>
-    <span class="cote cadre-cote" aria-hidden="true"><span class="cote-trait"></span><span class="cote-texte">Table de travail</span></span>
-    <div class="cadre-image" data-encre><figure class="media page-tete-media" data-grok style="--cadrage:78% 70%;--cadrage-mobile:50% 72%">
-  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/services-ouverture-mobile-640.webp 640w, /assets/images/grok/services-ouverture-mobile-784.webp 784w" sizes="(max-width: 760px) 100vw, 46vw">
-    <img src="/assets/images/grok/services-ouverture-1168.webp" srcset="/assets/images/grok/services-ouverture-640.webp 640w, /assets/images/grok/services-ouverture-1168.webp 1168w" sizes="(max-width: 760px) 100vw, 46vw" alt="Table de travail dans une brasserie : carnet, mètre, lampe torche et casque de chantier" width="1168" height="784" fetchpriority="high" loading="eager" decoding="sync">
+  <div class="tete-mosaique" data-cadre>
+  <div class="mosaique-tuile mosaique-tuile--1" data-tete-anime>
+    <figure class="media mosaique-media" data-grok style="--cadrage:50% 60%">
+  <picture>
+    <img src="/assets/images/grok/service-audit-784.webp" srcset="/assets/images/grok/service-audit-640.webp 640w, /assets/images/grok/service-audit-784.webp 784w" sizes="(max-width: 860px) 60vw, 28vw" alt="Classeurs et dossiers rangés sur un bureau, stylo plume" width="784" height="1168" fetchpriority="high" loading="eager" decoding="sync">
   </picture><figcaption class="mention-ia">Illustration générée</figcaption>
-</figure></div>
-    <span class="cadre-repere cadre-repere--hg" aria-hidden="true"></span><span class="cadre-repere cadre-repere--bd" aria-hidden="true"></span>
-    <div class="dossier" aria-hidden="true"><span class="dossier-chemise"></span><span class="dossier-fiche" style="--i:0"><em>01</em> Audit assurances</span><span class="dossier-fiche" style="--i:1"><em>02</em> Visite de risques</span><span class="dossier-fiche" style="--i:2"><em>03</em> Digitalisation</span><span class="dossier-rabat"></span></div>
+</figure>
+    <span class="mosaique-etiquette" aria-hidden="true"><em>01</em> Audit assurances</span>
+  </div><div class="mosaique-tuile mosaique-tuile--2" data-tete-anime>
+    <figure class="media mosaique-media" data-grok style="--cadrage:55% 60%">
+  <picture>
+    <img src="/assets/images/grok/service-visite-784.webp" srcset="/assets/images/grok/service-visite-640.webp 640w, /assets/images/grok/service-visite-784.webp 784w" sizes="(max-width: 860px) 40vw, 20vw" alt="Faisceau de lampe sur un extincteur et une tête de sprinkler dans la salle des cuves" width="784" height="1168" loading="lazy" decoding="async">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
+</figure>
+    <span class="mosaique-etiquette" aria-hidden="true"><em>02</em> Visite de risques</span>
+  </div><div class="mosaique-tuile mosaique-tuile--3" data-tete-anime>
+    <figure class="media mosaique-media" data-grok style="--cadrage:45% 70%">
+  <picture>
+    <img src="/assets/images/grok/service-digitalisation-784.webp" srcset="/assets/images/grok/service-digitalisation-640.webp 640w, /assets/images/grok/service-digitalisation-784.webp 784w" sizes="(max-width: 860px) 40vw, 20vw" alt="Tablette posée sur un plan de travail inox, devant les cuves" width="784" height="1168" loading="lazy" decoding="async">
+  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
+</figure>
+    <span class="mosaique-etiquette" aria-hidden="true"><em>03</em> Digitalisation</span>
   </div>
+  <span class="cote cadre-cote mosaique-cote" aria-hidden="true"><span class="cote-trait"></span><span class="cote-texte">Trois services · sur rendez-vous</span></span>
+</div>
 </section>
 <section class="services conteneur" id="services">
   <div class="section-tete">

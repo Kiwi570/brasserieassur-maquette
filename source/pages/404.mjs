@@ -6,8 +6,7 @@ export const page = { cle: '404', fichier: '404', langues: ['fr'], partage: fals
 
 export default (c) => html`
 ${ouverture(c, {
-  repere: c.t('introuvable.repere'), titre: c.t('introuvable.titre'), texte: c.t('introuvable.texte'), image: '404-cuve-vide',
-  action: html`${c.lien('accueil', { classe: 'bouton', texte: c.t('introuvable.retour'), attrs: 'data-action-principale' })} ${c.lien('devis', { classe: 'bouton bouton--contour', texte: c.t('introuvable.devis') })}`,
-  decor: html`<span class="lumiere-cuve" aria-hidden="true"></span>`,
+  forme: 'cuve-vide', repere: c.t('introuvable.repere'), titre: c.t('introuvable.titre'), texte: c.t('introuvable.texte'), image: '404-cuve-vide',
+  action: html`${c.lien('accueil', { classe: 'bouton', texte: c.t('introuvable.retour'), attrs: 'data-action-principale' })} ${c.lien('devis', { classe: 'bouton bouton--contour-clair', texte: c.t('introuvable.devis') })}`,
 })}
 `;

@@ -123,7 +123,7 @@ export function pageMetier(c, cle) {
   }
 
   return html`
-${ouverture(c, { repere: html`${c.t('metier.repere')} ${m.numero}`, titre: m.titre, texte: m.chapo, action, info: m.infoCle, image: m.ouverture, cachet: true })}
+${ouverture(c, { forme: m.forme, repere: html`${c.t('metier.repere')} ${m.numero}`, titre: m.titre, texte: m.chapo, action, info: m.infoCle, image: m.ouverture, cachet: true })}
 ${corps}
 ${autresMetiers(c, m.cle)}
 ${appel(c)}

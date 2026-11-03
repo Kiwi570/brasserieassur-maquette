@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" data-v="3" data-page="devis" data-curseur>
+<html lang="fr" data-v="4" data-page="devis" data-curseur>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -27,6 +27,7 @@ try { retourSection = !!ss.getItem('socle:calme-retour'); } catch (e) {}
 var mode = type === 'back_forward' || retourSection ? 'retour' : type === 'reload' ? 'intro' : depart ? 'voile' : 'intro';
 d.setAttribute('data-arrivee', mode);
 if (mode === 'voile' && depart.couleur) d.style.setProperty('--voile-fond', depart.couleur);
+try { var vues = JSON.parse((ss && ss.getItem('ba:pages-vues')) || '[]'); if (vues.indexOf(d.getAttribute('data-page')) > -1) d.classList.add('deja-vu'); } catch (e) {}
 if (type === 'reload' && 'scrollRestoration' in history) {
 if (!retourSection) history.scrollRestoration = 'manual';
 }
@@ -42,14 +43,14 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 })();</script>
 <link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/socle.css?v=3">
-<link rel="stylesheet" href="/assets/css/site.css?v=3">
-<link rel="modulepreload" href="/assets/js/site.js?v=3">
-<link rel="modulepreload" href="/assets/js/socle/index.js?v=3">
+<link rel="stylesheet" href="/assets/css/socle.css?v=4">
+<link rel="stylesheet" href="/assets/css/site.css?v=4">
+<link rel="modulepreload" href="/assets/js/site.js?v=4">
+<link rel="modulepreload" href="/assets/js/socle/index.js?v=4">
 <script src="/assets/vendor/gsap.min.js" defer></script>
 <script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
 <script src="/assets/vendor/SplitText.min.js" defer></script>
-<script type="module" src="/assets/js/site.js?v=3"></script>
+<script type="module" src="/assets/js/site.js?v=4"></script>
 <meta name="theme-color" content="#f4efe6">
 <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
@@ -137,23 +138,24 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
   </div>
 </div>
 <main id="contenu" tabindex="-1">
-<section class="page-tete page-tete--court" id="debut">
-  <div class="page-tete-texte">
+<section class="page-tete page-tete--devis page-tete--court" id="debut" data-forme="devis">
+  <div class="page-tete-texte ">
     <p class="repere"><span class="repere-numero"></span><span class="repere-texte">Demande de devis</span></p>
     <h1 class="page-titre" data-titre-anime data-anime="gsap">Demandez votre devis</h1>
     <p class="page-chapo" data-anime="gsap">Votre métier, votre local, votre entreprise : vos réponses, et une étude sur mesure en retour.</p>
     <div class="page-actions" data-anime="gsap"><a class="bouton" href="#formulaire" data-action-principale data-magnetique>Commencer</a></div>
     <p class="page-info" data-info-cle data-anime="gsap">TPE éligibles : devis en ligne en trois minutes</p>
   </div>
-  <div class="cadre-plan page-tete-cadre" data-cadre>
-    <span class="cote cadre-cote" aria-hidden="true"><span class="cote-trait"></span><span class="cote-texte">Bureau de brasserie</span></span>
-    <div class="cadre-image" data-encre><figure class="media page-tete-media" data-grok style="--cadrage:72% 55%;--cadrage-mobile:55% 45%">
-  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/devis-ouverture-mobile-640.webp 640w, /assets/images/grok/devis-ouverture-mobile-784.webp 784w" sizes="(max-width: 760px) 100vw, 46vw">
-    <img src="/assets/images/grok/devis-ouverture-1168.webp" srcset="/assets/images/grok/devis-ouverture-640.webp 640w, /assets/images/grok/devis-ouverture-1168.webp 1168w" sizes="(max-width: 760px) 100vw, 46vw" alt="Bureau de brasserie avec grande vitre sur la salle des cuves" width="1168" height="784" fetchpriority="high" loading="eager" decoding="sync">
-  </picture><figcaption class="mention-ia">Illustration générée</figcaption>
-</figure></div>
-    <span class="cadre-repere cadre-repere--hg" aria-hidden="true"></span><span class="cadre-repere cadre-repere--bd" aria-hidden="true"></span>
-  </div>
+  <div class="tete-devis" data-cadre>
+  <div class="tete-devis-cuve" data-tete-anime><svg class="cuve tete-devis-dessin" viewBox="0 0 80 112" aria-hidden="true" focusable="false">
+  <defs><clipPath id="cuve-1"><path d="M14 22H66V72L40 96L14 72Z"/></clipPath></defs>
+  <path class="cuve-fond" d="M14 22H66V72L40 96L14 72Z"/>
+  <g clip-path="url(#cuve-1)"><g class="cuve-liquide"><rect x="0" y="0" width="80" height="112"/><rect class="cuve-mousse" x="0" y="0" width="80" height="5"/><circle cx="30" cy="40" r="1.6"/><circle cx="46" cy="58" r="1.2"/><circle cx="38" cy="76" r="1.4"/></g></g>
+  <path class="cuve-trait" d="M14 22H66V72L40 96L14 72Z M14 22Q40 6 66 22 M40 96V104 M22 80L18 108 M58 80L62 108"/>
+  <path class="cuve-graduation" d="M66 34H72M66 46H70M66 58H72M66 70H70"/>
+</svg></div>
+  <ol class="tete-devis-etapes" aria-hidden="true"><li data-tete-anime><span>1</span>Votre métier</li><li data-tete-anime><span>2</span>Votre local</li><li data-tete-anime><span>3</span>Votre entreprise</li><li data-tete-anime><span>4</span>Contrat et coordonnées</li></ol>
+</div>
 </section>
 <section class="devis conteneur" id="formulaire">
   <div class="section-tete">
@@ -218,9 +220,9 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
     </form>
     <aside class="recap recap--devis" data-recap-devis data-vide="à renseigner">
       <div class="recap-visuel" data-visuel aria-hidden="true"><svg class="cuve recap-cuve" viewBox="0 0 80 112" aria-hidden="true" focusable="false">
-  <defs><clipPath id="cuve-1"><path d="M14 22H66V72L40 96L14 72Z"/></clipPath></defs>
+  <defs><clipPath id="cuve-2"><path d="M14 22H66V72L40 96L14 72Z"/></clipPath></defs>
   <path class="cuve-fond" d="M14 22H66V72L40 96L14 72Z"/>
-  <g clip-path="url(#cuve-1)"><g class="cuve-liquide"><rect x="0" y="0" width="80" height="112"/><rect class="cuve-mousse" x="0" y="0" width="80" height="5"/><circle cx="30" cy="40" r="1.6"/><circle cx="46" cy="58" r="1.2"/><circle cx="38" cy="76" r="1.4"/></g></g>
+  <g clip-path="url(#cuve-2)"><g class="cuve-liquide"><rect x="0" y="0" width="80" height="112"/><rect class="cuve-mousse" x="0" y="0" width="80" height="5"/><circle cx="30" cy="40" r="1.6"/><circle cx="46" cy="58" r="1.2"/><circle cx="38" cy="76" r="1.4"/></g></g>
   <path class="cuve-trait" d="M14 22H66V72L40 96L14 72Z M14 22Q40 6 66 22 M40 96V104 M22 80L18 108 M58 80L62 108"/>
   <path class="cuve-graduation" d="M66 34H72M66 46H70M66 58H72M66 70H70"/>
 </svg><span class="recap-etape" data-recap-etape>1/4</span></div>

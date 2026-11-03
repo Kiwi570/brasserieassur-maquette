@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" data-v="3" data-page="blog" data-curseur>
+<html lang="fr" data-v="4" data-page="blog" data-curseur>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -27,6 +27,7 @@ try { retourSection = !!ss.getItem('socle:calme-retour'); } catch (e) {}
 var mode = type === 'back_forward' || retourSection ? 'retour' : type === 'reload' ? 'intro' : depart ? 'voile' : 'intro';
 d.setAttribute('data-arrivee', mode);
 if (mode === 'voile' && depart.couleur) d.style.setProperty('--voile-fond', depart.couleur);
+try { var vues = JSON.parse((ss && ss.getItem('ba:pages-vues')) || '[]'); if (vues.indexOf(d.getAttribute('data-page')) > -1) d.classList.add('deja-vu'); } catch (e) {}
 if (type === 'reload' && 'scrollRestoration' in history) {
 if (!retourSection) history.scrollRestoration = 'manual';
 }
@@ -42,14 +43,14 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 })();</script>
 <link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/socle.css?v=3">
-<link rel="stylesheet" href="/assets/css/site.css?v=3">
-<link rel="modulepreload" href="/assets/js/site.js?v=3">
-<link rel="modulepreload" href="/assets/js/socle/index.js?v=3">
+<link rel="stylesheet" href="/assets/css/socle.css?v=4">
+<link rel="stylesheet" href="/assets/css/site.css?v=4">
+<link rel="modulepreload" href="/assets/js/site.js?v=4">
+<link rel="modulepreload" href="/assets/js/socle/index.js?v=4">
 <script src="/assets/vendor/gsap.min.js" defer></script>
 <script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
 <script src="/assets/vendor/SplitText.min.js" defer></script>
-<script type="module" src="/assets/js/site.js?v=3"></script>
+<script type="module" src="/assets/js/site.js?v=4"></script>
 <meta name="theme-color" content="#f4efe6">
 <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
@@ -137,22 +138,23 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
   </div>
 </div>
 <main id="contenu" tabindex="-1">
-<section class="page-tete page-tete--court" id="debut">
-  <div class="page-tete-texte">
+<section class="page-tete page-tete--journal page-tete--court" id="debut" data-forme="journal">
+  <div class="page-tete-texte ">
     <p class="repere"><span class="repere-numero"></span><span class="repere-texte">Le blog</span></p>
     <h1 class="page-titre" data-titre-anime data-anime="gsap">Conseils et décryptages</h1>
     <p class="page-chapo" data-anime="gsap">Articles sur l’assurance des professionnels de la bière.</p>
     <div class="page-actions" data-anime="gsap"><a href="/blog/responsabilite-intoxication" class="bouton" data-libelle="Article : intoxication et responsabilité" data-action-principale data-magnetique>Lire l’article</a></div>
   </div>
-  <div class="cadre-plan page-tete-cadre" data-cadre>
-    <span class="cote cadre-cote" aria-hidden="true"><span class="cote-trait"></span><span class="cote-texte">Carnet de notes</span></span>
-    <div class="cadre-image" data-encre><figure class="media page-tete-media" data-grok style="--cadrage:70% 60%;--cadrage-mobile:50% 66%">
-  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/blog-ouverture-mobile-640.webp 640w, /assets/images/grok/blog-ouverture-mobile-784.webp 784w" sizes="(max-width: 760px) 100vw, 46vw">
-    <img src="/assets/images/grok/blog-ouverture-1168.webp" srcset="/assets/images/grok/blog-ouverture-640.webp 640w, /assets/images/grok/blog-ouverture-1168.webp 1168w" sizes="(max-width: 760px) 100vw, 46vw" alt="Carnet ouvert et tasse de café près d&#39;une fenêtre donnant sur les cuves" width="1168" height="784" fetchpriority="high" loading="eager" decoding="sync">
+  <p class="journal-titre-une" aria-hidden="true" data-tete-anime><span>La Gazette BRASSERIEassur</span></p>
+<p class="journal-filet" aria-hidden="true" data-tete-anime><span>Le blog · N° 1</span><span><time datetime="2024-05-13">13 mai 2024</time></span><span>Assurance des métiers de la bière</span></p>
+<figure class="journal-une" data-cadre>
+  <div class="journal-photo" data-tete-anime><figure class="media page-tete-media" data-grok style="--cadrage:70% 60%;--cadrage-mobile:50% 66%">
+  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/blog-ouverture-mobile-640.webp 640w, /assets/images/grok/blog-ouverture-mobile-784.webp 784w" sizes="(max-width: 860px) 100vw, 52vw">
+    <img src="/assets/images/grok/blog-ouverture-1168.webp" srcset="/assets/images/grok/blog-ouverture-640.webp 640w, /assets/images/grok/blog-ouverture-1168.webp 1168w" sizes="(max-width: 860px) 100vw, 52vw" alt="Carnet ouvert et tasse de café près d&#39;une fenêtre donnant sur les cuves" width="1168" height="784" fetchpriority="high" loading="eager" decoding="sync">
   </picture><figcaption class="mention-ia">Illustration générée</figcaption>
 </figure></div>
-    <span class="cadre-repere cadre-repere--hg" aria-hidden="true"></span><span class="cadre-repere cadre-repere--bd" aria-hidden="true"></span>
-  </div>
+  <figcaption class="journal-legende" data-tete-anime><span class="journal-rubrique">À la une</span> La responsabilité en cas d’intoxication alimentaire ou d’intoxication liée à la consommation de boissons</figcaption>
+</figure>
 </section>
 <section class="articles conteneur" id="articles">
   <ul class="articles-liste"><li class="article-carte article-carte--large" data-anime>

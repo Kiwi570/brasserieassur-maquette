@@ -9,6 +9,7 @@
     "titre": "Bien assurer sa brasserie",
     "chapo": "Assurer correctement votre local de brasserie protège votre investissement et votre entreprise contre les risques du métier.",
     "ouverture": "brasseries-ouverture",
+    "forme": "cuve",
     "infoCle": "8 points à vérifier, une étude sur mesure",
     "actionDevis": "Demander un devis pour ma brasserie",
     "zones": [
@@ -77,6 +78,7 @@
     "titre": "La responsabilité des producteurs",
     "chapo": "Avec l’essor de la bière artisanale et des microbrasseries, les producteurs font face à de nouveaux défis : sécurité, santé publique, responsabilité sociale.",
     "ouverture": "producteurs-ouverture",
+    "forme": "etiquette",
     "infoCle": "4 responsabilités, 2 garanties",
     "actionDevis": "Demander un devis pour ma production",
     "zones": [
@@ -136,6 +138,7 @@
     "titre": "Se protéger des engagements",
     "chapo": "Vos engagements d’achat et d’approvisionnement vous exposent : plusieurs assurances, combinées, en limitent les conséquences.",
     "ouverture": "negociants-ouverture",
+    "forme": "rideau",
     "infoCle": "Une combinaison à étudier selon vos contrats",
     "actionDevis": "Demander un devis pour mon négoce",
     "zones": [
@@ -183,6 +186,7 @@
     "titre": "La responsabilité des fabricants",
     "chapo": "Vendre du matériel de brasserie engage votre responsabilité en cas de défaut. Garanties légales, assurances de l’entreprise, garanties de montage et d’essai : l’essentiel.",
     "ouverture": "fabricants-ouverture",
+    "forme": "plan-bleu",
     "infoCle": "Garanties légales, 3 assurances",
     "actionDevis": "Demander un devis pour mon atelier",
     "zones": [

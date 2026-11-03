@@ -434,20 +434,50 @@
   "mentions": {
     "repere": "Mentions légales",
     "titre": "Mentions légales",
-    "fiche": { "titre": "À fournir par le client", "texte": "Raison sociale d’ADVISSUR · forme juridique et capital · SIREN et RCS · adresse du siège · directeur de la publication · téléphone · numéro ORIAS à confirmer (24008249 sur le site actuel) · assureur RC professionnelle et garantie financière · médiateur · photos réelles · politique de confidentialité : à compléter." },
-    "editeur": { "titre": "Éditeur", "texte": "BRASSERIEassur, marque d’ADVISSUR, courtier en assurance inscrit à l’ORIAS. Raison sociale, adresse, SIREN et directeur de la publication : à compléter." },
-    "hebergeur": { "titre": "Hébergeur", "texte": "Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis." },
-    "credits": { "titre": "Crédits", "texte": "Les images marquées « Illustration générée » ont été créées par intelligence artificielle. Logotype provisoire, à valider. Polices Fraunces et IBM Plex, sous licence SIL Open Font License." }
+    "fiche": {
+      "titre": "À fournir par le client",
+      "texte": "Raison sociale d’ADVISSUR · forme juridique et capital · SIREN et RCS · adresse du siège · directeur de la publication · téléphone · numéro ORIAS à confirmer (24008249 sur le site actuel) · assureur RC professionnelle et garantie financière · médiateur · photos réelles · politique de confidentialité : à compléter."
+    },
+    "editeur": {
+      "titre": "Éditeur",
+      "texte": "BRASSERIEassur, marque d’ADVISSUR, courtier en assurance inscrit à l’ORIAS. Raison sociale, adresse, SIREN et directeur de la publication : à compléter."
+    },
+    "hebergeur": {
+      "titre": "Hébergeur",
+      "texte": "Vercel Inc., 440 N Barranca Avenue #4133, Covina, CA 91723, États-Unis."
+    },
+    "credits": {
+      "titre": "Crédits",
+      "texte": "Les images marquées « Illustration générée » ont été créées par intelligence artificielle. Logotype provisoire, à valider. Polices Fraunces et IBM Plex, sous licence SIL Open Font License."
+    }
   },
   "confidentialite": {
     "repere": "Données personnelles",
     "titre": "Politique de confidentialité",
-    "responsable": { "titre": "Responsable du traitement", "texte": "ADVISSUR, pour sa marque BRASSERIEassur. Coordonnées complètes : à compléter." },
-    "donnees": { "titre": "Données recueillies", "texte": "Celles que vous saisissez dans les formulaires de devis, de rendez-vous et de contact : identité de l’entreprise, coordonnées, informations sur votre activité et votre local, contrat joint." },
-    "finalites": { "titre": "Finalités", "texte": "Traiter votre demande et vous recontacter. Base légale et destinataires : à compléter." },
-    "duree": { "titre": "Durée de conservation", "texte": "À compléter." },
-    "droits": { "titre": "Vos droits", "texte": "Accès, rectification, effacement, limitation, portabilité et opposition : écrivez à l’adresse dédiée." },
-    "cookies": { "titre": "Cookies", "texte": "Cette maquette ne dépose aucun cookie de mesure d’audience. Politique du site final : à compléter." }
+    "responsable": {
+      "titre": "Responsable du traitement",
+      "texte": "ADVISSUR, pour sa marque BRASSERIEassur. Coordonnées complètes : à compléter."
+    },
+    "donnees": {
+      "titre": "Données recueillies",
+      "texte": "Celles que vous saisissez dans les formulaires de devis, de rendez-vous et de contact : identité de l’entreprise, coordonnées, informations sur votre activité et votre local, contrat joint."
+    },
+    "finalites": {
+      "titre": "Finalités",
+      "texte": "Traiter votre demande et vous recontacter. Base légale et destinataires : à compléter."
+    },
+    "duree": {
+      "titre": "Durée de conservation",
+      "texte": "À compléter."
+    },
+    "droits": {
+      "titre": "Vos droits",
+      "texte": "Accès, rectification, effacement, limitation, portabilité et opposition : écrivez à l’adresse dédiée."
+    },
+    "cookies": {
+      "titre": "Cookies",
+      "texte": "Cette maquette ne dépose aucun cookie de mesure d’audience. Politique du site final : à compléter."
+    }
   },
   "introuvable": {
     "repere": "Erreur 404",
@@ -455,5 +485,29 @@
     "texte": "La page demandée n’existe pas ou plus. Repartez de l’accueil, ou demandez directement votre devis.",
     "retour": "Revenir à l’accueil",
     "devis": "Demander un devis"
+  },
+  "ouvertures": {
+    "niveau": "Niveau",
+    "cuveCote": "Fermenteur · 40 hl",
+    "etiquetteHaut": "Producteurs · N° 02 · Brassé et assuré",
+    "etiquetteBas": "Sécurité · Santé publique · Responsabilité",
+    "medaillon": "Bière artisanale · Microbrasserie · Houblon · Qualité · ",
+    "quai": "Quai",
+    "planReperes": "Soudure TIG|Inox 316L|Bride de vidange",
+    "planche": "Planche 04 · Fabricants",
+    "echelle": "Éch. 1:20 · Atelier",
+    "mosaiqueCote": "Trois services · sur rendez-vous",
+    "magazine": "Le carnet BRASSERIEassur",
+    "magazineNumero": "N° 1 · Notre histoire",
+    "documentRef": "Document d’information · Courtage",
+    "quartierCabinet": "Le cabinet",
+    "quartierCote": "Plan du quartier · sans échelle",
+    "documentPied": "Courtage en assurance · ORIAS",
+    "documentPage": "Page 1 / 1",
+    "journal": "La Gazette BRASSERIEassur",
+    "journalNumero": "Le blog · N° 1",
+    "journalSujet": "Assurance des métiers de la bière",
+    "journalUne": "À la une",
+    "sobreCote": "Archives · BRASSERIEassur"
   }
 }

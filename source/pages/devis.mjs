@@ -13,7 +13,7 @@ export default (c) => {
   const etapes = ['e1', 'e2', 'e3', 'e4'];
   return html`
 ${ouverture(c, {
-  repere: c.t('devis.repere'), titre: c.t('devis.titre'), texte: c.t('devis.texte'), image: 'devis-ouverture',
+  forme: 'devis', repere: c.t('devis.repere'), titre: c.t('devis.titre'), texte: c.t('devis.texte'), image: 'devis-ouverture',
   action: html`<a class="bouton" href="#formulaire" data-action-principale data-magnetique>${c.t('devis.action')}</a>`,
   info: c.t('devis.info'),
   court: true,

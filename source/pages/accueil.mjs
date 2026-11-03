@@ -13,22 +13,26 @@ export default (c) => {
   const metiers = c.donnees.metiers;
   const article = c.donnees.articles[0];
   return html`
-<section class="hero" id="debut">
+<section class="hero hero--cinema" id="debut" data-forme="cinema">
+  <div class="cinema-fond" aria-hidden="true">
+    <div class="cinema-image">${image(c, 'accueil-ouverture', { classe: 'hero-media', priorite: true, sizes: '100vw' })}</div>
+    <span class="cinema-voile"></span>
+    <span class="cinema-grain"></span>
+    <span class="cinema-bulles" data-audit-ignorer></span>
+  </div>
   <div class="hero-texte">
     ${repere('', c.t('accueil.hero.repere'))}
     <h1 class="hero-titre" data-titre-anime data-anime="gsap">${c.t('accueil.hero.titre1')}<br>${c.t('accueil.hero.titre2')}<br><em class="mot-cle">${c.t('accueil.hero.titre3')}</em></h1>
     <p class="hero-intro" data-anime="gsap">${c.t('accueil.hero.texte')}</p>
     <div class="hero-actions" data-anime="gsap">
       ${c.lien('devis', { classe: 'bouton', texte: c.t('accueil.hero.action'), attrs: 'data-action-principale data-magnetique' })}
-      <a class="bouton bouton--contour" href="#tpe">${c.t('accueil.hero.action2')}</a>
+      <a class="bouton bouton--contour-clair" href="#tpe">${c.t('accueil.hero.action2')}</a>
     </div>
     <p class="hero-info" data-info-cle data-anime="gsap"><span class="pastille-ok" aria-hidden="true"></span>${c.t('accueil.hero.info', { n: c.site.contact.orias })}</p>
   </div>
-  <div class="cadre-plan hero-cadre" data-cadre>
-    ${cote(c.s('accueil.hero.coteGauche'), 'cadre-cote')}
-    <div class="cadre-image" data-encre>${image(c, 'accueil-ouverture', { classe: 'hero-media', priorite: true, sizes: '(max-width: 760px) 100vw, 52vw' })}</div>
-    <span class="cadre-repere cadre-repere--hg" aria-hidden="true"></span><span class="cadre-repere cadre-repere--bd" aria-hidden="true"></span>
-    ${cachet(c, { classe: 'cadre-cachet hero-cachet' })}
+  <div class="cinema-cartouche" data-cadre aria-hidden="true">
+    ${cote(c.s('accueil.hero.coteGauche'), 'cinema-cote')}
+    ${cachet(c, { classe: 'cadre-cachet cinema-cachet' })}
   </div>
 </section>
 

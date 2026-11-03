@@ -10,10 +10,9 @@ export default (c) => {
   const s = c.donnees.services;
   return html`
 ${ouverture(c, {
-  repere: c.t('services.repere'), titre: c.t('services.titre'), texte: c.t('services.texte'), image: 'services-ouverture',
+  forme: 'mosaique', repere: c.t('services.repere'), titre: c.t('services.titre'), texte: c.t('services.texte'), image: 'services-ouverture',
   action: html`<a class="bouton" href="#rendez-vous" data-action-principale data-magnetique>${c.t('services.action')}</a>`,
   info: c.t('services.info'),
-  decor: html`<div class="dossier" aria-hidden="true"><span class="dossier-chemise"></span>${s.map((x, i) => html`<span class="dossier-fiche" style="--i:${i}"><em>${String(i + 1).padStart(2, '0')}</em> ${x.nom}</span>`)}<span class="dossier-rabat"></span></div>`,
 })}
 
 <section class="services conteneur" id="services">

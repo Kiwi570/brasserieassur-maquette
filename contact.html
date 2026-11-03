@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="fr" data-v="3" data-page="contact" data-curseur>
+<html lang="fr" data-v="4" data-page="contact" data-curseur>
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
@@ -27,6 +27,7 @@ try { retourSection = !!ss.getItem('socle:calme-retour'); } catch (e) {}
 var mode = type === 'back_forward' || retourSection ? 'retour' : type === 'reload' ? 'intro' : depart ? 'voile' : 'intro';
 d.setAttribute('data-arrivee', mode);
 if (mode === 'voile' && depart.couleur) d.style.setProperty('--voile-fond', depart.couleur);
+try { var vues = JSON.parse((ss && ss.getItem('ba:pages-vues')) || '[]'); if (vues.indexOf(d.getAttribute('data-page')) > -1) d.classList.add('deja-vu'); } catch (e) {}
 if (type === 'reload' && 'scrollRestoration' in history) {
 if (!retourSection) history.scrollRestoration = 'manual';
 }
@@ -42,14 +43,14 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
 })();</script>
 <link rel="preload" href="/assets/fonts/fraunces.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="/assets/fonts/plex-sans-400.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="stylesheet" href="/assets/css/socle.css?v=3">
-<link rel="stylesheet" href="/assets/css/site.css?v=3">
-<link rel="modulepreload" href="/assets/js/site.js?v=3">
-<link rel="modulepreload" href="/assets/js/socle/index.js?v=3">
+<link rel="stylesheet" href="/assets/css/socle.css?v=4">
+<link rel="stylesheet" href="/assets/css/site.css?v=4">
+<link rel="modulepreload" href="/assets/js/site.js?v=4">
+<link rel="modulepreload" href="/assets/js/socle/index.js?v=4">
 <script src="/assets/vendor/gsap.min.js" defer></script>
 <script src="/assets/vendor/ScrollTrigger.min.js" defer></script>
 <script src="/assets/vendor/SplitText.min.js" defer></script>
-<script type="module" src="/assets/js/site.js?v=3"></script>
+<script type="module" src="/assets/js/site.js?v=4"></script>
 <meta name="theme-color" content="#f4efe6">
 <link rel="icon" href="/assets/images/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="/assets/images/apple-touch-icon.png">
@@ -137,22 +138,42 @@ setTimeout(function () { if (!d.classList.contains('demarre')) d.classList.add('
   </div>
 </div>
 <main id="contenu" tabindex="-1">
-<section class="page-tete page-tete--court" id="debut">
-  <div class="page-tete-texte">
+<section class="page-tete page-tete--quartier page-tete--court" id="debut" data-forme="quartier">
+  <div class="page-tete-texte ">
     <p class="repere"><span class="repere-numero"></span><span class="repere-texte">Contact</span></p>
     <h1 class="page-titre" data-titre-anime data-anime="gsap">Contactez-nous</h1>
     <p class="page-chapo" data-anime="gsap">Une question, une demande de devis ou de rendez-vous : écrivez-nous, nous vous répondons.</p>
     <div class="page-actions" data-anime="gsap"><a class="bouton" href="#message" data-action-principale data-magnetique>Écrire un message</a></div>
   </div>
-  <div class="cadre-plan page-tete-cadre" data-cadre>
-    <span class="cote cadre-cote" aria-hidden="true"><span class="cote-trait"></span><span class="cote-texte">Porte d’atelier</span></span>
-    <div class="cadre-image" data-encre><figure class="media page-tete-media" data-grok style="--cadrage:68% 55%;--cadrage-mobile:55% 45%">
-  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/contact-ouverture-mobile-640.webp 640w, /assets/images/grok/contact-ouverture-mobile-784.webp 784w" sizes="(max-width: 760px) 100vw, 46vw">
-    <img src="/assets/images/grok/contact-ouverture-1168.webp" srcset="/assets/images/grok/contact-ouverture-640.webp 640w, /assets/images/grok/contact-ouverture-1168.webp 1168w" sizes="(max-width: 760px) 100vw, 46vw" alt="Porte d&#39;atelier entrouverte sur une salle de brassage lumineuse" width="1168" height="784" fetchpriority="high" loading="eager" decoding="sync">
+  <div class="tete-quartier" data-cadre>
+  <svg class="quartier-plan" viewBox="0 0 600 480" preserveAspectRatio="xMidYMid slice" aria-hidden="true" focusable="false">
+    <defs><pattern id="qp-hachures" width="8" height="8" patternUnits="userSpaceOnUse" patternTransform="rotate(45)"><path d="M0 0V8" class="qp-hachure"/></pattern></defs>
+    <rect class="qp-ilots" width="600" height="480"/>
+    <rect class="qp-ilots-hachures" width="600" height="480" fill="url(#qp-hachures)"/>
+    <path class="qp-parc" d="M178 178h108c8 0 12 4 12 12v86c0 8-4 12-12 12H178c-8 0-12-4-12-12v-86c0-8 4-12 12-12Z"/>
+    <path class="qp-canal" d="M-10 470C150 440 400 482 610 442"/>
+    <g class="qp-rues"><path class="qp-rue-bord" d="M-10 150C150 140 300 172 610 128" pathLength="1"/><path class="qp-rue-bord" d="M140 -10L162 490" pathLength="1"/><path class="qp-rue-bord" d="M318 -10L300 490" pathLength="1"/><path class="qp-rue-bord" d="M470 -10C458 150 492 300 470 490" pathLength="1"/><path class="qp-rue-bord" d="M-10 432L610 84" pathLength="1"/><path class="qp-rue-bord" d="M-10 322C200 300 400 342 610 308" pathLength="1"/><path class="qp-rue" d="M-10 150C150 140 300 172 610 128" pathLength="1"/><path class="qp-rue" d="M140 -10L162 490" pathLength="1"/><path class="qp-rue" d="M318 -10L300 490" pathLength="1"/><path class="qp-rue" d="M470 -10C458 150 492 300 470 490" pathLength="1"/><path class="qp-rue" d="M-10 432L610 84" pathLength="1"/><path class="qp-rue" d="M-10 322C200 300 400 342 610 308" pathLength="1"/></g>
+    <mask id="qp-masque" maskUnits="userSpaceOnUse" x="0" y="0" width="600" height="480"><path class="qp-trajet-masque" d="M70 404C120 364 196 336 236 306S294 268 309 258" pathLength="1"/></mask>
+    <path class="qp-trajet" d="M70 404C120 364 196 336 236 306S294 268 309 258" mask="url(#qp-masque)"/>
+    <g class="qp-epingle"><path d="M309 253C296 236 285 224 285 211A24 24 0 1 1 333 211C333 224 322 236 309 253Z"/><circle cx="309" cy="211" r="8"/></g>
+    <text class="qp-legende" x="342" y="204">Le cabinet</text>
+    <text class="qp-coord" x="342" y="224">X 309 · Y 253</text>
+  </svg>
+  <div class="quartier-enveloppe" data-tete-anime><svg class="dessin enveloppe quartier-dessin" viewBox="0 -44 220 194" aria-hidden="true" focusable="false" data-visuel>
+  <rect class="remplissage" x="10" y="22" width="180" height="112" rx="3"/>
+  <path class="remplissage env-rabat-ouvert" d="M10 22L100 -36L190 22Z"/>
+  <g class="env-lettre"><rect class="remplissage" x="34" y="44" width="132" height="84" rx="2"/><path class="fin" d="M48 62H150M48 76H150M48 90H128M48 104H140"/></g>
+  <path class="remplissage" d="M10 70L100 112L190 70V134H10Z"/><path class="fin" d="M10 131L78 92M190 131L122 92"/>
+  <circle class="rouge" cx="168" cy="114" r="13"/><path class="rouge" d="M162 114L166 118L174 109"/>
+  <path class="remplissage env-rabat" d="M10 22L100 84L190 22Z"/>
+</svg></div>
+  <div class="quartier-carte" data-tete-anime><figure class="media page-tete-media" data-grok style="--cadrage:68% 55%;--cadrage-mobile:55% 45%">
+  <picture><source media="(max-width: 760px) and (orientation: portrait)" srcset="/assets/images/grok/contact-ouverture-mobile-640.webp 640w, /assets/images/grok/contact-ouverture-mobile-784.webp 784w" sizes="(max-width: 860px) 50vw, 18vw">
+    <img src="/assets/images/grok/contact-ouverture-1168.webp" srcset="/assets/images/grok/contact-ouverture-640.webp 640w, /assets/images/grok/contact-ouverture-1168.webp 1168w" sizes="(max-width: 860px) 50vw, 18vw" alt="Porte d&#39;atelier entrouverte sur une salle de brassage lumineuse" width="1168" height="784" fetchpriority="high" loading="eager" decoding="sync">
   </picture><figcaption class="mention-ia">Illustration générée</figcaption>
 </figure></div>
-    <span class="cadre-repere cadre-repere--hg" aria-hidden="true"></span><span class="cadre-repere cadre-repere--bd" aria-hidden="true"></span>
-  </div>
+  <span class="cote cadre-cote quartier-cote" aria-hidden="true"><span class="cote-trait"></span><span class="cote-texte">Plan du quartier · sans échelle</span></span>
+</div>
 </section>
 <section class="contact conteneur" id="message">
   <aside class="contact-cote">

@@ -7,7 +7,7 @@ export const page = { cle: 'contact', fichier: 'contact', imagePartage: recue('c
 
 export default (c) => html`
 ${ouverture(c, {
-  repere: c.t('contact.repere'), titre: c.t('contact.titre'), texte: c.t('contact.texte'), image: 'contact-ouverture',
+  forme: 'quartier', repere: c.t('contact.repere'), titre: c.t('contact.titre'), texte: c.t('contact.texte'), image: 'contact-ouverture',
   action: html`<a class="bouton" href="#message" data-action-principale data-magnetique>${c.t('contact.action')}</a>`,
   court: true,
 })}
